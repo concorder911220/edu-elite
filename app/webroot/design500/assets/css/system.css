@@ -302,6 +302,7 @@ body.font-helvetica {
 
 #topbar #topbar-menu ul.navbar-nav.navbar-right:last-child {
     margin-right: 0;
+	margin-top: 20px;
 }
 
 #topbar #topbar-menu ul.navbar-nav.navbar-right > li {
@@ -1082,11 +1083,12 @@ body.sidebar-color-grey.layout-sidebar-collapsed ul#sidebar-main > li > a > .men
 }
 
 .mega-menu-dropdown > .dropdown-menu .mega-menu-content .mega-menu-submenu {
-    *width: auto !important;
+    width: auto !important;
     padding: 0px 15px !important;
     margin: 0 !important;
     border-right: 1px solid #eeeeee;
 }
+
 
 .mega-menu-dropdown > .dropdown-menu .mega-menu-content .mega-menu-submenu:last-child {
     border-right: 0;
@@ -4651,4 +4653,7 @@ input#txt-new-list {
     border: none;
 }
 
-.hamburger-menu{margin-top:20px;}
+
+.menu-icon-right-bar {
+	font-size: 1.3rem;
+}

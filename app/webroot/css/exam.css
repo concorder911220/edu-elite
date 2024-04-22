@@ -19,7 +19,7 @@ body {
 	padding-top: 0px;
 	font-size: 20px;
 }
-.exam-student-name{font-size: 13px;font-weight: bold;}
+.exam-student-name{font-size: 13px;font-weight: bold; margin-top: 10px}
 .exam-SubjectButton, a.exam-SubjectButton:hover {
 	background-color: #465d91;
 	border: 1px #4e667d solid;
@@ -56,10 +56,11 @@ body {
 }
 #exam-divQuestionPallete {
 	background-color: #DCEAF2;
-	min-height: 285px;
-	max-height: 285px;
-	overflow-y: scroll;
+	min-height: 400px;
+	max-height: 500px;
+	overflow-y: auto;
 	font-size: 0.8em;
+
 }
 div.exam-QuestionHeader {
 	border-color: Black;
@@ -118,7 +119,7 @@ div.exam-questionBox {
 	height: 378px;
 	overflow: auto;
 }
-@media only screen and (min-width: 220px) and (max-width: 749px){div.exam-questionBox {height:300px;}}
+@media only screen and (min-width: 220px) and (max-width: 749px){div.exam-questionBox {height:300px; padding-bottom: 10px}}
 div.exam-QuestionFooter {
 	border-color: Black;
 	border-top-color: White;
@@ -160,9 +161,16 @@ div.exam-QuestionFooter {
 		top: 60px;
 		background-color: #dceaf2;
 		height: auto;
-		width: 82%;
 		margin-left: 15px;
+		/* padding-top: 10px; */
 		display: none;
+	}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1000px) {
+	#navbar > div {
+		margin-top: 30px;
+		padding-bottom: 30px;
 	}
 }
 .exam-SecondaryButton, a:hover.exam-SecondaryButton {
@@ -203,6 +211,7 @@ div.exam-MarkForReview {
 	background-color: #DCEAF2;
 	padding-left: 5px;
 	text-align: left;
+	padding-bottom: 20px;
 }
 .exam-divLegend button {
 	display: block;

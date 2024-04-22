@@ -866,7 +866,7 @@ button.bg-danger:hover {
 	padding: 0;
 }
 .main-nav > li.active > a {
-	color: #F66962;
+	color: #EB9481;
 }
 
 @media (max-width: 1200px) and (min-width: 900px) {
@@ -912,7 +912,7 @@ button.bg-danger:hover {
 	color: #324FA2;
 }
 .header-two .main-nav .has-submenu> a {
-	position: relative;
+	/* position: relative; */
 }
 .header-two .main-nav .has-submenu.menu-effect > a::after {
 	content: "";
@@ -18271,10 +18271,7 @@ input[type=password]::-ms-clear
 	.main-nav > li > a:hover {
 		color: #F66962;
 	}
-	.main-nav > li > a > i {
-		font-size: 11px;
-		margin-left: 3px;
-	}
+
 	.main-nav li > ul {
 		background-color: #fff;
 		border-radius: 5px;
@@ -20002,6 +19999,7 @@ input[type=password]::-ms-clear
 	.main-nav > li > a > i {
 		float: right;
 		margin-top: 5px;
+		font-size: 11px;
 	}
 	.main-nav > li .submenu li a {
 		border-top: 0;
@@ -20028,7 +20026,7 @@ input[type=password]::-ms-clear
 	}
 	.main-menu-wrapper {
 		order: 3;
-		width: 260px;
+		width: 100%;
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -20036,7 +20034,7 @@ input[type=password]::-ms-clear
 		overflow-x: hidden;
 		overflow-y: auto;
 		z-index: 1060;
-		transform: translateX(-260px);
+		transform: translateX(-100%);
 		transition: all 0.4s;
 		background-color: #f66962;
 	}

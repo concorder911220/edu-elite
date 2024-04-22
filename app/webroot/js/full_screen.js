@@ -40,25 +40,27 @@ function screenStretch() {
 	} else {
 		var myHeight = (windowHeight - 768) + 65;
 	}
-	if(parseInt(windowHeight)>825) {
-		var examQuestionCss = 500 + myHeight;
-		var examQuestionBox = 495 + myHeight;
-		var examQuestionPalette = 399 + myHeight;
+	if (parseInt(windowHeight) > 825) {
+		var examQuestionCss = 450 + myHeight;
+		var examQuestionBox = 385 + myHeight;
+		var examQuestionPalette = 300 + myHeight;
 		var examQuestionPassage = 475 + myHeight;
-	}else{
-		var examQuestionCss = 375 + myHeight;
-		var examQuestionBox = 340 + myHeight;
+	} else {
+		var examQuestionCss = 325 + myHeight;
+		var examQuestionBox = 290 + myHeight;
 		if (parseInt(windowHeight) > 768) {
-			var examQuestionPalette = 274 + myHeight;
-		}else{
-			var examQuestionPalette = 220 + myHeight;
+			var examQuestionPalette = 200 + myHeight;
+		} else {
+			var examQuestionPalette = 150 + myHeight;
 		}
-		var examQuestionPassage = 375 + myHeight;
+		var examQuestionPassage = 325 + myHeight;
 	}
+
+
 	$('.fullscreen').hide();
 	$('.normalscreen').show();
-	$("div.exam-Question").css({"min-height": examQuestionCss + "px", "height": examQuestionCss + "px"});
-	$("div.exam-questionBox").css({"min-height": examQuestionBox + "px", "height": examQuestionBox + "px"});
+	$("div.exam-Question").css({ "min-height": examQuestionCss + "px", "height": examQuestionCss + "px" });
+	$("div.exam-questionBox").css({ "min-height": examQuestionBox + "px", "height": examQuestionBox + "px" });
 	$("#exam-divQuestionPallete").css({
 		"min-height": examQuestionPalette + "px",
 		"height": examQuestionPalette + "px"
@@ -74,6 +76,9 @@ if (document.addEventListener) {
 	document.addEventListener('mozfullscreenchange', exitHandler, false);
 	document.addEventListener('fullscreenchange', exitHandler, false);
 	document.addEventListener('MSFullscreenChange', exitHandler, false);
+	window.addEventListener('resize', resizeDiv, false);
+	window.addEventListener('load', resizeDiv, false);
+
 }
 
 function exitHandler() {
@@ -86,27 +91,68 @@ function exitHandler() {
 	}
 }
 
+function resizeDiv() {
+	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
+	var element = document.getElementById("_menu_header");
+	var width = element.clientWidth;
+	if (parseInt(windowWidth) < 549) {
+		$(".exam_question_palette").css({
+			"width": width + "px",
+		});
+		$("#_navbar_exam").css({
+			'min-height': windowHeight - 100 + "px",
+			'height': windowHeight - 100 + "px",
+			"margin-top": '2px'
+		})
+
+	}
+
+	if (549 < parseInt(windowWidth) < 768) {
+		$(".exam_question_palette").css({
+			"width": width + "px",
+		});
+		$("#_navbar_exam").css({
+			'min-height': windowHeight - 150 + "px",
+			'height': windowHeight - 150 + "px",
+			"margin-top": '2px'
+		})
+
+	}
+
+
+}
+
 function fullScreenReduced() {
+
 	var windowHeight = window.screen.height;
-	if(parseInt(windowHeight) > 768) {
+	var windowWidth = window.screen.width;
+	if (parseInt(windowHeight) > 768) {
 		var myHeight = windowHeight - 768;
-	}else{
-		var myHeight =  (windowHeight-768)+65;
+	} else {
+		var myHeight = (windowHeight - 768) + 65;
 	}
 	if (parseInt(windowHeight) > 768) {
-		var examQuestionCss = 380 + myHeight;
-		var examQuestionBox = 330 + myHeight;
-		var examQuestionPalette = 284 + myHeight;
-	}else{
 		var examQuestionCss = 320 + myHeight;
-		var examQuestionBox = 310 + myHeight;
-		var examQuestionPalette = 240 + myHeight;
+		var examQuestionBox = 150 + myHeight;
+		var examQuestionPalette = 180 + myHeight;
+	} else {
+		var examQuestionCss = 210 + myHeight;
+		var examQuestionBox = 260 + myHeight;
+		var examQuestionPalette = 130 + myHeight;
 	}
-	var examQuestionPassage = 375 + myHeight;
+
+	if (768 < parseInt(windowWidth) < 900) {
+		var examQuestionPalette = 100 + myHeight;
+
+	}
+
+
+	var examQuestionPassage = 300 + myHeight;
 	$('.normalscreen').hide();
 	$('.fullscreen').show();
-	$("div.exam-Question").css({"min-height": examQuestionCss + "px", "height": examQuestionCss + "px"});
-	$("div.exam-questionBox").css({"min-height": examQuestionBox + "px", "height": examQuestionBox + "px"});
+	$("div.exam-Question").css({ "min-height": examQuestionCss + "px", "height": examQuestionCss + "px" });
+	$("div.exam-questionBox").css({ "min-height": examQuestionBox + "px", "height": examQuestionBox + "px" });
 	$("#exam-divQuestionPallete").css({
 		"min-height": examQuestionPalette + "px",
 		"height": examQuestionPalette + "px"

@@ -37,7 +37,7 @@ table tr th a:hover{text-decoration:none;}
 @media only screen and (min-width:470px) and (max-width:519px){.exam-logo{font-size:16px;}}
 @media only screen and (min-width:420px) and (max-width:469px){.exam-logo{font-size:14px;}}
 @media only screen and (min-width:220px) and (max-width:419px){.exam-logo{font-size:12px;}}
-.exam-panel{overflow-y:scroll;}
+.exam-panel{overflow-y:auto;}
 .input-sm-small{height:30px;padding:0px 0px;font-size:12px;line-height:1.5;border-radius:0px;}
 .dropdown-menu{left:auto;right:0px;margin-top:2px;box-shadow:0px 2px 10px rgba(0, 0, 0, 0.1);background-color:#FFF;}
 .max-column{max-width:350px;}
@@ -605,7 +605,7 @@ table tr th a:hover{text-decoration:none;}
 .header-navbar-rht > li.nav-item.cart-nav {
     position: relative;
 }
-.header-navbar-rht > li.nav-item.cart-nav > a > span { 
+.header-navbar-rht > li.nav-item.cart-nav > a > span {
     position: absolute;
     top: -3px;
     right: 7px;
@@ -681,12 +681,12 @@ table tr th a:hover{text-decoration:none;}
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }    
+    }
     .main-nav > li {
         margin-right: 15px !important;
     }
 }
-@media only screen and (min-width:768px){    
+@media only screen and (min-width:768px){
     .singleproduct .mycontainer  .addtocart {
         margin-bottom: 0 !important;
         display: flex;
@@ -710,7 +710,7 @@ table tr th a:hover{text-decoration:none;}
     }
     .summery-block {
         padding-left: 20px !important;
-    }    
+    }
 }
 
 @media only screen and (max-width:767px){

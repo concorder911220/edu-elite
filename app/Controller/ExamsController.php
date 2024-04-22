@@ -4,34 +4,34 @@ App::uses('CakeEmail', 'Network/Email');
 
 class ExamsController extends AppController
 {
-    public $helpers = array('Html');
-    public $components = array('CustomFunction', 'RequestHandler');
+	public $helpers = array('Html');
+	public $components = array('CustomFunction', 'RequestHandler');
 
-    public function beforeFilter()
-    {
-        parent::beforeFilter();
-		if($this->userValue){
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+		if ($this->userValue) {
 			$this->studentId = $this->userValue['Student']['id'];
 		}
-        $this->limit = 50;
-		if($this->RequestHandler->isMobile()){
-			$this->set('isMobile',true);
-		}else{
-			$this->set('isMobile',false);
+		$this->limit = 50;
+		if ($this->RequestHandler->isMobile()) {
+			$this->set('isMobile', true);
+		} else {
+			$this->set('isMobile', false);
 		}
-    }
+	}
 
-    public function crm_index($offset = 0)
-    {
-        $this->authenticate();
-        $limit = $this->limit;
-        $offset = $offset + 0;
-        if (!$this->Session->check('paidExamCount')) {
-            $paidExamCount = $this->Exam->paidExamCount("today", $this->studentId, $this->currentDateTime);
-            $this->Session->write('paidExamCount', $paidExamCount);
-        } else {
-            $paidExamCount = $this->Session->read('paidExamCount');
-        }
+	public function crm_index($offset = 0)
+	{
+		$this->authenticate();
+		$limit = $this->limit;
+		$offset = $offset + 0;
+		if (!$this->Session->check('paidExamCount')) {
+			$paidExamCount = $this->Exam->paidExamCount("today", $this->studentId, $this->currentDateTime);
+			$this->Session->write('paidExamCount', $paidExamCount);
+		} else {
+			$paidExamCount = $this->Session->read('paidExamCount');
+		}
 		$mainExamArr = $this->Exam->getPurchasedExam("today", $this->studentId, $this->currentDateTime, $limit, $offset);
 		$mainExam = array();
 		$packageName = null;
@@ -52,24 +52,24 @@ class ExamsController extends AppController
 			$packageName = $item['Package']['name'];
 		}
 		$this->set('mainExam', $mainExam);
-        $this->set('paidExamCount', $paidExamCount);
-        $this->set('limit', $limit);
+		$this->set('paidExamCount', $paidExamCount);
+		$this->set('limit', $limit);
 		$ExamResult = ClassRegistry::init('ExamResult');
 		$examResultArr = $ExamResult->find('list', array('fields' => array('exam_id', 'id'), 'conditions' => array('student_id' => $this->studentId, 'end_time IS NULL')));
 		$this->set('examResultArr', $examResultArr);
-    }
+	}
 
-    public function crm_upcoming($offset = 0)
-    {
-        $this->authenticate();
-        $limit = $this->limit;
-        $offset = $offset + 0;
-        if (!$this->Session->check('paidExamCount')) {
-            $paidExamCount = $this->Exam->paidExamCount("upcoming", $this->studentId, $this->currentDateTime);
-            $this->Session->write('upcomingExamCount', $paidExamCount);
-        } else {
-            $paidExamCount = $this->Session->read('upcomingExamCount');
-        }
+	public function crm_upcoming($offset = 0)
+	{
+		$this->authenticate();
+		$limit = $this->limit;
+		$offset = $offset + 0;
+		if (!$this->Session->check('paidExamCount')) {
+			$paidExamCount = $this->Exam->paidExamCount("upcoming", $this->studentId, $this->currentDateTime);
+			$this->Session->write('upcomingExamCount', $paidExamCount);
+		} else {
+			$paidExamCount = $this->Session->read('upcomingExamCount');
+		}
 		$mainExamArr = $this->Exam->getPurchasedExam("upcoming", $this->studentId, $this->currentDateTime, $limit, $offset);
 		$mainExam = array();
 		$packageName = null;
@@ -90,24 +90,24 @@ class ExamsController extends AppController
 			$packageName = $item['Package']['name'];
 		}
 		$this->set('mainExam', $mainExam);
-        $this->set('paidExamCount', $paidExamCount);
-        $this->set('limit', $limit);
+		$this->set('paidExamCount', $paidExamCount);
+		$this->set('limit', $limit);
 		$ExamResult = ClassRegistry::init('ExamResult');
 		$examResultArr = $ExamResult->find('list', array('fields' => array('exam_id', 'id'), 'conditions' => array('student_id' => $this->studentId, 'end_time IS NULL')));
 		$this->set('examResultArr', $examResultArr);
-    }
+	}
 
-    public function crm_expired($offset = 0)
-    {
-        $this->authenticate();
-        $limit = $this->limit;
-        $offset = $offset + 0;
-        if (!$this->Session->check('paidExamCount')) {
-            $paidExamCount = $this->Exam->paidExamCount("expired", $this->studentId, $this->currentDateTime);
-            $this->Session->write('expiredExamCount', $paidExamCount);
-        } else {
-            $paidExamCount = $this->Session->read('expiredExamCount');
-        }
+	public function crm_expired($offset = 0)
+	{
+		$this->authenticate();
+		$limit = $this->limit;
+		$offset = $offset + 0;
+		if (!$this->Session->check('paidExamCount')) {
+			$paidExamCount = $this->Exam->paidExamCount("expired", $this->studentId, $this->currentDateTime);
+			$this->Session->write('expiredExamCount', $paidExamCount);
+		} else {
+			$paidExamCount = $this->Session->read('expiredExamCount');
+		}
 		$mainExamArr = $this->Exam->getPurchasedExam("expired", $this->studentId, $this->currentDateTime, $limit, $offset);
 		$mainExam = array();
 		$packageName = null;
@@ -128,86 +128,104 @@ class ExamsController extends AppController
 			$packageName = $item['Package']['name'];
 		}
 		$this->set('mainExam', $mainExam);
-        $this->set('paidExamCount', $paidExamCount);
-        $this->set('limit', $limit);
+		$this->set('paidExamCount', $paidExamCount);
+		$this->set('limit', $limit);
 		$ExamResult = ClassRegistry::init('ExamResult');
 		$examResultArr = $ExamResult->find('list', array('fields' => array('exam_id', 'id'), 'conditions' => array('student_id' => $this->studentId, 'end_time IS NULL')));
 		$this->set('examResultArr', $examResultArr);
-    }
-
-    public function crm_free($offset = 0)
-    {
-        $this->authenticate();
-        $limit = $this->limit;
-        $offset = $offset + 0;
-        if (!$this->Session->check('freeExamCount')) {
-		$freeExamCount = $this->Exam->freeExamCount($this->studentId, $this->currentDateTime);
-		$this->Session->write('freeExamCount', $freeExamCount);
-	} else {
-		$freeExamCount = $this->Session->read('freeExamCount');
 	}
+
+	public function crm_free($offset = 0)
+	{
+		$this->authenticate();
+		$limit = $this->limit;
+		$offset = $offset + 0;
+		if (!$this->Session->check('freeExamCount')) {
+			$freeExamCount = $this->Exam->freeExamCount($this->studentId, $this->currentDateTime);
+			$this->Session->write('freeExamCount', $freeExamCount);
+		} else {
+			$freeExamCount = $this->Session->read('freeExamCount');
+		}
 		$freeExam = $this->Exam->insertFreeExam($this->studentId, $this->currentDateTime, $limit, $offset);
-        $this->loadModel('Package');
-        $this->loadModel('Checkout');
-        $this->loadModel('Payment');
-        $this->loadModel('PackagesPayment');
-        $count = 1;
-        $amount = 0;
-        $packagesPayment = array();
-        foreach ($freeExam as $item) {
-            $packagesPayment = array();
-            $productId = $item['Package']['id'];
-            $packagesPaymentArr = $this->PackagesPayment->find('first', array(
-                    'conditions' => array(
-                        'PackagesPayment.package_id' => $productId,
-                        'PackagesPayment.student_id' => $this->studentId,
+		$this->loadModel('Package');
+		$this->loadModel('Checkout');
+		$this->loadModel('Payment');
+		$this->loadModel('PackagesPayment');
+		$count = 1;
+		$amount = 0;
+		$packagesPayment = array();
+		foreach ($freeExam as $item) {
+			$packagesPayment = array();
+			$productId = $item['Package']['id'];
+			$packagesPaymentArr = $this->PackagesPayment->find(
+				'first',
+				array(
+					'conditions' => array(
+						'PackagesPayment.package_id' => $productId,
+						'PackagesPayment.student_id' => $this->studentId,
 						'PackagesPayment.status' => 'Approved'
-                    )
-                )
-            );
-            if (count($packagesPaymentArr) == 0) {
-                $product = $this->Package->findById($productId);
-                $expiryDays = $product['Package']['expiry_days'];
-                if ($expiryDays == 0) {
-                    $expiryDate = null;
-                } else {
-                    $expiryDate = date('Y-m-d', strtotime($this->currentDate . "+$expiryDays days"));
-                }
-                $amount = $amount + $product['Package']['amount'];
-                $packagesPayment = array(array(
-                    'package_id' => $product['Package']['id'],
-					'student_id' => $this->studentId,
-					'status' => 'Approved',
-                    'price' => $product['Package']['amount'],
-                    'quantity' => $count,
-                    'amount' => $count * $product['Package']['amount'],
-                    'date' => $this->currentDate,
-                    'expiry_date' => $expiryDate
-                ));
-                $token = time() . rand();
-                $transactionId = time() . rand();
-                $amount = $amount;
-                $description = __('Free Purchase Package From Administrator');
-                $name = __('Free');
-                $type = 'FRE';
-                if ($packagesPayment) {
-                    $paymentArr = array(
-                        'Payment' => array(
-                            'student_id' => $this->studentId, 'token' => $token, 'transaction_id' => $transactionId, 'amount' => $amount, 'status' => 'Approved', 'date' => $this->currentDateTime, 'remarks' => $description, 'name' => $name, 'type' => $type, 'payments_from' => 'web'),
-                        'Package' => $packagesPayment
-                    );
-                    $this->Payment->create();
-                    $this->Payment->saveAll($paymentArr);
-                    $paymentArrDetail = $this->Payment->find('first', array(
-                            'conditions' => array(
-                                'id' => $this->Payment->id),
-                            'recursive' => 2)
-                    );
-                    $this->Checkout->packageExamOrder($paymentArrDetail);
-                }
-            }
-        }
-        $mainExamArr = $this->Exam->getFreeExam($this->studentId, $this->currentDateTime, $limit, $offset);
+					)
+				)
+			);
+			if (count($packagesPaymentArr) == 0) {
+				$product = $this->Package->findById($productId);
+				$expiryDays = $product['Package']['expiry_days'];
+				if ($expiryDays == 0) {
+					$expiryDate = null;
+				} else {
+					$expiryDate = date('Y-m-d', strtotime($this->currentDate . "+$expiryDays days"));
+				}
+				$amount = $amount + $product['Package']['amount'];
+				$packagesPayment = array(
+					array(
+						'package_id' => $product['Package']['id'],
+						'student_id' => $this->studentId,
+						'status' => 'Approved',
+						'price' => $product['Package']['amount'],
+						'quantity' => $count,
+						'amount' => $count * $product['Package']['amount'],
+						'date' => $this->currentDate,
+						'expiry_date' => $expiryDate
+					)
+				);
+				$token = time() . rand();
+				$transactionId = time() . rand();
+				$amount = $amount;
+				$description = __('Free Purchase Package From Administrator');
+				$name = __('Free');
+				$type = 'FRE';
+				if ($packagesPayment) {
+					$paymentArr = array(
+						'Payment' => array(
+							'student_id' => $this->studentId,
+							'token' => $token,
+							'transaction_id' => $transactionId,
+							'amount' => $amount,
+							'status' => 'Approved',
+							'date' => $this->currentDateTime,
+							'remarks' => $description,
+							'name' => $name,
+							'type' => $type,
+							'payments_from' => 'web'
+						),
+						'Package' => $packagesPayment
+					);
+					$this->Payment->create();
+					$this->Payment->saveAll($paymentArr);
+					$paymentArrDetail = $this->Payment->find(
+						'first',
+						array(
+							'conditions' => array(
+								'id' => $this->Payment->id
+							),
+							'recursive' => 2
+						)
+					);
+					$this->Checkout->packageExamOrder($paymentArrDetail);
+				}
+			}
+		}
+		$mainExamArr = $this->Exam->getFreeExam($this->studentId, $this->currentDateTime, $limit, $offset);
 		$mainExam = array();
 		$packageName = null;
 		$serialNo = -1;
@@ -227,12 +245,12 @@ class ExamsController extends AppController
 			$packageName = $item['Package']['name'];
 		}
 		$this->set('mainExam', $mainExam);
-        $this->set('freeExamCount', $freeExamCount);
-        $this->set('limit', $limit);
+		$this->set('freeExamCount', $freeExamCount);
+		$this->set('limit', $limit);
 		$ExamResult = ClassRegistry::init('ExamResult');
 		$examResultArr = $ExamResult->find('list', array('fields' => array('exam_id', 'id'), 'conditions' => array('student_id' => $this->studentId, 'end_time IS NULL')));
 		$this->set('examResultArr', $examResultArr);
-    }
+	}
 
 	public function crm_view($id, $showType)
 	{
@@ -254,8 +272,13 @@ class ExamsController extends AppController
 			$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'error'));
 			$this->redirect(array('action' => 'error'));
 		}
-		$examCount = $this->Exam->find('count', array('joins' => array(array('table' => 'exam_maxquestions', 'type' => 'INNER', 'alias' => 'ExamMaxquestion', 'conditions' => array('Exam.id=ExamMaxquestion.exam_id'))),
-			'conditions' => array('Exam.id' => $id)));
+		$examCount = $this->Exam->find(
+			'count',
+			array(
+				'joins' => array(array('table' => 'exam_maxquestions', 'type' => 'INNER', 'alias' => 'ExamMaxquestion', 'conditions' => array('Exam.id=ExamMaxquestion.exam_id'))),
+				'conditions' => array('Exam.id' => $id)
+			)
+		);
 		if ($post['Exam']['type'] == "Exam") {
 			$subjectDetailArr = $this->Exam->getSectionSubject($id);
 			foreach ($subjectDetailArr as $value) {
@@ -296,105 +319,108 @@ class ExamsController extends AppController
 	}
 
 	public function crm_guidelines($id = null)
-    {
-        $this->layout = 'exam';
-        if (!$id) {
-            $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('action' => 'index'));
-        }
-        $checkPost = $this->Exam->checkPost($id, $this->studentId);
-        if ($checkPost == 0) {
-            $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('action' => 'error'));
-        }
-        $this->loadModel('ExamResult');
-        $remExam = $this->ExamResult->find('first', array('joins' => array(array('table' => 'exams', 'type' => 'INNER', 'alias' => 'Exam', 'conditions' => array('ExamResult.exam_id=Exam.id'))), 'fields' => array('Exam.id', 'Exam.name'), 'conditions' => array('student_id' => $this->studentId, 'end_time' => null)));
-        if ($remExam) {
-            $testId = $remExam['Exam']['id'];
-            $remExamName = $remExam['Exam']['name'];
-            $this->Session->setFlash(__('Your previous exam is pending.'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('controller' => 'Exams', 'action' => 'start', $testId));
-        }
-        $post = $this->Exam->findByIdAndStatus($id, 'Active');
-        if (!$post) {
-            $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('action' => 'error'));
-        }
-        $this->set('post', $post);
-    }
-
-    public function crm_instruction($id)
-    {
-        $this->authenticate();
-        $this->layout = 'exam';
-        $this->loadModel('ExamQuestion');
-        if (!$id) {
-            $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('action' => 'index'));
-        }
-        $checkPost = $this->Exam->checkPost($id, $this->studentId);
-        if ($checkPost == 0) {
-            $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('action' => 'error'));
-        }
-        $this->loadModel('Exam');
-        $post = $this->Exam->findByIdAndStatus($id, 'Active');
-        if (!$this->checkPaidStatus($id, $this->studentId)) {
-            $this->Session->setFlash(__('You have attempted maximum exam.'), 'flash', array('alert' => 'danger'));
-            $this->redirect(array('action' => 'index'));
-        }
-        $this->set('post', $post);
-        $this->loadModel('Language');
-		$langMainArr = $this->Language->find('list');
-		$langArr=array();
-		$i=0;
-		foreach ($langMainArr as $item){
-			$i++;
-			$langArr[$i]=$item;
+	{
+		$this->layout = 'exam';
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('action' => 'index'));
 		}
-        $this->set('language', $langArr);
-    }
+		$checkPost = $this->Exam->checkPost($id, $this->studentId);
 
-    public function crm_error()
-    {
-        $this->authenticate();
-        $this->layout = null;
-    }
+		if ($checkPost == 0) {
+			$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('action' => 'error'));
+		}
+		$this->loadModel('ExamResult');
+		$remExam = $this->ExamResult->find('first', array('joins' => array(array('table' => 'exams', 'type' => 'INNER', 'alias' => 'Exam', 'conditions' => array('ExamResult.exam_id=Exam.id'))), 'fields' => array('Exam.id', 'Exam.name'), 'conditions' => array('student_id' => $this->studentId, 'end_time' => null)));
+		if ($remExam) {
+			$testId = $remExam['Exam']['id'];
+			$remExamName = $remExam['Exam']['name'];
+			$this->Session->setFlash(__('Your previous exam is pending.'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('controller' => 'Exams', 'action' => 'start', $testId));
+		}
+		$post = $this->Exam->findByIdAndStatus($id, 'Active');
 
-    public function crm_start($id = null, $quesNo = null, $currQuesNo = 1)
-    {
-        $this->authenticate();
-        $this->layout = 'examstart';
-        if ($id == null)
-            $id = 0;
-        if (isset($this->request->data['Exam']['lang'])) {
-            $lang = $this->request->data['Exam']['lang'];
-        } else {
-            $lang = 1;
-        }
-        $this->loadModel('ExamResult');
-        $this->loadModel('ExamOrder');
-        $post = $this->Exam->findById($id);
-        $currentExamResult = $this->ExamResult->find('count', array('conditions' => array('student_id' => $this->studentId, 'end_time' => null)));
-        if ($currentExamResult == 0) {
-            $checkPost = $this->Exam->checkPost($id, $this->studentId);
-            if ($checkPost == 0) {
-                $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-                $this->redirect(array('action' => 'index'));
-            }
-            if (!$this->checkPaidStatus($id, $this->studentId)) {
-                $this->Session->setFlash(__('You have attempted maximum exam.'), 'flash', array('alert' => 'danger'));
-                $this->redirect(array('action' => 'index'));
-            }
-            $this->Exam->userExamInsert($id, $post['Exam']['ques_random'], $post['Exam']['type'], $post['Exam']['option_shuffle'], $this->studentId, $this->currentDateTime);
-        }
-        if ($currentExamResult == 1) {
-            $checkPost = $this->Exam->checkPostActive($id, $this->studentId);
-            if ($checkPost == 0) {
-                $this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
-                $this->redirect(array('action' => 'index'));
-            }
-        }
+		if (!$post) {
+			$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('action' => 'error'));
+		}
+		$this->set('post', $post);
+	}
+
+	public function crm_instruction($id)
+	{
+		$this->authenticate();
+		$this->layout = 'exam';
+		$this->loadModel('ExamQuestion');
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$checkPost = $this->Exam->checkPost($id, $this->studentId);
+		if ($checkPost == 0) {
+			$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('action' => 'error'));
+		}
+		$this->loadModel('Exam');
+		$post = $this->Exam->findByIdAndStatus($id, 'Active');
+		if (!$this->checkPaidStatus($id, $this->studentId)) {
+			$this->Session->setFlash(__('You have attempted maximum exam.'), 'flash', array('alert' => 'danger'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->set('post', $post);
+		$this->loadModel('Language');
+		$langMainArr = $this->Language->find('list');
+		$langArr = array();
+		$i = 0;
+		foreach ($langMainArr as $item) {
+			$i++;
+			$langArr[$i] = $item;
+		}
+		$this->set('language', $langArr);
+	}
+
+	public function crm_error()
+	{
+		$this->authenticate();
+		$this->layout = null;
+	}
+
+	public function crm_start($id = null, $quesNo = null, $currQuesNo = 1)
+	{
+		$this->authenticate();
+		$this->layout = 'examstart';
+		if ($id == null)
+			$id = 0;
+		if (isset($this->request->data['Exam']['lang'])) {
+			$lang = $this->request->data['Exam']['lang'];
+		} else {
+			$lang = 1;
+		}
+		$this->loadModel('ExamResult');
+		$this->loadModel('ExamOrder');
+		$post = $this->Exam->findById($id);
+
+		$currentExamResult = $this->ExamResult->find('count', array('conditions' => array('student_id' => $this->studentId, 'end_time' => null)));
+		if ($currentExamResult == 0) {
+			$checkPost = $this->Exam->checkPost($id, $this->studentId);
+			if ($checkPost == 0) {
+				$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+				$this->redirect(array('action' => 'index'));
+			}
+			if (!$this->checkPaidStatus($id, $this->studentId)) {
+				$this->Session->setFlash(__('You have attempted maximum exam.'), 'flash', array('alert' => 'danger'));
+				$this->redirect(array('action' => 'index'));
+			}
+			$this->Exam->userExamInsert($id, $post['Exam']['ques_random'], $post['Exam']['type'], $post['Exam']['option_shuffle'], $this->studentId, $this->currentDateTime);
+		}
+		if ($currentExamResult == 1) {
+			$checkPost = $this->Exam->checkPostActive($id, $this->studentId);
+			if ($checkPost == 0) {
+				$this->Session->setFlash(__('Invalid Post'), 'flash', array('alert' => 'danger'));
+				$this->redirect(array('action' => 'index'));
+			}
+		}
 		$examWise = $this->ExamResult->find('first', array('conditions' => array('student_id' => $this->studentId, 'exam_id' => $id, 'end_time' => null)));
 		if ($quesNo == null) {
 			if ($currentExamResult == 1) {
@@ -455,7 +481,7 @@ class ExamsController extends AppController
 		}
 		if ($currentExamResult == 1) {
 			$examWiseId = $examWise['ExamResult']['exam_id'];
-//			if ($examWise['ExamResult']['pause_time'] != null) {
+			//			if ($examWise['ExamResult']['pause_time'] != null) {
 //				$elaspsedTime = CakeTime::fromString($examWise['ExamResult']['pause_time']) - CakeTime::fromString($examWise['ExamResult']['start_time']);
 //				$pauseTime = CakeTime::format('Y-m-d H:i:s', CakeTime::fromString($this->currentDateTime) - $elaspsedTime);
 //				$this->ExamResult->save(array('ExamResult' => array('id' => $examResult['ExamResult']['id'], 'start_time' => $pauseTime, 'pause_time' => null)));
@@ -470,7 +496,7 @@ class ExamsController extends AppController
 			}
 		}
 		$this->loadModel('ExamMaxquestion');
-		$this->set('maxQuestionCount', $this->ExamMaxquestion->find('count', array('conditions'=>array('exam_id' => $id))));
+		$this->set('maxQuestionCount', $this->ExamMaxquestion->find('count', array('conditions' => array('exam_id' => $id))));
 
 		$this->set('userExamQuestionArr', $userExamQuestion);
 		$this->set('userSectionQuestion', $userSectionQuestion);
@@ -484,11 +510,11 @@ class ExamsController extends AppController
 		$this->loadModel('Language');
 		if ($post['Exam']['multi_language'] == 1) {
 			$langMainArr = $this->Language->find('list');
-			$langArr=array();
-			$i=0;
-			foreach ($langMainArr as $item){
+			$langArr = array();
+			$i = 0;
+			foreach ($langMainArr as $item) {
 				$i++;
-				$langArr[$i]=$item;
+				$langArr[$i] = $item;
 			}
 			$this->set('langArr', $langArr);
 			$this->set('languageCount', count($langArr));
@@ -502,47 +528,47 @@ class ExamsController extends AppController
 			$langArr1 = $this->Language->find('list');
 			$this->set('fullLanguageCount', count($langArr1));
 		}
-    }
+	}
 
-    public function crm_attemptTime($id, $quesNo, $currQuesNo)
-    {
-        $this->authenticate();
-        $this->autoRender = false;
-        $this->request->onlyAllow('ajax');
-        $this->Exam->userQuestionUpdate($id, $currQuesNo, $this->studentId, $this->currentDateTime);
-        $this->Exam->userQuestionRead($id, $quesNo, $this->studentId, $this->currentDateTime);
-    }
+	public function crm_attemptTime($id, $quesNo, $currQuesNo)
+	{
+		$this->authenticate();
+		$this->autoRender = false;
+		$this->request->onlyAllow('ajax');
+		$this->Exam->userQuestionUpdate($id, $currQuesNo, $this->studentId, $this->currentDateTime);
+		$this->Exam->userQuestionRead($id, $quesNo, $this->studentId, $this->currentDateTime);
+	}
 
-    public function crm_save($id, $quesNo)
-    {
-        $this->authenticate();
-        $this->autoRender = false;
-        $this->request->onlyAllow('ajax');
-        $_REQUEST['data']['Exam']['review'] = 0;
-        $dataArr = $_REQUEST['data'];
-        if ($this->Exam->userSaveAnswer($id, $quesNo, $this->studentId, $this->currentDateTime, $dataArr)) {
-            return true;
-        } else {
-            $this->Session->setFlash(__('You have attempted maximum number of questions in this subject'), 'flash', array('alert' => 'danger'));
-            return false;
-        }
-    }
+	public function crm_save($id, $quesNo)
+	{
+		$this->authenticate();
+		$this->autoRender = false;
+		$this->request->onlyAllow('ajax');
+		$_REQUEST['data']['Exam']['review'] = 0;
+		$dataArr = $_REQUEST['data'];
+		if ($this->Exam->userSaveAnswer($id, $quesNo, $this->studentId, $this->currentDateTime, $dataArr)) {
+			return true;
+		} else {
+			$this->Session->setFlash(__('You have attempted maximum number of questions in this subject'), 'flash', array('alert' => 'danger'));
+			return false;
+		}
+	}
 
-    public function crm_resetAnswer($id, $quesNo)
-    {
-        $this->authenticate();
-        $this->autoRender = false;
-        $this->request->onlyAllow('ajax');
-        $this->Exam->userResetAnswer($id, $quesNo, $this->studentId);
-    }
+	public function crm_resetAnswer($id, $quesNo)
+	{
+		$this->authenticate();
+		$this->autoRender = false;
+		$this->request->onlyAllow('ajax');
+		$this->Exam->userResetAnswer($id, $quesNo, $this->studentId);
+	}
 
-    public function crm_reviewAnswer($id, $quesNo)
-    {
-        $this->authenticate();
-        $this->autoRender = false;
-        $this->request->onlyAllow('ajax');
-        $this->Exam->userReviewAnswer($id, $quesNo, $this->studentId, 1);
-    }
+	public function crm_reviewAnswer($id, $quesNo)
+	{
+		$this->authenticate();
+		$this->autoRender = false;
+		$this->request->onlyAllow('ajax');
+		$this->Exam->userReviewAnswer($id, $quesNo, $this->studentId, 1);
+	}
 
 	public function crm_startTime($id)
 	{
@@ -588,20 +614,20 @@ class ExamsController extends AppController
 		echo json_encode(array('startTime' => $startTime, 'endTime' => $endTime, 'overallTime' => $overallTime));
 	}
 
-    public function crm_submit($examId = null, $examResultId = null)
-    {
-        $this->layout = null;
-        $this->loadModel('ExamStat');
-        $this->set('examId', $examId);
-        $this->set('post', $this->Exam->findById($examId));
-        $this->set('answered', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'answered' => 1, 'review' => 0))));
-        $this->set('notAnswered', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'opened' => 1, 'answered' => 0, 'review' => 0))));
-        $this->set('notansmarked', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'answered' => 0, 'review' => 1))));
-        $this->set('ansmarked', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'answered' => 1, 'review' => 1))));
-        $this->set('notAttempted', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'opened IS NULL'))));
-    }
+	public function crm_submit($examId = null, $examResultId = null)
+	{
+		$this->layout = null;
+		$this->loadModel('ExamStat');
+		$this->set('examId', $examId);
+		$this->set('post', $this->Exam->findById($examId));
+		$this->set('answered', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'answered' => 1, 'review' => 0))));
+		$this->set('notAnswered', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'opened' => 1, 'answered' => 0, 'review' => 0))));
+		$this->set('notansmarked', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'answered' => 0, 'review' => 1))));
+		$this->set('ansmarked', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'answered' => 1, 'review' => 1))));
+		$this->set('notAttempted', $this->ExamStat->find('count', array('conditions' => array('ExamStat.exam_result_id' => $examResultId, 'opened IS NULL'))));
+	}
 
-    public function crm_finish($id = null, $warn = null, $origQuesNo = null, $forceSubmit = null)
+	public function crm_finish($id = null, $warn = null, $origQuesNo = null, $forceSubmit = null)
 	{
 		$this->authenticate();
 		$this->autoRender = false;
@@ -665,7 +691,7 @@ class ExamsController extends AppController
 		}
 	}
 
-    public function crm_feedbacks($id)
+	public function crm_feedbacks($id)
 	{
 		$this->layout = 'exam';
 		if (!$id) {
@@ -697,10 +723,10 @@ class ExamsController extends AppController
 		}
 	}
 
-    public function crm_close()
-    {
-        $this->layout = 'exam';
-    }
+	public function crm_close()
+	{
+		$this->layout = 'exam';
+	}
 
 	public function crm_pause($id = null)
 	{
@@ -711,7 +737,7 @@ class ExamsController extends AppController
 			$this->redirect(array('action' => 'close'));
 		}
 		$this->loadModel('ExamResult');
-		$currentExamResult = $this->ExamResult->find('first', array('conditions' => array('exam_id' => $id, 'student_id' => $this->studentId,'start_time IS NOT NULL', 'end_time' => null)));
+		$currentExamResult = $this->ExamResult->find('first', array('conditions' => array('exam_id' => $id, 'student_id' => $this->studentId, 'start_time IS NOT NULL', 'end_time' => null)));
 		if ($currentExamResult) {
 			$arrayName['ExamResult'] = array('id' => $currentExamResult['ExamResult']['id'], 'pause_time' => $this->currentDateTime);
 			if ($this->ExamResult->save($arrayName)) {
@@ -735,7 +761,7 @@ class ExamsController extends AppController
 					if ($item['Exam']['attempt_order'] == 0) {
 						$item['Exam']['attempt_order'] = 1;
 					}
-					$item['Exam']['attempt_count']=$item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
+					$item['Exam']['attempt_count'] = $item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
 					$attemptRemaining = ($item['Exam']['attempt_count'] - $item['Exam']['attempt']);
 				}
 				$item['Exam']['attempt_remaining'] = $attemptRemaining;
@@ -758,7 +784,7 @@ class ExamsController extends AppController
 		} else {
 			$status = false;
 			$message = ('Invalid Token');
-			$response = (object)array();
+			$response = (object) array();
 		}
 		$this->set(compact('status', 'message', 'response'));
 		$this->set('_serialize', array('status', 'message', 'response'));
@@ -778,7 +804,7 @@ class ExamsController extends AppController
 					if ($item['Exam']['attempt_order'] == 0) {
 						$item['Exam']['attempt_order'] = 1;
 					}
-					$item['Exam']['attempt_count']=$item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
+					$item['Exam']['attempt_count'] = $item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
 					$attemptRemaining = ($item['Exam']['attempt_count'] - $item['Exam']['attempt']);
 				}
 				$item['Exam']['attempt_remaining'] = $attemptRemaining;
@@ -801,7 +827,7 @@ class ExamsController extends AppController
 		} else {
 			$status = false;
 			$message = ('Invalid Token');
-			$response = (object)array();
+			$response = (object) array();
 		}
 		$this->set(compact('status', 'message', 'response'));
 		$this->set('_serialize', array('status', 'message', 'response'));
@@ -821,7 +847,7 @@ class ExamsController extends AppController
 					if ($item['Exam']['attempt_order'] == 0) {
 						$item['Exam']['attempt_order'] = 1;
 					}
-					$item['Exam']['attempt_count']=$item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
+					$item['Exam']['attempt_count'] = $item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
 					$attemptRemaining = ($item['Exam']['attempt_count'] - $item['Exam']['attempt']);
 				}
 				$item['Exam']['attempt_remaining'] = $attemptRemaining;
@@ -844,7 +870,7 @@ class ExamsController extends AppController
 		} else {
 			$status = false;
 			$message = ('Invalid Token');
-			$response = (object)array();
+			$response = (object) array();
 		}
 		$this->set(compact('status', 'message', 'response'));
 		$this->set('_serialize', array('status', 'message', 'response'));
@@ -864,7 +890,9 @@ class ExamsController extends AppController
 			$packagesPayment = array();
 			foreach ($freeExam as $item) {
 				$productId = $item['Package']['id'];
-				$packagesPaymentArr = $this->PackagesPayment->find('first', array(
+				$packagesPaymentArr = $this->PackagesPayment->find(
+					'first',
+					array(
 						'conditions' => array(
 							'PackagesPayment.package_id' => $productId,
 							'PackagesPayment.student_id' => $this->studentId,
@@ -881,16 +909,18 @@ class ExamsController extends AppController
 						$expiryDate = date('Y-m-d', strtotime($this->currentDate . "+$expiryDays days"));
 					}
 					$amount = $amount + $product['Package']['amount'];
-					$packagesPayment = array(array(
-						'package_id' => $product['Package']['id'],
-						'student_id' => $this->studentId,
-						'status' => 'Approved',
-						'price' => $product['Package']['amount'],
-						'quantity' => $count,
-						'amount' => $count * $product['Package']['amount'],
-						'date' => $this->currentDate,
-						'expiry_date' => $expiryDate
-					));
+					$packagesPayment = array(
+						array(
+							'package_id' => $product['Package']['id'],
+							'student_id' => $this->studentId,
+							'status' => 'Approved',
+							'price' => $product['Package']['amount'],
+							'quantity' => $count,
+							'amount' => $count * $product['Package']['amount'],
+							'date' => $this->currentDate,
+							'expiry_date' => $expiryDate
+						)
+					);
 					$token = time() . rand();
 					$transactionId = time() . rand();
 					$amount = $amount;
@@ -900,15 +930,29 @@ class ExamsController extends AppController
 					if ($packagesPayment) {
 						$paymentArr = array(
 							'Payment' => array(
-								'student_id' => $this->studentId, 'token' => $token, 'transaction_id' => $transactionId, 'amount' => $amount, 'status' => 'Approved', 'date' => $this->currentDateTime, 'remarks' => $description, 'name' => $name, 'type' => $type, 'payments_from' => 'mobile'),
+								'student_id' => $this->studentId,
+								'token' => $token,
+								'transaction_id' => $transactionId,
+								'amount' => $amount,
+								'status' => 'Approved',
+								'date' => $this->currentDateTime,
+								'remarks' => $description,
+								'name' => $name,
+								'type' => $type,
+								'payments_from' => 'mobile'
+							),
 							'Package' => $packagesPayment
 						);
 						$this->Payment->create();
 						$this->Payment->saveAll($paymentArr);
-						$paymentArrDetail = $this->Payment->find('first', array(
+						$paymentArrDetail = $this->Payment->find(
+							'first',
+							array(
 								'conditions' => array(
-									'id' => $this->Payment->id),
-								'recursive' => 2)
+									'id' => $this->Payment->id
+								),
+								'recursive' => 2
+							)
 						);
 						$this->Checkout->packageExamOrder($paymentArrDetail);
 					}
@@ -924,7 +968,7 @@ class ExamsController extends AppController
 					if ($item['Exam']['attempt_order'] == 0) {
 						$item['Exam']['attempt_order'] = 1;
 					}
-					$item['Exam']['attempt_count']=$item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
+					$item['Exam']['attempt_count'] = $item['Exam']['attempt_order'] * $item['Exam']['attempt_count'];
 					$attemptRemaining = ($item['Exam']['attempt_count'] - $item['Exam']['attempt']);
 				}
 				$item['Exam']['attempt_remaining'] = $attemptRemaining;
@@ -947,7 +991,7 @@ class ExamsController extends AppController
 		} else {
 			$status = false;
 			$message = ('Invalid Token');
-			$response = (object)array();
+			$response = (object) array();
 		}
 		$this->set(compact('status', 'message', 'response'));
 		$this->set('_serialize', array('status', 'message', 'response'));
@@ -957,7 +1001,7 @@ class ExamsController extends AppController
 	{
 		$status = false;
 		$message = __('Invalid Post');
-		$response = (object)array();
+		$response = (object) array();
 		$subjectDetail = array();
 		$totalMarks = null;
 		$examCount = null;
@@ -973,9 +1017,14 @@ class ExamsController extends AppController
 			$checkPost = $this->Exam->checkPost($id, $this->studentId);
 			$post = $this->Exam->findByIdAndStatus($id, 'Active');
 			if ($checkPost && $post) {
-				$post['Exam']['duration']=$this->CustomFunction->secondsToWords($post['Exam']['duration']*60);
-				$examCount = $this->Exam->find('count', array('joins' => array(array('table' => 'exam_maxquestions', 'type' => 'INNER', 'alias' => 'ExamMaxquestion', 'conditions' => array('Exam.id=ExamMaxquestion.exam_id'))),
-					'conditions' => array('Exam.id' => $id)));
+				$post['Exam']['duration'] = $this->CustomFunction->secondsToWords($post['Exam']['duration'] * 60);
+				$examCount = $this->Exam->find(
+					'count',
+					array(
+						'joins' => array(array('table' => 'exam_maxquestions', 'type' => 'INNER', 'alias' => 'ExamMaxquestion', 'conditions' => array('Exam.id=ExamMaxquestion.exam_id'))),
+						'conditions' => array('Exam.id' => $id)
+					)
+				);
 				if ($post['Exam']['type'] == "Exam") {
 					$subjectDetailArr = $this->Exam->getSectionSubject($id);
 					foreach ($subjectDetailArr as $value) {
@@ -1012,11 +1061,11 @@ class ExamsController extends AppController
 				$this->set('response', $post);
 			} else {
 				$message = __('Invalid Post');
-				$subjectDetail = (object)array();
+				$subjectDetail = (object) array();
 			}
 		} else {
 			$message = ('Invalid Token');
-			$subjectDetail = (object)array();
+			$subjectDetail = (object) array();
 		}
 		$this->set(compact('status', 'message', 'subjectDetail', 'totalMarks', 'examCount', 'id'));
 		$this->set('_serialize', array('status', 'message', 'response', 'subjectDetail', 'totalMarks', 'examCount', 'id'));
@@ -1026,9 +1075,9 @@ class ExamsController extends AppController
 	{
 		$status = false;
 		$message = ('Invalid Post');
-		$response = (object)array();
+		$response = (object) array();
 		$isPaid = true;
-		$languageArr = (object)array();
+		$languageArr = (object) array();
 		if ($this->authenticateRest($this->request->query)) {
 			$this->studentId = $this->restStudentId($this->request->query);
 			$this->loadModel('ExamQuestion');
@@ -1069,17 +1118,17 @@ class ExamsController extends AppController
 		$userExamQuestion = array();
 		$userSectionQuestion = array();
 		$currSubjectName = null;
-		$post = (object)array();
-		$examResult = (object)array();
+		$post = (object) array();
+		$examResult = (object) array();
 		$examId = null;
 		$totalQuestion = null;
 		$examResultId = null;
 		$siteDomain = null;
-		$studentDetail = (object)array();
+		$studentDetail = (object) array();
 		$studentPhoto = null;
 		$examStatus = true;
 		$examExpire = false;
-		$languageArr = (object)array();
+		$languageArr = (object) array();
 		$subjectArr = array();
 		if ($this->authenticateRest($this->request->query)) {
 			$this->studentId = $this->restStudentId($this->request->query);
@@ -1103,18 +1152,18 @@ class ExamsController extends AppController
 						$examStatus = false;
 					}
 					if ($examStatus == true) {
-						$this->Exam->userExamInsert($id, $post['Exam']['ques_random'], $post['Exam']['type'], $post['Exam']['option_shuffle'], $this->studentId, $this->currentDateTime,"A");
+						$this->Exam->userExamInsert($id, $post['Exam']['ques_random'], $post['Exam']['type'], $post['Exam']['option_shuffle'], $this->studentId, $this->currentDateTime, "A");
 					}
 				}
 				if ($examStatus == true) {
-					if($post['Exam']['pause_exam']=="0") {
+					if ($post['Exam']['pause_exam'] == "0") {
 						$examWise = $this->ExamResult->find('first', array('conditions' => array('student_id' => $this->studentId, 'end_time' => null)));
 						if ($currentExamResult == 1) {
 							$endTime = CakeTime::format('Y-m-d H:i:s', CakeTime::fromString($examWise['ExamResult']['start_time']) + ($post['Exam']['duration'] * 60));
 							if ($this->currentDateTime >= $endTime && $post['Exam']['duration'] > 0) {
 								$message = __('Exam expire');
 								$examExpire = true;
-								$post = (object)array();
+								$post = (object) array();
 							}
 						}
 					}
@@ -1126,7 +1175,7 @@ class ExamsController extends AppController
 								foreach ($item['Question'] as $k1 => $item1) {
 									if ($k1 == "Passage") {
 										if (empty($item1)) {
-											$userExamQuestion[$k]['Question']['Passage'] = (object)array();
+											$userExamQuestion[$k]['Question']['Passage'] = (object) array();
 										}
 									}
 								}
@@ -1151,23 +1200,27 @@ class ExamsController extends AppController
 						if ($post['Exam']['multi_language'] == 1) {
 							$this->loadModel('Language');
 							$languageArr = $this->Language->find('list');
-						}else{
+						} else {
 							$this->loadModel('Language');
-							$languageArr = $this->Language->find('list',array('conditions'=>array('id'=>1)));
+							$languageArr = $this->Language->find('list', array('conditions' => array('id' => 1)));
 						}
 						if ($post['Exam']['exam_mode'] == "T") {
 							$this->loadModel('ExamsSubject');
 							$this->loadModel('Subject');
-							$subjectAllArr = $this->Subject->find('all', array(
-								'joins' => array(array('table' => 'exams_subjects', 'alias' => 'ExamsSubject', 'type' => 'LEFT', 'conditions' => array('Subject.id=ExamsSubject.subject_id'))),
-								'fields' => array('Subject.id', 'Subject.subject_name', 'Subject.section_time', 'ExamsSubject.duration'),
-								'conditions' => array('ExamsSubject.exam_id' => $post['Exam']['id']),
-								'order' => array('Subject.ordering' => 'asc')));
+							$subjectAllArr = $this->Subject->find(
+								'all',
+								array(
+									'joins' => array(array('table' => 'exams_subjects', 'alias' => 'ExamsSubject', 'type' => 'LEFT', 'conditions' => array('Subject.id=ExamsSubject.subject_id'))),
+									'fields' => array('Subject.id', 'Subject.subject_name', 'Subject.section_time', 'ExamsSubject.duration'),
+									'conditions' => array('ExamsSubject.exam_id' => $post['Exam']['id']),
+									'order' => array('Subject.ordering' => 'asc')
+								)
+							);
 							if (!$subjectAllArr) {
-								foreach ($userSectionQuestion as $k=> $item) {
+								foreach ($userSectionQuestion as $k => $item) {
 									$subjectTempAllArr[] = $k;
 								}
-								unset($k,$item);
+								unset($k, $item);
 								$subjectAllArr = $this->Subject->find('all', array('conditions' => array('Subject.subject_name' => $subjectTempAllArr), 'order' => array('Subject.ordering' => 'asc')));
 							}
 							foreach ($subjectAllArr as $item) {
@@ -1284,8 +1337,8 @@ class ExamsController extends AppController
 		}
 
 
-		$this->set(compact('status', 'message', 'examExpire','subjectArr', 'userExamQuestion', 'userSectionQuestion', 'currSubjectName', 'post', 'examResult', 'examId', 'totalQuestion', 'examResultId', 'siteDomain', 'studentDetail', 'studentPhoto', 'languageArr'));
-		$this->set('_serialize', array('status', 'message', 'examExpire','subjectArr', 'userExamQuestion', 'userSectionQuestion', 'currSubjectName', 'post', 'examResult', 'examId', 'totalQuestion', 'examResultId', 'siteDomain', 'studentDetail', 'studentPhoto', 'languageArr'));
+		$this->set(compact('status', 'message', 'examExpire', 'subjectArr', 'userExamQuestion', 'userSectionQuestion', 'currSubjectName', 'post', 'examResult', 'examId', 'totalQuestion', 'examResultId', 'siteDomain', 'studentDetail', 'studentPhoto', 'languageArr'));
+		$this->set('_serialize', array('status', 'message', 'examExpire', 'subjectArr', 'userExamQuestion', 'userSectionQuestion', 'currSubjectName', 'post', 'examResult', 'examId', 'totalQuestion', 'examResultId', 'siteDomain', 'studentDetail', 'studentPhoto', 'languageArr'));
 	}
 
 	public function rest_saveAll()
@@ -1307,7 +1360,7 @@ class ExamsController extends AppController
 						$responseArr = $this->request->data['responses'];
 						$examResultId = $examResultRecord['ExamResult']['id'];
 						foreach ($responseArr as $item) {
-							$valueArr=array();
+							$valueArr = array();
 							if ($item['question_type'] == "M") {
 								$valueArr['Exam']['option_selected'] = $item['response'];
 							} elseif ($item['question_type'] == "T") {
@@ -1381,7 +1434,7 @@ class ExamsController extends AppController
 		} else {
 			$status = false;
 			$message = ('Invalid Token');
-			$response = (object)array();
+			$response = (object) array();
 		}
 		$this->set(compact('status', 'message', 'response'));
 		$this->set('_serialize', array('status', 'message', 'response'));
@@ -1431,28 +1484,28 @@ class ExamsController extends AppController
 		$this->set('_serialize', array('status', 'message', 'examResultId'));
 	}
 
-    private function resultEmailSms($currentExamResult, $examArr)
-    {
-        try {
-            if ($this->emailNotification || $this->smsNotification) {
-                $valueArr = $this->ExamResult->findById($currentExamResult['ExamResult']['id']);
-                $siteName = $this->siteName;
-                $siteEmailContact = $this->siteEmailContact;
-                $url = $this->siteDomain;
-                $email = $this->userValue['Student']['email'];
-                $studentName = $this->userValue['Student']['name'];
-                $mobileNo = $this->userValue['Student']['phone'];
-                $examName = $examArr['Exam']['name'];
-                $result = $valueArr['ExamResult']['result'];
-                $obtainedMarks = $valueArr['ExamResult']['obtained_marks'];
-                $questionAttempt = $valueArr['ExamResult']['total_answered'];
-                $timeTaken = $this->CustomFunction->secondsToWords(CakeTime::fromString($valueArr['ExamResult']['end_time']) - CakeTime::fromString($valueArr['ExamResult']['start_time']));
-                $percent = $valueArr['ExamResult']['percent'];
-                if ($this->emailNotification == 1) {
-                    /* Send Email */
-                    $this->loadModel('Emailtemplate');
+	private function resultEmailSms($currentExamResult, $examArr)
+	{
+		try {
+			if ($this->emailNotification || $this->smsNotification) {
+				$valueArr = $this->ExamResult->findById($currentExamResult['ExamResult']['id']);
+				$siteName = $this->siteName;
+				$siteEmailContact = $this->siteEmailContact;
+				$url = $this->siteDomain;
+				$email = $this->userValue['Student']['email'];
+				$studentName = $this->userValue['Student']['name'];
+				$mobileNo = $this->userValue['Student']['phone'];
+				$examName = $examArr['Exam']['name'];
+				$result = $valueArr['ExamResult']['result'];
+				$obtainedMarks = $valueArr['ExamResult']['obtained_marks'];
+				$questionAttempt = $valueArr['ExamResult']['total_answered'];
+				$timeTaken = $this->CustomFunction->secondsToWords(CakeTime::fromString($valueArr['ExamResult']['end_time']) - CakeTime::fromString($valueArr['ExamResult']['start_time']));
+				$percent = $valueArr['ExamResult']['percent'];
+				if ($this->emailNotification == 1) {
+					/* Send Email */
+					$this->loadModel('Emailtemplate');
 					$emailTemplateArr = $this->Emailtemplate->findByType('ERT');
-                    if ($emailTemplateArr['Emailtemplate']['status'] == "Published") {
+					if ($emailTemplateArr['Emailtemplate']['status'] == "Published") {
 						$message = strtr($emailTemplateArr['Emailtemplate']['description'], [
 							'{#studentName#}' => $studentName,
 							'{#examName#}' => $examName,
@@ -1464,26 +1517,26 @@ class ExamsController extends AppController
 							'{#siteName#}' => $siteName,
 							'{#siteEmailContact#}' => $siteEmailContact
 						]);
-                        $Email = new CakeEmail();
-                        $Email->transport($this->emailSettype);
-                        if ($this->emailSettype == "Smtp") {
-                            $Email->config($this->emailSettingsArr);
-                        }
-                        $Email->from(array($this->siteEmail => $this->siteName));
-                        $Email->to($email);
-                        $Email->template('default');
-                        $Email->emailFormat('html');
-                        $Email->subject($emailTemplateArr['Emailtemplate']['name']);
-                        $Email->send($message);
-                        /* End Email */
-                    }
-                }
-                if ($this->smsNotification) {
-                    /* Send Sms */
-                    $this->loadModel('Smstemplate');
-                    $smsTemplateArr = $this->Smstemplate->findByType('ERT');
-                    if ($smsTemplateArr['Smstemplate']['status'] == "Published") {
-                        $url = $this->siteDomain;
+						$Email = new CakeEmail();
+						$Email->transport($this->emailSettype);
+						if ($this->emailSettype == "Smtp") {
+							$Email->config($this->emailSettingsArr);
+						}
+						$Email->from(array($this->siteEmail => $this->siteName));
+						$Email->to($email);
+						$Email->template('default');
+						$Email->emailFormat('html');
+						$Email->subject($emailTemplateArr['Emailtemplate']['name']);
+						$Email->send($message);
+						/* End Email */
+					}
+				}
+				if ($this->smsNotification) {
+					/* Send Sms */
+					$this->loadModel('Smstemplate');
+					$smsTemplateArr = $this->Smstemplate->findByType('ERT');
+					if ($smsTemplateArr['Smstemplate']['status'] == "Published") {
+						$url = $this->siteDomain;
 						$message = strtr($smsTemplateArr['Smstemplate']['description'], [
 							'{#studentName#}' => $studentName,
 							'{#examName#}' => $examName,
@@ -1494,80 +1547,80 @@ class ExamsController extends AppController
 							'{#percent#}' => $percent,
 							'{#siteName#}' => $siteName
 						]);
-                        $this->CustomFunction->sendSms($mobileNo, $message, $this->smsSettingArr, $smsTemplateArr['Smstemplate']['dlt_template_value']);
-                    }
-                    /* End Sms */
-                }
-            }
-        } catch (Exception $e) {
-            $this->Session->setFlash($e->getMessage(), 'flash', array('alert' => 'danger'));
-        }
-    }
-
-    private function rest_finish($id, $studentId)
-    {
-        $feedback = false;
-        $result = false;
-        $message = null;
-        $this->studentId = $studentId;
-        $this->loadModel('ExamResult');
-        $currentExamResult = $this->ExamResult->find('first', array('conditions' => array('exam_id' => $id, 'student_id' => $this->studentId, 'end_time' => null)));
-        if ($currentExamResult) {
-            $this->Exam->userExamFinish($id, $this->studentId, $this->currentDateTime);
-            $this->loadModel('Exam');
-            $examArr = $this->Exam->findById($id);
-            if ($this->examFeedback) {
-                if ($examArr['Exam']['finish_result']) {
-                    $this->resultEmailSms($currentExamResult, $examArr);
-                    $result = true;
-                    $message = __('Please complete feedback.');
-                }
-                $feedback = true;
-            } else {
-                if ($examArr['Exam']['finish_result']) {
-                    $this->resultEmailSms($currentExamResult, $examArr);
-                    $feedback = false;
-                    $result = true;
-                    $message = __('You can find your result here');
-                } else {
-                    $feedback = false;
-                    $result = false;
-                    $message = __('Thanks for given the exam.');
-                }
-            }
-        }
-        return array('feedback' => $feedback, 'result' => $result, 'message' => $message, 'examResultId' => $currentExamResult['ExamResult']['id']);
-    }
-
-    private function checkPaidStatus($examId, $studentId)
-    {
-        $this->loadModel('Exam');
-        $this->loadModel('ExamResult');
-        $this->loadModel('ExamOrder');
-        $post = $this->Exam->findByIdAndStatus($examId, 'Active');
-        $attemptCount = $post['Exam']['attempt_count'];
-        $totalExam = $this->ExamResult->find('count', array('conditions' => array('exam_id' => $examId, 'student_id' => $studentId)));
-		$countExamOrder = $this->ExamOrder->find('count', array('conditions' => array('exam_id' => $examId, 'student_id' => $studentId)));
-        if($countExamOrder==null || $countExamOrder==0){
-			$countExamOrder=1;
+						$this->CustomFunction->sendSms($mobileNo, $message, $this->smsSettingArr, $smsTemplateArr['Smstemplate']['dlt_template_value']);
+					}
+					/* End Sms */
+				}
+			}
+		} catch (Exception $e) {
+			$this->Session->setFlash($e->getMessage(), 'flash', array('alert' => 'danger'));
 		}
-        $isPaid = false;
+	}
 
-        if ($countExamOrder > 0 && $attemptCount == 0) {
-            $isPaid = true;
-        } else {
-            if ($countExamOrder * $attemptCount > $totalExam) {
-                $isPaid = true;
-            }
-        }
-        //$examOrder = $this->ExamOrder->find('first', array('conditions' => array('exam_id' => $examId, 'student_id' => $studentId), 'order' => array('id' => 'desc')));
-        //if ($examOrder) {
-        //    if ($examOrder['ExamOrder']['expiry_date'] != null && $this->currentDate > $examOrder['ExamOrder']['expiry_date']) {
-        //        $isPaid = false;
-        //    }
-        //} else {
-        //    $isPaid = false;
-        //}
-        return $isPaid;
-    }
+	private function rest_finish($id, $studentId)
+	{
+		$feedback = false;
+		$result = false;
+		$message = null;
+		$this->studentId = $studentId;
+		$this->loadModel('ExamResult');
+		$currentExamResult = $this->ExamResult->find('first', array('conditions' => array('exam_id' => $id, 'student_id' => $this->studentId, 'end_time' => null)));
+		if ($currentExamResult) {
+			$this->Exam->userExamFinish($id, $this->studentId, $this->currentDateTime);
+			$this->loadModel('Exam');
+			$examArr = $this->Exam->findById($id);
+			if ($this->examFeedback) {
+				if ($examArr['Exam']['finish_result']) {
+					$this->resultEmailSms($currentExamResult, $examArr);
+					$result = true;
+					$message = __('Please complete feedback.');
+				}
+				$feedback = true;
+			} else {
+				if ($examArr['Exam']['finish_result']) {
+					$this->resultEmailSms($currentExamResult, $examArr);
+					$feedback = false;
+					$result = true;
+					$message = __('You can find your result here');
+				} else {
+					$feedback = false;
+					$result = false;
+					$message = __('Thanks for given the exam.');
+				}
+			}
+		}
+		return array('feedback' => $feedback, 'result' => $result, 'message' => $message, 'examResultId' => $currentExamResult['ExamResult']['id']);
+	}
+
+	private function checkPaidStatus($examId, $studentId)
+	{
+		$this->loadModel('Exam');
+		$this->loadModel('ExamResult');
+		$this->loadModel('ExamOrder');
+		$post = $this->Exam->findByIdAndStatus($examId, 'Active');
+		$attemptCount = $post['Exam']['attempt_count'];
+		$totalExam = $this->ExamResult->find('count', array('conditions' => array('exam_id' => $examId, 'student_id' => $studentId)));
+		$countExamOrder = $this->ExamOrder->find('count', array('conditions' => array('exam_id' => $examId, 'student_id' => $studentId)));
+		if ($countExamOrder == null || $countExamOrder == 0) {
+			$countExamOrder = 1;
+		}
+		$isPaid = false;
+
+		if ($countExamOrder > 0 && $attemptCount == 0) {
+			$isPaid = true;
+		} else {
+			if ($countExamOrder * $attemptCount > $totalExam) {
+				$isPaid = true;
+			}
+		}
+		//$examOrder = $this->ExamOrder->find('first', array('conditions' => array('exam_id' => $examId, 'student_id' => $studentId), 'order' => array('id' => 'desc')));
+		//if ($examOrder) {
+		//    if ($examOrder['ExamOrder']['expiry_date'] != null && $this->currentDate > $examOrder['ExamOrder']['expiry_date']) {
+		//        $isPaid = false;
+		//    }
+		//} else {
+		//    $isPaid = false;
+		//}
+		return $isPaid;
+	}
 }
