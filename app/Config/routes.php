@@ -24,6 +24,8 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
+
+var_dump(file_exists(TMP . 'installed.txt'));
 if (file_exists(TMP . 'installed.txt') && file_get_contents(TMP . 'installed.txt') == "c5331f4aa7c67c53f36aa35a97ce11a95e3da6a779318d499b09ea60abebedda") {
 	Router::connect('/', array('controller' => 'installers'));
 } else {
