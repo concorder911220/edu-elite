@@ -144,10 +144,10 @@ class DATABASE_CONFIG {
 					$installdata = 0;
 				}
 				/*if (!$this->HttpSocket) {
-				$this->HttpSocket = new HttpSocket(array(
-				'ssl_verify_host' => false
-				));
-				}*/
+							$this->HttpSocket = new HttpSocket(array(
+							'ssl_verify_host' => false
+							));
+							}*/
 
 
 				$data_array = array(
@@ -212,10 +212,10 @@ class DATABASE_CONFIG {
 				exit;
 			}
 			/*if (!$this->HttpSocket) {
-			$this->HttpSocket = new HttpSocket(array(
-			'ssl_verify_host' => false
-			));
-			}*/
+					 $this->HttpSocket = new HttpSocket(array(
+					 'ssl_verify_host' => false
+					 ));
+					 }*/
 
 			$data_array = array(
 				'product_name' => 'Edu Elite',
@@ -269,7 +269,7 @@ class DATABASE_CONFIG {
 
 				if ($data) {
 					curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-					var_dump("this is after", $data);
+
 				}
 				break;
 			case "PUT":
@@ -288,7 +288,7 @@ class DATABASE_CONFIG {
 		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 		// EXECUTE:
 		$result = curl_exec($curl);
-		var_dump("this is result", $result);
+
 		if (!$result) {
 			die("Connection Failure");
 		}

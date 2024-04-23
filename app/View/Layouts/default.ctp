@@ -36,8 +36,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link href="assets/js/plugins/bootsnav_files/skins/color.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/bootsnav_files/css/animate.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/bootsnav_files/css/bootsnav.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/bootsnav_files/css/overwrite.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+
+	<link href="assets/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet"> -->
+
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!--
+	<link href="assets/css/main.css" rel="stylesheet"> -->
     <?php
+	echo $this->Html->css('/app/webroot/assets/css/main.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/bootsnav_files/skins/color.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/bootsnav_files/css/animate.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/bootsnav_files/css/bootsnav.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/bootsnav_files/css/overwrite.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/owl-carousel/owl.carousel.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/owl-carousel/owl.theme.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/owl-carousel/owl.transitions.css');
+	echo $this->Html->css('/app/webroot/assets/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/magnific-popup.css');
+
+
+	echo $this->Html->css('/app/webroot/assets/bootstrap-3.3.7/bootstrap-3.3.7-dist/css/bootstrap.min.css');
+
+
 	echo $this->Html->css('/app/webroot/css/font-awesome-5.7.2');
+
 	// echo $this->Html->css('app/webroot/design300/css/bootstrap.min');
 	echo $this->Html->css('/app/webroot/design300/css/font');
 	echo $this->Html->css('/app/webroot/design300/css/settings');
@@ -49,7 +87,7 @@
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	/* ========================== */
-	echo $this->Html->css('/app/webroot/css/v2/bootstrap.min');
+	// echo $this->Html->css('/app/webroot/css/v2/bootstrap.min');
 	echo $this->Html->css('/app/webroot/css/v2/feather');
 	echo $this->Html->css('/app/webroot/css/v2/owl.carousel.min');
 	echo $this->Html->css('/app/webroot/css/v2/owl.theme.default.min');
@@ -61,6 +99,7 @@
 //echo $this->Html->css('/app/webroot/css/v2/style_v1');
 	echo $this->Html->css('/app/webroot/css/v2/style');
 	echo $this->Html->css('/app/webroot/css/v2/slider');
+
 	echo $this->Html->script('/app/webroot/design300/js/jquery.min', array());
 	// echo $this->Html->script('app/webroot/js/v2/jquery-3.6.0.min', array('defer'));
 // echo $this->Html->script('app/webroot/js/v2/custom.min', array('defer'));
@@ -128,315 +167,1297 @@
     </script>
 </head>
 
+
 <body>
-    <div class="main-wrapper">
-
-        <header class="header header-two">
-            <div class="header-fixed" style="background-color: aliceblue">
-                <nav class="navbar navbar-expand-lg header-nav scroll-sticky">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <a id="mobile_btn" href="javascript:void(0);">
-                                <span class="bar-icon">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                            </a>
-                            <!-- <a href="index-2.html" class="navbar-brand logo"> -->
-                            <!-- <img src="app/webroot/img/v2/logo.svg" class="img-fluid" alt="Logo"> -->
-
-                            <div class="logo-text"><?php if (strlen($frontLogo) > 0) { ?><?php echo $this->Html->link($this->Html->image($frontLogo, array('alt' => $siteName, 'class' => 'img-responsive front-logo')), array('controller' => '/'), array('escape' => false));
-							} else { ?><?php echo $siteName; ?><?php } ?></div>
-                        </div>
 
 
 
-                        <div class="main-menu-wrapper">
-                            <div class="menu-header">
-                                <!-- <a href="index-2.html" class="menu-logo">
-										<img src="app/webroot/img/v2/logo.svg" class="img-fluid" alt="Logo">
-										</a> -->
-                                <a id="menu_close" class="menu-close" href="javascript:void(0);">
-                                    <i class="fas fa-times"></i>
-                                </a>
-                            </div>
-                            <ul id="frontMenu" class="main-nav">
-                                <li>
-                                    <a <?php if ($currentUrl == $siteDomain) { ?> style="color: #F66962" <?php } ?>
-                                        href="<?= $siteDomain ?>"><i class="fa fa-home"></i>&nbsp;Home</a>
-                                </li>
-                                <li class="has-submenu menu-effect">
-                                    <a <?php if ($currentUrl == $siteDomain . '/Contents/Pages/About-Us' || $currentUrl == $siteDomain . '/Contents/Pages/Profile') { ?>
-                                        style="color: #F66962" <?php } ?> href="#"><i
-                                            class="fa fa-globe"></i>&nbsp;About&nbsp;<i
-                                            class="fas fa-chevron-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a <?php if ($currentUrl == $siteDomain . '/Contents/Pages/About-Us') { ?>
-                                                style="color: #F66962" <?php } ?>
-                                                href="<?= $siteDomain ?>/Contents/Pages/About-Us"><i></i>&nbsp;About
-                                                Us</a>
-                                        </li>
-                                        <li><a <?php if ($currentUrl == $siteDomain . '/Contents/Pages/Profile') { ?>
-                                                style="color: #F66962" <?php } ?>
-                                                href="<?= $siteDomain ?>/Contents/Pages/Profile"><i></i>&nbsp;Profile</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a <?php if ($currentUrl == $siteDomain . '/Packages/index/index') { ?>
-                                        style="color: #F66962" <?php } ?>
-                                        href="<?= $siteDomain ?>/Packages/index/index"><i
-                                            class="fa fa-shopping-cart"></i>&nbsp;Packages</a></li>
+    <!--========================================
 
-                                <li><a <?php if ($currentUrl == $siteDomain . '/Schedules/index') { ?>
-                                        style="color: #F66962" <?php } ?> href="<?= $siteDomain ?>/Schedules/index"><i
-                                            class="fa fa-calendar"></i>&nbsp;Schedules</a>
-                                </li>
+		   Preloader
 
-                            </ul>
-                        </div>
-                        <ul class="nav header-navbar-rht">
-                            <li class="nav-item cart-nav">
-                                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"
-                                    id="products_animation_id">
-                                    <?php echo $this->Html->image('v2/cart.svg', array('class' => 'position-relative', 'alt' => 'Cart')); ?>
-                                    <span>
-                                        <i class="badge bg-secondary rounded-pill bg-warning " id="cart-counter">
-                                            <?php echo $cartCount; ?>
-                                        </i>
-                                    </span>
-                                </a>
-                                <div class="wishes-list dropdown-menu dropdown-menu-right">
-                                    <div class="wish-content overflow-hidden">
-                                        <?php
+	========================================-->
 
-										$total = 0;
-										$totalQuantity = 0;
-										if (!empty($products_animation)): ?>
+    <div class="page-preloader">
 
-                                        <ul id="products_animation"
-                                            class="ulproducts_animation dropdown-menu dropdown-user pull-right">
-                                            <div class="divproducts_animation w-100" bis_skin_checked="1">
-                                                <?php foreach ($products_animation as $product_animation): ?>
-                                                <?php
-														$product_name = $product_animation['Package']['name'];
-														$product_amount = $product_animation['Package']['amount'];
-														$product_show_amount = $product_animation['Package']['show_amount'];
-														if (strlen($product_animation['Package']['photo']) > 0) {
-															$product_photo = "/img/package_thumb/" . $product_animation['Package']['photo'];
-														} else {
-															$product_photo = "/img/nia.png";
-														}
-														$total = $total + ($product_animation['Package']['count'] * $product_animation['Package']['amount']);
-														$totalQuantity = $totalQuantity + $product_animation['Package']['count'];
-														?>
-                                                <li class="ani_li row">
-                                                    <div class="col-md-2 col-xs-2 product_animation_img"
-                                                        bis_skin_checked="1">
-                                                        <img src="/img/nia.png" alt="<?php echo $product_name ?>">
-                                                    </div>
-                                                    <div class="col-md-7 col-xs-7 p0" bis_skin_checked="1">
-                                                        <span class="textblack"><?php echo $product_name ?></span>
-                                                        <p class="text-muted small p0">Exams:
-                                                            <span class=""><strong>
-                                                                    <?php
-																			if (!empty($product_animation['Exam'])) {
-																				foreach ($product_animation['Exam'] as $examName):
-																					echo h($examName['name']); ?> |
-                                                                    <?php endforeach;
-																				unset($examName);
-																				unset($examName);
-																			} else {
-																				echo __('No Exam Found');
-																			}
-																			?>
-                                                                </strong>
+        <div class="spinner">
 
-                                                            </span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-3 col-xs-3 text-right" bis_skin_checked="1">
-                                                        <span
-                                                            class="text-danger"><strong><strike><?php echo "$" . $product_show_amount; ?></strike></strong></span>
-                                                        <div style="clear: both;" bis_skin_checked="1"></div>
-                                                        <span class="text-success"><big><strong>
-                                                                    <?php echo "$" . $product_amount; ?></strong></big></span>
-                                                    </div>
-                                                </li>
+            <div class="rect1"></div>
 
-                                                <?php endforeach; ?>
-                                            </div>
-                                            <li class="ani_li row" style="border-top: 1px solid #000;">
-                                                <div class="col-md-9" bis_skin_checked="1"><span
-                                                        class="textblack"><strong>TOTAL
-                                                            PRICE</strong></span>
-                                                </div>
-                                                <div class="col-md-3 p0" style="text-align: right;"
-                                                    bis_skin_checked="1">
-                                                    <span
-                                                        class="textblack"><strong><?php echo "$" . $total; ?></strong></span>
-                                                </div>
-                                                <div style="clear: both;" bis_skin_checked="1"></div>
-                                            </li>
-                                            <li class="ani_li" style="border: none;">
-                                                <div class="col-md-12" style="text-align: center;" bis_skin_checked="1">
-                                                    <a href="<?= $siteDomain ?>/Carts/View"
-                                                        class="btn btn-success shopCart"
-                                                        style="background: #68c6ec;border: #68c6ec;"><span>View
-                                                            Bag</span></a>
-                                                </div>
-                                            </li>
+            <div class="rect2"></div>
 
-                                        </ul>
-                                        <?php else: ?>
-                                        <ul>
-                                            <div class="empty-cart textblack mb-4">
-                                                <center>
-                                                    <a class="cartbag" href="/Carts/View"><i
-                                                            class="fa fa-shopping-bag"></i></a>
-                                                    <br><br>
-                                                    <span class="textblack text-uppercase empty-msg">your shopping bag
-                                                        is
-                                                        empty</span>
-                                                    <br><br>
-                                                    <a href="<?= $siteDomain ?>/Carts/View"
-                                                        class="btn btn-primary"><span
-                                                            class="fa fa-shopping-cart"></span>&nbsp;Continue
-                                                        Shopping</a>
-                                                </center>
-                                            </div>
-                                        </ul>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= $siteDomain ?>/Registers/index" class="nav-link header-login">Signin</a>
-                            </li>
-                            <li class="nav-item">
-                                <a <?php if ($currentUrl == $siteDomain . '/Registers/index') { ?>
-                                    style="border: 3px solid #F66962"
-                                    <?php } ?>href="<?= $siteDomain ?>/Registers/index"
-                                    class="nav-link header-login">Signup</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </header>
-        <?php echo $this->fetch('content'); ?>
-        <footer class="footer footer-five">
-            <div class="footer-top-five">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-contact footer-menu-five">
-                                <h2 class="footer-title footer-title-five">Get in touch</h2>
-                                <div class="footer-contact-info">
-                                    <div class="footer-address">
-                                        <span><i class="feather-map-pin"></i></span>
-                                        <p> 3556 Beech Street, San Francisco,<br> California, CA 94108 </p>
-                                    </div>
-                                    <p class="mb-0">
-                                        <span class="phone-icon"><i class="fa-solid fa-phone-volume"></i></span>
-                                        +19 123-456-7890
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-12">
-                            <div class="footer-menu footer-menu-five">
-                                <h2 class="footer-title footer-title-five"><i class="fa-sharp fa-solid fa-dash"></i>For
-                                    Instructor
-                                </h2>
-                                <ul>
-                                    <li><a href="<?= $siteDomain ?>/Contents/Pages/Profile">Profile</a></li>
-                                    <li><a href="<?= $siteDomain ?>/admin/Users/login_form">Login</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-sm-12">
-                            <div class="footer-menu footer-menu-five">
-                                <h2 class="footer-title footer-title-five">For Student</h2>
-                                <ul>
-                                    <li><a href="<?= $siteDomain ?>/Contents/Pages/Profile">Profile</a></li>
-                                    <li><a href="<?= $siteDomain ?>/crm/Users/login#">Login</a></li>
-                                    <li><a href="<?= $siteDomain ?>/Registers/index#">Register</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                            <h2 class="footer-title footer-title-five">Get More Updates</h2>
-                            <div class="footer-widget-five">
-                                <div class="footer-news-five">
-                                    <div class="form-group mb-0">
-                                        <input type="text" class="form-control" placeholder="Enter Your Email Address">
-                                        <button type="submit" class="btn btn-one">Subscribe</button>
-                                    </div>
-                                </div>
-                                <div class="footer-about-five">
-                                    <p>Stay ahead of the curve with our latest course releases, expert tips, and
-                                        educational
-                                        resources by subscribing to our newsletter.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom footer-bottom-five">
-                <div class="container">
-                    <div class="copyright-five">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
-                                <div class="footer-logo-five">
-                                    <a href="index-2.html">
-                                        <a href="<?= $siteDomain ?>"><img src="app/webroot/img/v2/logo-website.fw.png"
-                                                alt="Edu Expression Elite" class="img-fluid" /></a> </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="copyright-text">
-                                    <p>&copy; <?php echo $this->Time->format('Y', time()); ?> DreamsLMS. All rights
-                                        reserved.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="social-icon-five">
-                                    <ul class="nav">
-                                        <li>
-                                            <a href="#" class="twitter-icon">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="linked-icon">
-                                                <i class="fab fa-linkedin-in"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="facebook-icon">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="youtube-icon">
-                                                <i class="fab fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+            <div class="rect3"></div>
+
+            <div class="rect4"></div>
+
+            <div class="rect5"></div>
+
+        </div>
+
     </div>
+
+
+
+    <!--========================================
+
+		   Header
+
+	========================================-->
+
+
+
+    <!--//** Navigation**//-->
+
+    <nav class="navbar navbar-default navbar-fixed white no-background bootsnav navbar-scrollspy"
+        data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+
+
+        <div class="container">
+
+            <!-- Start Header Navigation -->
+
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+
+                    <i class="fa fa-bars"></i>
+
+                </button>
+
+                <a class="navbar-brand" href="#brand">
+
+                    <img src="assets/img/logo.png" class="logo" alt="logo">
+
+                </a>
+
+            </div>
+
+            <!-- End Header Navigation -->
+
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse" id="navbar-menu">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="active scroll"><a href="#home">Home</a></li>
+
+                    <li class="scroll"><a href="#about">About Us</a></li>
+
+                    <li class="scroll"><a href="#services">Profile</a></li>
+
+                    <li class="scroll"><a href="#price">Packages</a></li>
+
+                    <li class="scroll"><a href="#team">Schdules</a></li>
+
+                    <li class="button-holder">
+                        <button type="button" class="vortex-btn vortex-btn-blue navbar-vortex-btn"
+                            id="sign_in_vortex-btn">Sign in</button>
+                    </li>
+                    <li class="button-holder">
+                        <button type="button" class="vortex-btn vortex-btn-blue navbar-vortex-btn"
+                            id="sign_up_vortex-btn">Sign up</button>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- /.navbar-collapse -->
+
+        </div>
+
+    </nav>
+
+
+
+    <!--//** Banner**//-->
+
+    <section id="home">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div id="particles-js"></div>
+
+                <!-- Introduction -->
+
+                <div class="col-md-6 caption">
+
+                    <h1 class="vortex-h1">Welcome To Vortex</h1>
+
+                    <h2>
+
+                        I am
+
+                        <span class="animated-text"></span>
+
+                        <span class="typed-cursor"></span>
+
+                    </h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, quibusdam. Sit, quas tempora
+                        quia officia!</p>
+
+                    <a href="#" class="vortex-btn vortex-btn-transparent">Get Started</a>
+
+                    <a class="vortex-btn vortex-btn-blue popup-youtube" href="#">
+
+                        <i class="material-icons">play_circle_filled</i>Watch Video
+
+                    </a>
+
+                </div>
+
+                <!-- Sign Up -->
+
+                <div class="col-md-5 col-md-offset-1" style="display: none;" id="signup_form_section">
+
+                    <form class="signup-form">
+
+                        <h2 class="text-center">Signup Now</h2>
+
+                        <hr>
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" placeholder="Full Name" required="required">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="email" class="form-control" placeholder="Email Address" required="required">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" placeholder="User Name" required="required">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" placeholder="Password" required="required">
+
+                        </div>
+
+                        <div class="form-group text-center">
+
+                            <button type="submit" class="vortex-btn vortex-btn-blue vortex-btn-block">Start Now</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <!--========================================
+
+		   About Us
+
+	========================================-->
+
+
+
+    <section id="about" class="section-padding">
+
+        <div class="container">
+
+            <h2>About Us</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, optio.</p>
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">favorite</i>
+
+                        <h4>Simple To Use</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas minima, dicta quaerat sit
+                            cupiditate eum mollitia.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">flash_on</i>
+
+                        <h4>Powerful</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas minima, dicta quaerat sit
+                            cupiditate eum mollitia.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">settings</i>
+
+                        <h4>Easy To Customize</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas minima, dicta quaerat sit
+                            cupiditate eum mollitia.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Story
+
+	========================================-->
+
+
+
+    <section id="story">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <!-- Img -->
+
+                <div class="col-md-6 story-bg">
+
+                </div>
+
+                <!-- Story Caption -->
+
+                <div class="col-md-6">
+
+                    <div class="story-content">
+
+                        <h2>Our Success Story</h2>
+
+                        <p class="story-quote">
+
+                            " Success is finding satisfaction in giving a little more than you take."
+
+                        </p>
+
+                        <div class="story-text">
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis amet consequatur
+                                incidunt, alias odit quisquam laborum nemo nisi, vel, tempora eligendi enim voluptate
+                                accusamus libero voluptas commodi ex rerum dolorem!</p>
+
+                        </div>
+
+                        <a href="#" class="vortex-btn vortex-btn-white">Learn More</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Services
+
+	========================================-->
+
+
+
+    <section id="services" class="section-padding">
+
+        <div class="container">
+
+            <h2>Our Services</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, optio.</p>
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">thumb_up</i>
+
+                        <h4>Great Quality</h4>
+
+                        <p>Quality ipsum dolor sit amet, consectetur adipisicing elit. Beatae quod error quis.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">euro_symbol</i>
+
+                        <h4>Best Price</h4>
+
+                        <p>Price ipsum dolor sit amet, consectetur adipisicing elit. Beatae quod error quis.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">forum</i>
+
+                        <h4>24/7 Support</h4>
+
+                        <p>Support ipsum dolor sit amet, consectetur adipisicing elit. Beatae quod error quis.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">view_carousel</i>
+
+                        <h4>UX/UI Design</h4>
+
+                        <p>Quality ipsum dolor sit amet, consectetur adipisicing elit. Beatae quod error quis.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Features
+
+	========================================-->
+
+
+
+    <section id="features">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <h2>Awesome Features</h2>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, repudiandae mollitia iure
+                        magni accusamus, alias veniam.</p>
+
+                    <hr>
+
+                    <div class="feat-media">
+
+                        <!-- Feature -->
+
+                        <div class="media">
+
+                            <div class="media-left">
+
+                                <a href="#">
+
+                                    <i class="material-icons">monetization_on</i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="media-body">
+
+                                <h4 class="media-heading">Easy On Your Wallet</h4>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nam vel provident
+                                    quae.</p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Feature -->
+
+                        <div class="media">
+
+                            <div class="media-left">
+
+                                <a href="#">
+
+                                    <i class="material-icons">access_time</i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="media-body">
+
+                                <h4 class="media-heading">Time Saver</h4>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nam vel provident
+                                    quae.</p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Feature -->
+
+                        <div class="media">
+
+                            <div class="media-left">
+
+                                <a href="#">
+
+                                    <i class="material-icons">computer</i>
+
+                                </a>
+
+                            </div>
+
+                            <div class="media-body">
+
+                                <h4 class="media-heading">Fully Responsive</h4>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nam vel provident
+                                    quae.</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Features Img -->
+
+                <div class="col-md-6 col-md-push-2">
+
+                    <img src="assets/img/dashboard.png" class="img-responsive" alt="feature">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Price
+
+	========================================-->
+
+
+
+    <section id="price" class="section-padding">
+
+        <div class="container">
+
+            <h2>Choose Your Plan</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, optio.</p>
+
+            <div class="row">
+
+                <!-- Pricing Start Here -->
+
+                <div class="pricing-container">
+
+                    <div class="col-md-4">
+
+                        <!--== SINGLE USER: Plan ==-->
+
+                        <div class="plan">
+
+                            <div class="pricing-header">
+
+                                <h3>Single User</h3>
+
+                                <h3>
+
+                                    <span class="currency">$</span>
+
+                                    <span class="amount">20</span>
+
+                                    <span class="period">/mo</span>
+
+                                </h3>
+
+                            </div>
+
+                            <div class="pricing-body">
+
+                                <ul class="list-unstyled">
+
+                                    <li><i class="material-icons">done</i><b>265MB</b> Memory</li>
+
+                                    <li><i class="material-icons">done</i><b>1</b> User</li>
+
+                                    <li><i class="material-icons">done</i><b>1</b> Website</li>
+
+                                    <li><i class="material-icons">done</i><b>1</b> Domain</li>
+
+                                    <li><i class="material-icons">done</i><b>Unlimeted</b> Bandwitch</li>
+
+                                    <li><i class="material-icons">done</i><b>24/7</b> Support</li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="pricing-footer">
+
+                                <a href="#" class="vortex-btn vortex-btn-blue">Select</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <!--== MULTIPLE USER: Plan ==-->
+
+                        <div class="plan active">
+
+                            <div class="pricing-header">
+
+                                <h3>Multiple Users</h3>
+
+                                <h3>
+
+                                    <span class="currency">$</span>
+
+                                    <span class="amount">40</span>
+
+                                    <span class="period">/mo</span>
+
+                                </h3>
+
+                            </div>
+
+                            <div class="pricing-body">
+
+                                <ul class="list-unstyled">
+
+                                    <li><i class="material-icons">done</i><b>512MB</b> Memory</li>
+
+                                    <li><i class="material-icons">done</i><b>3</b> User</li>
+
+                                    <li><i class="material-icons">done</i><b>5</b> Website</li>
+
+                                    <li><i class="material-icons">done</i><b>7</b> Domain</li>
+
+                                    <li><i class="material-icons">done</i><b>Unlimeted</b> Bandwitch</li>
+
+                                    <li><i class="material-icons">done</i><b>24/7</b> Support</li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="pricing-footer">
+
+                                <a href="#" class="vortex-btn vortex-btn-blue">Select</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <!--== Developer: Plan ==-->
+
+                        <div class="plan">
+
+                            <div class="pricing-header">
+
+                                <h3>Developer</h3>
+
+                                <h3>
+
+                                    <span class="currency">$</span>
+
+                                    <span class="amount">60</span>
+
+                                    <span class="period">/mo</span>
+
+                                </h3>
+
+                            </div>
+
+                            <div class="pricing-body">
+
+                                <ul class="list-unstyled">
+
+                                    <li><i class="material-icons">done</i><b>1024MB</b> Memory</li>
+
+                                    <li><i class="material-icons">done</i><b>5</b> User</li>
+
+                                    <li><i class="material-icons">done</i><b>10</b> Website</li>
+
+                                    <li><i class="material-icons">done</i><b>10</b> Domain</li>
+
+                                    <li><i class="material-icons">done</i><b>Unlimeted</b> Bandwitch</li>
+
+                                    <li><i class="material-icons">done</i><b>24/7</b> Support</li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="pricing-footer">
+
+                                <a href="#" class="vortex-btn vortex-btn-blue">Select</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Team
+
+	========================================-->
+
+
+
+    <section id="team" class="section-padding">
+
+        <div class="container">
+
+            <h2>Team Of Professionals</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, optio.</p>
+
+            <div class="row">
+
+                <div class="col-md-6 col-lg-3">
+
+                    <!--**Team-Member**-->
+
+                    <div class="thumbnail team-member">
+
+                        <img src="assets/img/team-1.jpg" class="img-responsive img-circle" alt="team-1">
+
+                        <div class="caption">
+
+                            <h4>Adam White</h4>
+
+                            <h6>Founder Ceo</h6>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                            <hr>
+
+                            <div class="team-social">
+
+                                <ul class="liste-unstyled">
+
+                                    <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+
+                                    <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+
+                                    <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
+
+                                    <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+
+                    <!--**Team-Member**-->
+
+                    <div class="thumbnail team-member">
+
+                        <img src="assets/img/team-2.jpg" class="img-responsive img-circle" alt="team-2">
+
+                        <div class="caption">
+
+                            <h4>Jasmine Doe</h4>
+
+                            <h6>Web Designer</h6>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                            <hr>
+
+                            <div class="team-social">
+
+                                <ul class="liste-unstyled">
+
+                                    <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+
+                                    <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+
+                                    <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
+
+                                    <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+
+                    <!--**Team-Member**-->
+
+                    <div class="thumbnail team-member">
+
+                        <img src="assets/img/team-3.jpg" class="img-responsive img-circle" alt="team-3">
+
+                        <div class="caption">
+
+                            <h4>Mike White</h4>
+
+                            <h6>Developer</h6>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                            <hr>
+
+                            <div class="team-social">
+
+                                <ul class="liste-unstyled">
+
+                                    <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+
+                                    <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+
+                                    <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
+
+                                    <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+
+                    <!--**Team-Member**-->
+
+                    <div class="thumbnail team-member">
+
+                        <img src="assets/img/team-4.jpg" class="img-responsive img-circle" alt="team-4">
+
+                        <div class="caption">
+
+                            <h4>Jarl Doe</h4>
+
+                            <h6>Photographer</h6>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                            <hr>
+
+                            <div class="team-social">
+
+                                <ul class="liste-unstyled">
+
+                                    <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+
+                                    <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+
+                                    <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
+
+                                    <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Clients
+
+	========================================-->
+
+
+
+    <section id="clients" class="section-padding">
+
+        <div class="container">
+
+            <div class="row">
+
+                <h2>Clients Trust Us</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, optio.</p>
+
+                <!--// Clients Images //-->
+
+                <div class="clients-images">
+
+                    <div id="owl-clients">
+
+                        <div class="item"><img src="assets/img/clients/c_logo01.png" class="center-block" alt="client">
+                        </div>
+
+                        <div class="item"><img src="assets/img/clients/c_logo02.png" class="center-block" alt="client">
+                        </div>
+
+                        <div class="item"><img src="assets/img/clients/c_logo03.png" class="center-block" alt="client">
+                        </div>
+
+                        <div class="item"><img src="assets/img/clients/c_logo04.png" class="center-block" alt="client">
+                        </div>
+
+                        <div class="item"><img src="assets/img/clients/c_logo05.png" class="center-block" alt="client">
+                        </div>
+
+                        <div class="item"><img src="assets/img/clients/c_logo06.png" class="center-block" alt="client">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--// Clients Testimonials //-->
+
+                <div id="owl-testimonials">
+
+                    <div class="item">
+
+                        <i class="material-icons">mood</i>
+
+                        <p class="quote">Vivamus quam neque, aliquet ac faucibus ut, vestibulum. Nulla quis laoreet
+                            diam. Donec sed egestas ex, nec facilisis ante. Vivamus imperdiet odio. Cras luctus interdum
+                            sodales. Quisque quis odio dui.</p>
+
+                        <h4>-John Doe, Company inc.</h4>
+
+                    </div>
+
+                    <div class="item">
+
+                        <i class="material-icons">mood</i>
+
+                        <p class="quote">Vivamus quam neque, aliquet ac faucibus ut, vestibulum. Nulla quis laoreet
+                            diam. Donec sed egestas ex, nec facilisis ante. Vivamus imperdiet odio. Cras luctus interdum
+                            sodales. Quisque quis odio dui.</p>
+
+                        <h4>-Jarl Doe, Company inc.</h4>
+
+                    </div>
+
+                    <div class="item">
+
+                        <i class="material-icons">mood</i>
+
+                        <p class="quote">Vivamus quam neque, aliquet ac faucibus ut, vestibulum. Nulla quis laoreet
+                            diam. Donec sed egestas ex, nec facilisis ante. Vivamus imperdiet odio. Cras luctus interdum
+                            sodales. Quisque quis odio dui.</p>
+
+                        <h4>-Adam Doe, Company inc.</h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Newsletter
+
+	========================================-->
+
+
+
+    <section id="newsletter">
+
+        <div class="container">
+
+            <div class="row">
+
+                <h3>Subscribe to get early access!</h3>
+
+                <div class="form-container">
+
+                    <form class="form-inline">
+
+                        <input type="email" class="form-control" id="newsletter-form" placeholder="Email"
+                            required="required">
+
+                        <button type="submit" class="vortex-btn vortex-btn-white">Subscribe</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Contact
+
+	========================================-->
+
+
+
+    <section id="contact" class="section-padding">
+
+        <div class="container">
+
+            <h2>Contact Us</h2>
+
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+
+            <p>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+
+        </div>
+
+        <!-- Contact Info -->
+
+        <div class="container contact-info">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">place</i>
+
+                        <h4>Address</h4>
+
+                        <p>PABox 13592, Lorem Street Ipsum Dolor, Victoria 8007, USA</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">phone</i>
+
+                        <h4>Call Us On</h4>
+
+                        <p>1-834-527-6940</p>
+
+                        <p>1-834-527-6940</p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="icon-box">
+
+                        <i class="material-icons">email</i>
+
+                        <h4>Email us on</h4>
+
+                        <p>lorem@xyz.com</p>
+
+                        <p>lorem@xyz.com</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Google Map -->
+
+
+
+        <!-- Contact Form -->
+
+        <div class="contact-forms">
+
+            <div class="container">
+
+                <h2>Drop us a Line</h2>
+
+                <form class="contact-form">
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" placeholder="Full Name" required="required">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="email" class="form-control" placeholder="Email" required="required">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+
+                            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="vortex-btn vortex-btn-blue">Send Message</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--========================================
+
+		   Footer
+
+	========================================-->
+
+
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="footer-caption">
+
+                    <img src="assets/img/logo.png" class="img-responsive center-block" alt="logo">
+
+                    <hr>
+
+                    <h5 class="pull-left">Vortex, &copy;2016 All rights reserved</h5>
+
+                    <ul class="liste-unstyled pull-right">
+
+                        <li><a href="#facebook"><i class="fa fa-facebook"></i></a></li>
+
+                        <li><a href="#twitter"><i class="fa fa-twitter"></i></a></li>
+
+                        <li><a href="#linkedin"><i class="fa fa-linkedin"></i></a></li>
+
+                        <li><a href="#instagram"><i class="fa fa-instagram"></i></a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!--========================================
+
+		   Modal
+
+	========================================-->
+
+    <!-- Modal -->
+
+
+
+    <!-- <div class="modal fade" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+					<h4 class="modal-title text-center" id="myModalLabel">Sign In</h4>
+
+				</div>
+
+				<div class="modal-body">
+
+					<form class="signup-form">
+
+						<div class="form-group">
+
+							<input type="text" class="form-control" placeholder="User Name" required="required">
+
+						</div>
+
+						<div class="form-group">
+
+							<input type="text" class="form-control" placeholder="Password" required="required">
+
+						</div>
+
+						<div class="form-group text-center">
+
+							<button type="submit" class="vortex-btn vortex-btn-blue vortex-btn-block">Log In</button>
+
+						</div>
+
+					</form>
+
+				</div>
+
+				<div class="modal-footer text-center">
+
+					<a href="#">Forgot your password /</a>
+
+					<a href="#">Signup</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div> -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- <script src="assets/bootstrap-3.3.7/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
+
+    <!-- <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <?php
+
+
 	echo $this->Html->script('/app/webroot/js/v2/bootstrap.bundle.min', array('defer'));
-	echo $this->Html->script('/app/webroot/js/v2/owl.carousel.min', array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/plugins/owl-carousel/owl.carousel.min.js', array('defer'));
+	// echo $this->Html->script('/app/webroot/js/v2/owl.carousel.min', array('defer'));
 	echo $this->Html->script('/app/webroot/js/v2/aos', array('defer'));
 	echo $this->Html->script('/app/webroot/js/v2/jquery.waypoints', array('defer'));
 	echo $this->Html->script('/app/webroot/js/v2/jquery.counterup.min', array('defer'));
@@ -456,8 +1477,30 @@
 	echo $this->Html->script('/app/webroot/js/bootstrap-multiselect', array('defer'));
 	echo $this->Html->script('/app/webroot/js/waiting-dialog.min', array('defer'));
 	echo $this->Html->script("/app/webroot/js/langs/$configLanguage", array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/plugins/bootsnav_files/js/bootsnav.js', array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/plugins/typed.js-master/typed.js-master/dist/typed.min.js', array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/jquery.magnific-popup.js', array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/plugins/particles.js-master/particles.js-master/particles.min.js', array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/particales-script.js', array('defer'));
+	echo $this->Html->script('/app/webroot/assets/js/main.js', array('defer'));
+
+
+	// <script src="assets/js/plugins/bootsnav_files/js/bootsnav.js"></script>
+
+	// <script src="assets/js/plugins/typed.js-master/typed.js-master/dist/typed.min.js"></script>
+
+
+
+	// <script src="assets/js/plugins/Magnific-Popup-master/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+
+	// <script src="assets/js/plugins/particles.js-master/particles.js-master/particles.min.js"></script>
+
+	// <script src="assets/js/particales-script.js"></script>
+
+	// <script src="assets/js/main.js"></script>
 	// echo $this->Html->script('app/webroot/js/custom.min', array('defer'));
 	?>
+
 </body>
 
 
