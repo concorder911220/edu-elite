@@ -132,7 +132,7 @@ class PagesController extends AppController
 		$this->set('package_count', $this->Package->find('count'));
 		$this->set('countExamOrder', $this->News->find('count'));
 
-		$this->set('exam_lists', $this->Exam->find('all'));
+		$this->set('exam_lists', $this->Exam->find('all', array('limit' => 3)));
 
 		$this->set('package_lists', $this->Package->find('all'));
 
