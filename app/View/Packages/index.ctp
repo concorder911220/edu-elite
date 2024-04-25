@@ -12,6 +12,27 @@ $this->Paginator->options(
 );
 
 ?>
+<style>
+.package-item-class {
+    min-height: 200px;
+    height: 200px;
+    width: 200px;
+    min-width: 200px
+}
+
+.member-card {
+    background-color: #eee;
+}
+
+.team .member {
+    background-color: #eee;
+}
+
+.member-card:hover {
+    transform: scale(1.025);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
+}
+</style>
 
 <section class="section">
     <div class="container mycontainer">
@@ -21,86 +42,80 @@ $this->Paginator->options(
                     <h2 class="title-border"><?php echo __('Packages'); ?></h2>
                 </div>
             </div>
-            <div id="products" class="row g-4">
-                <?php echo $this->Session->flash();
-				$cartUrl = $this->Html->url(array('controller' => 'Carts', 'action' => 'viewajax')); ?>
-                <?php foreach ($Package as $post):
-					$id = $post['Package']['id'];
-					if (strlen($post['Package']['photo']) > 0) {
-						$photo = "package/" . $post['Package']['photo'];
-					} else {
-						$photo = "nia.png";
-					}
-					$viewUrl = $this->Html->url(array('controller' => 'Packages', 'action' => "view", $id)); ?>
 
-                <div class="item  col-md-3">
-                    <div class="thumbnail mycontainer item_img package_card" style="padding: 5px">
-                        <a class=""
-                            href="<?php echo $this->Html->url(array('controller' => 'Packages', 'action' => 'singleproduct', $id, Inflector::slug(strtolower($post['Package']['name']), "-"))) ?>">
-                            <?php echo $this->Html->image($photo, array(
-									'alt' => h($post['Package']['name']),
-									'class' => '
-					                        group list-group-image PackageImg w-100 mw-100',
-								)
-								); ?>
-                        </a>
-                        <div class="caption">
-                            <h4 class="group inner list-group-item-heading package-name-list fs-5 mt-2">
-                                <strong><?php echo h($post['Package']['name']); ?></strong>
-                            </h4>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-12">
-                                    <span class="lead">
-                                        <?php if ($post['Package']['show_amount'] != $post['Package']['amount']) { ?>
-                                        <span class="text-danger">
-                                            <strong>
-                                                <strike>
-                                                    <?php echo "$" . $post['Package']['show_amount']; ?>
-                                                </strike>
-                                            </strong>
-                                        </span>
-                                        <?php } ?>
-                                        <span class="text-success">
-                                            <big>
-                                                <strong id="pac<?php echo $id ?>">
-                                                    <?php if ($post['Package']['package_type'] == "P") {
-															echo "$" . $post['Package']['amount'];
-														} else {
-															echo '&nbsp;';
-														} ?>
-                                                </strong>
-                                            </big>
-                                        </span>
-                                    </span>
-                                    <hr style="margin:10px 0;">
+
+            <div class="team">
+                <div class="row">
+                    <?php echo $this->Session->flash();
+					$cartUrl = $this->Html->url(array('controller' => 'Carts', 'action' => 'viewajax')); ?>
+                    <?php foreach ($Package as $post):
+						$id = $post['Package']['id'];
+						if (strlen($post['Package']['photo']) > 0) {
+							$photo = "package/" . $post['Package']['photo'];
+						} else {
+							$photo = "nia.png";
+						}
+						$viewUrl = $this->Html->url(array('controller' => 'Packages', 'action' => "view", $id)); ?>
+                    <div class="col-lg-3 col-md-6 col-6 d-flex align-items-stretch">
+                        <div class="member member-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="member-img">
+                                <?php echo $this->Html->image(
+										$photo,
+										array(
+											'alt' => h($post['Package']['name']),
+											'class' => '
+					                        group list-group-image PackageImg package-item-class',
+										)
+									); ?>
+                                <div class="social">
+                                    <?php
+										$url = $this->Html->url(array('controller' => 'Carts', 'action' => 'buy'));
+										if ($post['Package']['package_type'] == "F") {
+											echo $this->Html->link('<span class="fa fa-play"></span>' . __(''), array('controller' => 'Packages', 'action' => 'startnow', $id), array('escape' => false, 'class' => 'btn btn-success'));
+										} else {
+											echo $this->Html->link('<span class="fa fa-shopping-cart"></span>' . __(''), 'javascript:void(0);', array('onclick' => "shopCart('$id');", 'rel' => $url, 'escape' => false, 'class' => 'btn btn-success shopCart', 'id' => 'addtocart' . $id));
+										}
+
+										?>
+
+                                    <?php echo $this->Html->link('<span class="fa fa-info-circle"></span>' . __(''), 'javascript:void(0);', array('onclick' => "show_modal('$viewUrl');", 'escape' => false, 'class' => 'btn btn-info text-white text-center')); ?>
                                 </div>
+                            </div>
+                            <div class="member-info">
+                                <h4><?php echo h($post['Package']['name']); ?></h4>
 
-                                <div class="col-xs-12 col-md-12 text-center">
-                                    <div class="btn-group">
-                                        <?php
-											$url = $this->Html->url(array('controller' => 'Carts', 'action' => 'buy'));
-											if ($post['Package']['package_type'] == "F") {
-												echo $this->Html->link('<span class="fa fa-play"></span>&nbsp;' . __('Start Now'), array('controller' => 'Packages', 'action' => 'startnow', $id), array('escape' => false, 'class' => 'btn btn-success'));
+                                <span class="d-flex">
+                                    <?php if ($post['Package']['show_amount'] != $post['Package']['amount']) { ?>
+
+                                    <span
+                                        class="text-danger text-decoration-line-through"><?php echo "$" . $post['Package']['show_amount']; ?></span>
+
+
+                                    <?php } ?>
+
+                                    <span id="pac<?php echo $id ?>" class="ms-1 fw-bold"
+                                        style="color: black; font-size: 14px">
+                                        <?php if ($post['Package']['package_type'] == "P") {
+												echo "$" . $post['Package']['amount'];
 											} else {
-												echo $this->Html->link('<span class="fa fa-shopping-cart"></span>&nbsp;' . __('Add to Cart'), 'javascript:void(0);', array('onclick' => "shopCart('$id');", 'rel' => $url, 'escape' => false, 'class' => 'btn btn-success shopCart', 'id' => 'addtocart' . $id));
-											}
-
-											?>
-
-                                        <?php echo $this->Html->link('<span class="fa fa-alt-screen"></span>&nbsp;' . __('Full Details'), 'javascript:void(0);', array('onclick' => "show_modal('$viewUrl');", 'escape' => false, 'class' => 'btn btn-info text-white')); ?>
-                                    </div>
-                                </div>
+												echo '&nbsp;';
+											} ?>
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach;
+					unset($value); ?>
+
                 </div>
-                <?php endforeach;
-				unset($value); ?>
             </div>
 
 
+
             <div class="col-sm-12">
-                <?php echo $this->element('pagination', array('IsSearch' => 'No', 'IsDropdown' => 'No')); ?></div>
+                <?php echo $this->element('pagination', array('IsSearch' => 'No', 'IsDropdown' => 'No')); ?>
+            </div>
         </div>
         <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
@@ -194,6 +209,11 @@ $(document).ready(function() {
 echo $this->fetch('script');
 
 echo $this->Html->script('/app/webroot/design700/js/jquery-ui.min.js');
+
+
+
+
+
 
 
 ?>

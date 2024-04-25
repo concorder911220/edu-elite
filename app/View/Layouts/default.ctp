@@ -38,6 +38,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <?php
 	echo $this->Html->css('/app/webroot/css/font-awesome-5.7.2');
@@ -167,8 +169,11 @@
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
-            <a href="#about" class="get-started-btn scrollto">Sign In</a>
-            <a href="#about" class="get-started-btn scrollto">Sign Up</a>
+            <a <?php if ($currentUrl == $siteDomain . '/Login/index') { ?> style="background: #111111; color: #fff;"
+                <?php } ?>href="<?= $siteDomain ?>/Login/index" class="get-started-btn scrollto">Sign In</a>
+
+            <a <?php if ($currentUrl == $siteDomain . '/Registers/index') { ?> style="background: #111111; color: #fff;"
+                <?php } ?>href="<?= $siteDomain ?>/Registers/index" class="get-started-btn scrollto">Sign Up</a>
         </div>
     </header><!-- End Header -->
     <?php echo $this->fetch('content'); ?>
@@ -231,10 +236,6 @@
                     &copy; Copyright <strong><span>Presento</span></strong>. All Rights Reserved
                 </div>
                 <div class="credits">
-                    <!-- All the links in the footer should remain intact. -->
-                    <!-- You can delete the links only if you purchased the pro version. -->
-                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/presento-bootstrap-corporate-template/ -->
                     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                 </div>
             </div>
@@ -252,10 +253,10 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script>
-	AOS.init();
-	</script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
     <?php
 	echo $this->Html->script('/app/webroot/assets/vendor/purecounter/purecounter_vanilla.js', array('defer'));
 	echo $this->Html->script('/app/webroot/assets/vendor/aos/aos.js', array('defer'));
@@ -293,6 +294,11 @@
 	?>
 
 </body>
+
+
+
+
+
 
 
 

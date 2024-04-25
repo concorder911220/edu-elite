@@ -19217,3 +19217,313 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
 [main] - APP\webroot\index.php, line 107
 
+2024-04-24 23:28:39 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:18 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:19 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:19 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 59]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 59
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:19 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 60]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 60
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:19 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:19 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:30:19 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:41:47 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 59]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 59
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:41:47 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 60]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 60
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:41:47 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:41:47 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:41:47 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:41:47 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-24 23:43:56 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:07:55 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:15:04 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 59]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 59
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:15:04 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 60]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 60
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:15:04 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:15:04 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:15:04 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:15:04 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:20:22 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:20:58 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 02:33:39 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 05:12:03 Debug: Notice (8): Undefined variable: exam_id in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 46]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::exam_by_package_id() - APP\Controller\SchedulesController.php, line 46
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 05:12:03 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 59]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 59
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 05:12:03 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 60]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 60
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 05:12:03 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 05:12:03 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+
+2024-04-25 05:12:03 Debug: Notice (8): Undefined offset: 0 in [E:\xampp\htdocs\edu-elute\app\Controller\SchedulesController.php, line 62]
+Trace:
+ErrorHandler::handleError() - CORE\Cake\Error\ErrorHandler.php, line 230
+SchedulesController::get_package_by_id() - APP\Controller\SchedulesController.php, line 62
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 491
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 167
+[main] - APP\webroot\index.php, line 107
+

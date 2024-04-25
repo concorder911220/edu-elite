@@ -27,18 +27,18 @@
                         <table class="table">
                             <tr>
                                 <td><strong><?php echo __('Package Name'); ?> :</strong> <span
-                                            class="text-info"><strong><?php echo h($post['Package']['name']); ?></strong></span>
+                                        class="text-info"><strong><?php echo h($post['Package']['name']); ?></strong></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td><strong><?php echo __('Amount'); ?> :</strong> <span
-                                            class="text-danger"><strong><strike><?php echo $currency . $post['Package']['show_amount']; ?></strike></strong></span><span
-                                            class="text-success"><big><strong> <?php echo $currency . $post['Package']['amount']; ?></strong></big></span>
+                                        class="text-danger"><strong><strike><?php echo $currency . $post['Package']['show_amount']; ?></strike></strong></span><span
+                                        class="text-success"><big><strong>
+                                                <?php echo $currency . $post['Package']['amount']; ?></strong></big></span>
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong><?php echo __('Expiry'); ?> :</strong> <span
-                                            class="text-info"><strong><?php if ($post['Package']['expiry_days'] == 0) {
+                                <td><strong><?php echo __('Expiry'); ?> :</strong> <span class="text-info"><strong><?php if ($post['Package']['expiry_days'] == 0) {
     echo 'Unlimited';
 } else {
     echo $post['Package']['expiry_days'];
@@ -47,10 +47,9 @@
 echo ' ' . __('Days');?></strong></span></td>
                             </tr>
                             <tr>
-                                <td><strong><?php echo __('Exams'); ?> :</strong> <span
-                                            class="text-info"><strong><?php foreach ($post['Exam'] as $examName):
+                                <td><strong><?php echo __('Exams'); ?> :</strong> <span class="text-info"><strong><?php foreach ($post['Exam'] as $examName):
     echo h($examName['name']);?> |
-	                                            <?php endforeach;
+                                            <?php endforeach;
 unset($examName);
 unset($examName);?></strong></span></td>
                             </tr>
