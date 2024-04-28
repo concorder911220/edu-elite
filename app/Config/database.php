@@ -6,7 +6,7 @@ class DATABASE_CONFIG {
 	'host' => 'localhost',
 	'login' => 'root',
 	'password' => '',
-	'database' => 'newedudesign',
+	'database' => 'newversion',
 	'prefix' => '',
 	'encoding' => 'utf8',
 	'port'=>3306
@@ -17,7 +17,7 @@ class DATABASE_CONFIG {
     'host' => 'localhost',
     'login' => 'root',
     'password' => '',
-    'database' => 'newedudesign',
+    'database' => 'newversion',
     'prefix' => '',
     'encoding' => 'utf8',
     'port'=>3306

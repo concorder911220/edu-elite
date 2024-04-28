@@ -120,6 +120,13 @@ function resizeDiv() {
 
 	}
 
+	if (windowWidth > 980) {
+		$(".exam_question_palette").css({
+			"width": "auto",
+		});
+	}
+
+
 
 }
 

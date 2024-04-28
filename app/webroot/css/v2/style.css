@@ -1337,7 +1337,7 @@ button.bg-danger:hover {
 	margin-right: 15px;
 }
 .wish-content {
-    height: 350px;
+    /* height: 350px; */
     width: 415px;
     overflow-y: auto;
     position: relative;
@@ -4799,10 +4799,11 @@ html.menu-opened body {
 	margin-right: 15px;
 }
 .wish-content {
-    height: 350px;
+    /* height: 350px; */
+	max-height: 350px !important;
     width: 415px;
-    overflow-y: auto;
-    position: relative;
+    overflow-y: auto !important;
+    /* position: relative; */
     padding-right: 0;
 }
 .wish-content::-webkit-scrollbar {

@@ -69,8 +69,8 @@
 				}, 'google_translate_element');
 			}
 		</script>
-		<script type="text/javascript"
-			src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+		</script>
 	<?php } ?>
 
 	<script type="text/javascript">
@@ -79,7 +79,8 @@
 			$("#products_animation_id").hover(
 				function () {
 					$("#products_animation").show(500);
-				}, function () {
+				},
+				function () {
 					//$( "#products_animation" ).hide(500);
 				}
 			);
@@ -87,7 +88,8 @@
 			$("#products_animation").hover(
 				function () {
 					// $( "#products_animation" ).show(500);
-				}, function () {
+				},
+				function () {
 					$("#products_animation").hide(500);
 				}
 			);
@@ -159,8 +161,10 @@
 </head>
 <div id="google_translate_element"></div>
 
-<body class="sidebar-color-black font-source-sans-pro layout-sidebar-collapsed"><!--Modal Default-->
-	<div class="fluid"><!--BEGIN TEMPLATE SETTING-->
+<body class="sidebar-color-black font-source-sans-pro layout-sidebar-collapsed">
+	<!--Modal Default-->
+	<div class="fluid">
+		<!--BEGIN TEMPLATE SETTING-->
 		<div class="hidden-xs hidden-sm">
 			<div id="template-setting">
 				<div class="pull-right">
@@ -171,7 +175,8 @@
 			</div>
 		</div>
 	</div>
-	<!--END TEMPLATE SETTING--><!--BEGIN TOPBAR-->
+	<!--END TEMPLATE SETTING-->
+	<!--BEGIN TOPBAR-->
 	<div class="page-header-topbar">
 		<nav id="topbar" role="navigation" class="navbar-default container pln prn">
 			<div class="container-fluid pln prn">
@@ -338,8 +343,10 @@
 	</div>
 	<!--END TOPBAR-->
 	<div id="setting-sidebar-collapsed"></div>
-	<div id="wrapper"><!--BEGIN PAGE WRAPPER-->
-		<div id="page-wrapper"><!--BEGIN SIDEBAR MAIN-->
+	<div id="wrapper">
+		<!--BEGIN PAGE WRAPPER-->
+		<div id="page-wrapper">
+			<!--BEGIN SIDEBAR MAIN-->
 			<?php if ($this->Session->check('Student')) { ?>
 				<div class="sidebar-main sidebar">
 					<div class="sidebar-collapse sidebar-scroll">
@@ -358,9 +365,12 @@
 					</div>
 				</div>
 			<?php } ?>
-			<!--END SIDEBAR MAIN--><!--BEGIN PAGE CONTENT-->
-			<div class="page-content"><!--BEGIN TITLE & BREADCRUMB PAGE-->
-				<div class="box-content"><!--BEGIN CONTENT-->
+			<!--END SIDEBAR MAIN-->
+			<!--BEGIN PAGE CONTENT-->
+			<div class="page-content">
+				<!--BEGIN TITLE & BREADCRUMB PAGE-->
+				<div class="box-content">
+					<!--BEGIN CONTENT-->
 					<div class="content">
 						<div class="row">
 							<div class="col-md-12">
@@ -381,6 +391,7 @@
 			<div class="pull-left"><?php echo __('Copyright &copy;'); ?> <?php echo $this->Time->format('Y', time()); ?>
 				<strong> <?php echo $siteName; ?></strong>
 			</div>
+
 			<div class="text-center">
 				<strong><?php echo __('Date &amp; Time'); ?>
 				</strong><span><?php echo $this->Time->format('d-m-Y h:i:s A', time()); ?></span>

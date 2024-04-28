@@ -134,15 +134,21 @@ class PagesController extends AppController
 
 		$this->set('exam_lists', $this->Exam->find('all', array('limit' => 3)));
 
+
+		// var_dump($this->Exam->find('all', array('limit' => 3)));
+		die();
+
 		$this->set('package_lists', $this->Package->find('all'));
 
 		$this->set('testimonials', $this->Testimonial->find('all', array('conditions' => array('status' => 'Active'), 'order' => array('ordering' => 'ASC'))));
 		$this->set('advertisements', $this->Advertisement->findAllByStatus('Active'));
 		$slides = $this->Slide->find('all', array('conditions' => array('status' => 'Active'), 'order' => array('ordering' => 'ASC')));
-		$news = $this->News->find('all', array(
-			'conditions' => array('status' => 'Active'),
-			'order' => 'id desc'
-		)
+		$news = $this->News->find(
+			'all',
+			array(
+				'conditions' => array('status' => 'Active'),
+				'order' => 'id desc'
+			)
 		);
 		$this->set('slides', $slides);
 		$this->set('news', $news);
