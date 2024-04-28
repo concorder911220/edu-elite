@@ -134,10 +134,6 @@ class PagesController extends AppController
 
 		$this->set('exam_lists', $this->Exam->find('all', array('limit' => 3)));
 
-
-		// var_dump($this->Exam->find('all', array('limit' => 3)));
-		die();
-
 		$this->set('package_lists', $this->Package->find('all'));
 
 		$this->set('testimonials', $this->Testimonial->find('all', array('conditions' => array('status' => 'Active'), 'order' => array('ordering' => 'ASC'))));
