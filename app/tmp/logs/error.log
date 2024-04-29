@@ -17748,3 +17748,140 @@ Stack Trace:
 #1 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
 #2 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2024-04-29 11:40:20 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:48:21 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:48:23 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:48:36 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:03 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:24 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/d62f5a69f996d563f146a52436d80bbe.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/package/cf5d1ae61f197279aade0ad6dbf1296d.jpg
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/package/0e9ce0b3d3384945f465180bc31e5c99.jpg
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 11:49:29 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-29 15:19:29 Error: [MissingActionException] Action SchedulesController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'SchedulesController',
+  'action' => 'img',
+)
+Request URL: /new-version/Schedules/img/nia.png
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(SchedulesController), Object(CakeRequest))
+#2 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2024-04-29 11:49:32 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

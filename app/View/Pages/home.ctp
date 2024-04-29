@@ -1,227 +1,152 @@
-<!-- ======= Hero Section ======= -->
-<style>
-	.package-item-home:hover {
-		transform: scale(1.025);
-		box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
-	}
+<?php
+// echo $this->Html->css('/app/webroot/design300/css/bootstrap.min');
+echo $this->Html->script('/app/webroot/js/bootstrap-filestyle.min'); ?>
+<script type="text/javascript">
+$(":file").filestyle();
+</script>
+<style type="text/css">
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: .5;
+}
+
+.hr-text:before {
+    content: '';
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+
+.hr-text:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 .5em;
+    line-height: 1.5em;
+    color: gray;
+    background-color: #e8e8e8;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.mbs:hover {
+    color: white;
+}
+
+hr {
+    margin: 15px 0;
+}
+
+.btn-group {
+    width: 100%;
+}
+
+button.multiselect.dropdown-toggle.btn.btn-default {
+    width: 100%;
+}
+
+.resend-verify {
+    text-decoration: none;
+    font-size: small;
+    color: chocolate;
+}
+
+.resend-verify:hover {
+    text-decoration: none;
+    color: coral;
+}
+
+@media (max-width: 767px) {
+    .pageMarginTab {
+        margin-top: 50px;
+    }
+}
 </style>
+<section class="section registration-wrapper mt-5 mb-5 pb-0">
+    <div class="container mycontainer mb-5">
+        <div class="RegisterPage">
+            <div class="row justify-content-center">
 
-<section id="hero" class="d-flex align-items-center">
+                <div class="col-md-6 pageMarginTab">
+                    <ul class="nav nav-pills">
 
-	<div class="container" data-aos="zoom-out" data-aos-delay="100">
-		<div class="row">
-			<div class="col-xl-6">
-				<?php echo __($Homesection[0]['Homesection']['sections_content']); ?>
-			</div>
-			<div class="col-md-5 d-flex align-items-center">
-				<div class="girl-slide-img aos" data-aos="fade-up">
-					<img src="<?php echo $this->webroot; ?>img/tab/<?php echo $Homesection[0]['Homesection']['sections_img'] ?>"
-						alt="">
-				</div>
-			</div>
-		</div>
-	</div>
+                        <li class="p-2 w-100">
+                            <?php echo __('Login'); ?>
+                        </li>
 
-</section><!-- End Hero -->
+                    </ul>
+                    <div class="tab-content clearfix pt-3">
 
-<main id="main">
+                        <div class="tab-pane active" id="2a" style="margin-top: 15px;">
 
-	<!-- ======= Counts Section ======= -->
-	<section id="counts" class="counts">
-		<div class="container" data-aos="fade-up">
-
-			<div class="row">
-
-				<div class="col-lg-3 col-md-6">
-					<div class="count-box">
-						<i class="bi bi-emoji-smile"></i>
-						<span data-purecounter-start="0" data-purecounter-end="<?php echo $students; ?>"
-							data-purecounter-duration="1" class="purecounter"></span>
-						<p>Student count</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-					<div class="count-box">
-						<i class="bi bi-journal-richtext"></i>
-						<span data-purecounter-start="0" data-purecounter-end="<?php echo $exams; ?>"
-							data-purecounter-duration="1" class="purecounter"></span>
-						<p>Exam count</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-					<div class="count-box">
-						<i class="bi bi-headset"></i>
-						<span data-purecounter-start="0" data-purecounter-end="<?php echo $package_count; ?>"
-							data-purecounter-duration="1" class="purecounter"></span>
-						<p>Package count</p>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-					<div class="count-box">
-						<i class="bi bi-people"></i>
-						<span data-purecounter-start="0" data-purecounter-end="<?php echo $countExamOrder; ?>"
-							data-purecounter-duration="1" class="purecounter"></span>
-						<p>News count</p>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-	</section><!-- End Counts Section -->
-
-	<section id="pricing" class="pricing section-bg">
-		<div class="container" data-aos="fade-up">
-
-			<div class="section-title">
-				<h2>Top Exam Services</h2>
-
-			</div>
-
-			<div class="row">
-
-				<?php if (count($exam_lists) > 0): ?>
-
-					<?php foreach ($exam_lists as $key => $examsss): ?>
-						<div class="col-lg-4 col-md-6 mt-4">
-							<div class="box d-flex flex-column overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-								<div class="flex-grow-0 flex-shrink-0">
-									<h3><?php echo $exam_lists[$key]["Exam"]["name"]; ?></h3>
-								</div>
-								<div class="flex-grow-1 flex-shrink-1 h-100 overflow-auto scroll-class">
-									<h4><?php echo $exam_lists[$key]["Exam"]["instruction"]; ?></h4>
-									<h3 class="title instructor-text">
-										<?php echo $exam_lists[$key]["Exam"]["instruction"]; ?>
-									</h3>
-								</div>
-								<div class="flex-grow-0 flex-shrink-0">
-									<div class="btn-wrap">
-										<a href="#" class="btn-buy">Duration:
-											<?php echo $exam_lists[$key]["Exam"]["duration"]; ?>
-											Min.</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					<?php endforeach; ?>
-				<?php else: ?>
-					<?php echo "No records found"; ?>
-				<?php endif; ?>
-			</div>
-
-		</div>
-	</section><!-- End Pricing Section -->
+                            <?php echo $this->Form->create('Register', array('url' => array('action' => 'login'), 'name' => 'post_req', 'id' => 'post_req', 'class' => 'form-horizontal', 'role' => 'form')); ?>
 
 
-	<section id="testimonials" class="testimonials">
-		<div class="container" data-aos="fade-up">
-			<div class="section-title">
-				<h2><?php echo __($Homesection[1]['Homesection']['sections_heading']); ?></h2>
-				<p><?php echo __($Homesection[1]['Homesection']['sections_content']) ?></p>
-			</div>
+                            <div class="form-group">
 
-			<div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-				<div class="swiper-wrapper">
-					<?php if (count($package_lists) > 0): ?>
-
-						<?php foreach ($package_lists as $key => $packages):
-							$id = $package_lists[$key]["Package"]["id"];
-							if (strlen($package_lists[$key]["Package"]["photo"]) > 0) {
-								$photo = "img/package/" . $package_lists[$key]["Package"]["photo"];
-							} else {
-								$photo = "img/nia.png";
-							}
-							?>
-
-							<div class="swiper-slide">
-								<div class="testimonial-wrap">
-									<a class="color-dark "
-										href="
-								<?php echo $this->Html->url(array('controller' => 'Packages', 'action' => 'singleproduct', $id, Inflector::slug(strtolower($package_lists[$key]["Package"]["name"]), "-"))) ?>">
-										<div class="presnto-testimonial-item package-item-home">
-
-											<img src="
-									<?php echo $photo; ?>" class="testimonial-img" alt="">
+                                <?php echo $this->Form->input('email', array('required' => true, 'type' => 'text', 'label' => false, 'class' => 'form-control', 'placeholder' => __('Email or Mobile Number'), 'div' => false)); ?>
+                            </div>
+                            <div class="form-group">
+                                <?php echo $this->Form->input('password', array('required' => true, 'label' => false, 'class' => 'form-control', 'placeholder' => __('Password'), 'value' => '', 'type' => 'password', 'div' => false)); ?>
+                            </div>
+                            <div class="clearfix"></div>
 
 
-											<h3>
-												<?php echo $package_lists[$key]["Package"]["name"]; ?>
-											</h3>
-											<?php if ($package_lists[$key]["Package"]["package_type"] == "P"): ?>
+                            <div class="row mb-4 mt-4">
+                                <div class="col d-flex justify-content-center">
+                                    <!-- Checkbox -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="form2Example31"
+                                            checked />
+                                        <label class="form-check-label" for="form2Example31"> Remember me </label>
+                                    </div>
+                                </div>
 
-												<h4>$
-													<?php echo $package_lists[$key]["Package"]["show_amount"]; ?>
-												</h4>
+                                <div class="col">
+                                    <!-- Simple link -->
+                                    <?php echo $this->Html->link(__('Forgot Password'), array('crm' => true, 'controller' => 'forgots', 'action' => 'password'), array('class' => '', 'escape' => false)); ?>
+                                </div>
+                            </div>
 
-											<?php else: ?>
-												<h4>Free</h4>
+                            <!-- Submit button -->
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-success btn-block mb-4 mt-3"><?php echo __('Log in'); ?></button>
 
-											<?php endif; ?>
-											<div style="min-height: 160px; height: 160px; overflow: hidden; width: 100%;">
-												<p>
-													<i class="bx bxs-quote-alt-left quote-icon-left"></i>
-													<?php echo $package_lists[$key]["Package"]["description"]; ?>
-													<i class="bx bxs-quote-alt-right quote-icon-right"></i>
-												</p>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div><!-- End testimonial item -->
+                            <hr>
+                            <div class="form-group">
+                                <?php echo $this->Html->link(__('Re-Send Email Verification'), array('crm' => true, 'controller' => 'Emailverifications', 'action' => 'resend'), array('class' => 'btn-link resend-verify', 'escape' => false)); ?>
+                            </div>
 
-						<?php endforeach; ?>
+                            <!-- Register buttons -->
+                            <div class="text-center pb-5">
+                                <p><?php echo __("Don't have an account?"); ?> <a
+                                        href="<?= $siteDomain ?>/Registers/index"><?php echo __('New User? Create Account'); ?></a>
+                                </p>
 
-					<?php else: ?>
-						<?php echo "No records found"; ?>
+                            </div>
 
-					<?php endif; ?>
-
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-
-		</div>
-	</section>
+                            <?php echo $this->Form->end(); ?>
+                        </div>
 
 
+                    </div>
+                </div>
+            </div>
 
-	<section class="section master-skill">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-7 col-md-12">
-					<div class="section-header aos" data-aos="fade-up">
-						<div class="section-sub-head">
+        </div>
+    </div>
+</section>
 
-							<h2>
-								<?php echo __($Homesection[2]['Homesection']['sections_heading']); ?>
-							</h2>
-						</div>
-					</div>
-					<div class="section-text aos" data-aos="fade-up">
-						<p>
-							<?php echo __($Homesection[2]['Homesection']['sections_content']) ?>
-						</p>
-					</div>
-					<?php echo __($Homesection[3]['Homesection']['sections_content']) ?>
-				</div>
-				<div class="col-lg-5 col-md-12 d-flex align-items-end">
-					<div class="career-img aos" data-aos="fade-up">
-						<img src="app/webroot/img/v2/join.png" alt="" class="img-fluid">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-
-
-
-
-</main><!-- End #main -->
+</br>
