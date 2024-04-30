@@ -1,16 +1,16 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @since         CakePHP(tm) v 1.3
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Hash', 'Utility');
@@ -24,94 +24,98 @@ App::uses('Hash', 'Utility');
  *
  * @package Cake.Routing.Route
  */
-class CakeRoute {
+class CakeRoute
+{
 
-/**
- * An array of named segments in a Route.
- * `/:controller/:action/:id` has 3 key elements
- *
- * @var array
- */
+	/**
+	 * An array of named segments in a Route.
+	 * `/:controller/:action/:id` has 3 key elements
+	 *
+	 * @var array
+	 */
 	public $keys = array();
 
-/**
- * An array of additional parameters for the Route.
- *
- * @var array
- */
+	/**
+	 * An array of additional parameters for the Route.
+	 *
+	 * @var array
+	 */
 	public $options = array();
 
-/**
- * Default parameters for a Route
- *
- * @var array
- */
+	/**
+	 * Default parameters for a Route
+	 *
+	 * @var array
+	 */
 	public $defaults = array();
 
-/**
- * The routes template string.
- *
- * @var string
- */
+	/**
+	 * The routes template string.
+	 *
+	 * @var string
+	 */
 	public $template = null;
 
-/**
- * Is this route a greedy route?  Greedy routes have a `/*` in their
- * template
- *
- * @var string
- */
+	/**
+	 * Is this route a greedy route?  Greedy routes have a `/*` in their
+	 * template
+	 *
+	 * @var string
+	 */
 	protected $_greedy = false;
 
-/**
- * The compiled route regular expression
- *
- * @var string
- */
+	/**
+	 * The compiled route regular expression
+	 *
+	 * @var string
+	 */
 	protected $_compiledRoute = null;
 
-/**
- * HTTP header shortcut map. Used for evaluating header-based route expressions.
- *
- * @var array
- */
+	/**
+	 * HTTP header shortcut map. Used for evaluating header-based route expressions.
+	 *
+	 * @var array
+	 */
 	protected $_headerMap = array(
 		'type' => 'content_type',
 		'method' => 'request_method',
 		'server' => 'server_name'
 	);
 
-/**
- * Constructor for a Route
- *
- * @param string $template Template string with parameter placeholders
- * @param array $defaults Array of defaults for the route.
- * @param array $options Array of additional options for the Route
- */
-	public function __construct($template, $defaults = array(), $options = array()) {
+	/**
+	 * Constructor for a Route
+	 *
+	 * @param string $template Template string with parameter placeholders
+	 * @param array $defaults Array of defaults for the route.
+	 * @param array $options Array of additional options for the Route
+	 */
+	public function __construct($template, $defaults = array(), $options = array())
+	{
 		$this->template = $template;
-		$this->defaults = (array)$defaults;
-		$this->options = (array)$options;
+		$this->defaults = (array) $defaults;
+		$this->options = (array) $options;
 	}
 
-/**
- * Check if a Route has been compiled into a regular expression.
- *
- * @return bool
- */
-	public function compiled() {
+	/**
+	 * Check if a Route has been compiled into a regular expression.
+	 *
+	 * @return bool
+	 */
+	public function compiled()
+	{
 		return !empty($this->_compiledRoute);
 	}
 
-/**
- * Compiles the route's regular expression.
- *
- * Modifies defaults property so all necessary keys are set
- * and populates $this->names with the named routing elements.
- *
- * @return array Returns a string regular expression of the compiled route.
- */
-	public function compile() {
+	/**
+	 * Compiles the route's regular expression.
+	 *
+	 * Modifies defaults property so all necessary keys are set
+	 * and populates $this->names with the named routing elements.
+	 *
+	 * @return array Returns a string regular expression of the compiled route.
+	 */
+	public function compile()
+	{
 		if ($this->compiled()) {
 			return $this->_compiledRoute;
 		}
@@ -119,15 +123,16 @@ class CakeRoute {
 		return $this->_compiledRoute;
 	}
 
-/**
- * Builds a route regular expression.
- *
- * Uses the template, defaults and options properties to compile a
- * regular expression that can be used to parse request strings.
- *
- * @return void
- */
-	protected function _writeRoute() {
+	/**
+	 * Builds a route regular expression.
+	 *
+	 * Uses the template, defaults and options properties to compile a
+	 * regular expression that can be used to parse request strings.
+	 *
+	 * @return void
+	 */
+	protected function _writeRoute()
+	{
 		if (empty($this->template) || ($this->template === '/')) {
 			$this->_compiledRoute = '#^/*$#';
 			$this->keys = array();
@@ -179,16 +184,17 @@ class CakeRoute {
 		$this->keys = array_reverse($keys);
 	}
 
-/**
- * Checks to see if the given URL can be parsed by this route.
- *
- * If the route can be parsed an array of parameters will be returned; if not
- * false will be returned. String URLs are parsed if they match a routes regular expression.
- *
- * @param string $url The URL to attempt to parse.
- * @return mixed Boolean false on failure, otherwise an array or parameters
- */
-	public function parse($url) {
+	/**
+	 * Checks to see if the given URL can be parsed by this route.
+	 *
+	 * If the route can be parsed an array of parameters will be returned; if not
+	 * false will be returned. String URLs are parsed if they match a routes regular expression.
+	 *
+	 * @param string $url The URL to attempt to parse.
+	 * @return mixed Boolean false on failure, otherwise an array or parameters
+	 */
+	public function parse($url)
+	{
 		if (!$this->compiled()) {
 			$this->compile();
 		}
@@ -196,7 +202,7 @@ class CakeRoute {
 			return false;
 		}
 		foreach ($this->defaults as $key => $val) {
-			$key = (string)$key;
+			$key = (string) $key;
 			if ($key[0] === '[' && preg_match('/^\[(\w+)\]$/', $key, $header)) {
 				if (isset($this->_headerMap[$header[1]])) {
 					$header = $this->_headerMap[$header[1]];
@@ -205,7 +211,7 @@ class CakeRoute {
 				}
 				$header = strtoupper($header);
 
-				$val = (array)$val;
+				$val = (array) $val;
 				$h = false;
 
 				foreach ($val as $v) {
@@ -261,15 +267,16 @@ class CakeRoute {
 		return $route;
 	}
 
-/**
- * Parse passed and Named parameters into a list of passed args, and a hash of named parameters.
- * The local and global configuration for named parameters will be used.
- *
- * @param string $args A string with the passed & named params. eg. /1/page:2
- * @param string $context The current route context, which should contain controller/action keys.
- * @return array Array of ($pass, $named)
- */
-	protected function _parseArgs($args, $context) {
+	/**
+	 * Parse passed and Named parameters into a list of passed args, and a hash of named parameters.
+	 * The local and global configuration for named parameters will be used.
+	 *
+	 * @param string $args A string with the passed & named params. eg. /1/page:2
+	 * @param string $context The current route context, which should contain controller/action keys.
+	 * @return array Array of ($pass, $named)
+	 */
+	protected function _parseArgs($args, $context)
+	{
 		$pass = $named = array();
 		$args = explode('/', $args);
 
@@ -278,7 +285,7 @@ class CakeRoute {
 		$rules = $namedConfig['rules'];
 		if (!empty($this->options['named'])) {
 			$greedy = isset($this->options['greedyNamed']) && $this->options['greedyNamed'] === true;
-			foreach ((array)$this->options['named'] as $key => $val) {
+			foreach ((array) $this->options['named'] as $key => $val) {
 				if (is_numeric($key)) {
 					$rules[$val] = true;
 					continue;
@@ -325,18 +332,19 @@ class CakeRoute {
 		return array($pass, $named);
 	}
 
-/**
- * Check if a named parameter matches the current rules.
- *
- * Return true if a given named $param's $val matches a given $rule depending on $context.
- * Currently implemented rule types are controller, action and match that can be combined with each other.
- *
- * @param string $val The value of the named parameter
- * @param array $rule The rule(s) to apply, can also be a match string
- * @param string $context An array with additional context information (controller / action)
- * @return bool
- */
-	protected function _matchNamed($val, $rule, $context) {
+	/**
+	 * Check if a named parameter matches the current rules.
+	 *
+	 * Return true if a given named $param's $val matches a given $rule depending on $context.
+	 * Currently implemented rule types are controller, action and match that can be combined with each other.
+	 *
+	 * @param string $val The value of the named parameter
+	 * @param array $rule The rule(s) to apply, can also be a match string
+	 * @param string $context An array with additional context information (controller / action)
+	 * @return bool
+	 */
+	protected function _matchNamed($val, $rule, $context)
+	{
 		if ($rule === true || $rule === false) {
 			return $rule;
 		}
@@ -349,14 +357,14 @@ class CakeRoute {
 
 		$controllerMatches = (
 			!isset($rule['controller'], $context['controller']) ||
-			in_array($context['controller'], (array)$rule['controller'])
+			in_array($context['controller'], (array) $rule['controller'])
 		);
 		if (!$controllerMatches) {
 			return false;
 		}
 		$actionMatches = (
 			!isset($rule['action'], $context['action']) ||
-			in_array($context['action'], (array)$rule['action'])
+			in_array($context['action'], (array) $rule['action'])
 		);
 		if (!$actionMatches) {
 			return false;
@@ -364,16 +372,17 @@ class CakeRoute {
 		return (!isset($rule['match']) || preg_match('/' . $rule['match'] . '/', $val));
 	}
 
-/**
- * Apply persistent parameters to a URL array. Persistent parameters are a special
- * key used during route creation to force route parameters to persist when omitted from
- * a URL array.
- *
- * @param array $url The array to apply persistent parameters to.
- * @param array $params An array of persistent values to replace persistent ones.
- * @return array An array with persistent parameters applied.
- */
-	public function persistParams($url, $params) {
+	/**
+	 * Apply persistent parameters to a URL array. Persistent parameters are a special
+	 * key used during route creation to force route parameters to persist when omitted from
+	 * a URL array.
+	 *
+	 * @param array $url The array to apply persistent parameters to.
+	 * @param array $params An array of persistent values to replace persistent ones.
+	 * @return array An array with persistent parameters applied.
+	 */
+	public function persistParams($url, $params)
+	{
 		if (empty($this->options['persist']) || !is_array($this->options['persist'])) {
 			return $url;
 		}
@@ -385,17 +394,18 @@ class CakeRoute {
 		return $url;
 	}
 
-/**
- * Check if a URL array matches this route instance.
- *
- * If the URL matches the route parameters and settings, then
- * return a generated string URL. If the URL doesn't match the route parameters, false will be returned.
- * This method handles the reverse routing or conversion of URL arrays into string URLs.
- *
- * @param array $url An array of parameters to check matching with.
- * @return mixed Either a string URL for the parameters if they match or false.
- */
-	public function match($url) {
+	/**
+	 * Check if a URL array matches this route instance.
+	 *
+	 * If the URL matches the route parameters and settings, then
+	 * return a generated string URL. If the URL doesn't match the route parameters, false will be returned.
+	 * This method handles the reverse routing or conversion of URL arrays into string URLs.
+	 *
+	 * @param array $url An array of parameters to check matching with.
+	 * @return mixed Either a string URL for the parameters if they match or false.
+	 */
+	public function match($url)
+	{
 		if (!$this->compiled()) {
 			$this->compile();
 		}
@@ -448,7 +458,8 @@ class CakeRoute {
 			}
 
 			// pull out named params if named params are greedy or a rule exists.
-			if (($greedyNamed || isset($allowedNamedParams[$key])) &&
+			if (
+				($greedyNamed || isset($allowedNamedParams[$key])) &&
 				($value !== false && $value !== null) &&
 				(!in_array($key, $prefixes))
 			) {
@@ -470,7 +481,8 @@ class CakeRoute {
 		//check patterns for routed params
 		if (!empty($this->options)) {
 			foreach ($this->options as $key => $pattern) {
-				if (array_key_exists($key, $url) && !preg_match('#^' . $pattern . '$#', $url[$key])) {
+				//Fixing deprecation notice about null $subject in PHP8.1.
+				if (array_key_exists($key, $url) && !preg_match('#^' . $pattern . '$#', $url[$key] ?? "")) {
 					return false;
 				}
 			}
@@ -478,16 +490,17 @@ class CakeRoute {
 		return $this->_writeUrl(array_merge($url, compact('pass', 'named')));
 	}
 
-/**
- * Converts a matching route array into a URL string.
- *
- * Composes the string URL using the template
- * used to create the route.
- *
- * @param array $params The params to convert to a string URL.
- * @return string Composed route string.
- */
-	protected function _writeUrl($params) {
+	/**
+	 * Converts a matching route array into a URL string.
+	 *
+	 * Composes the string URL using the template
+	 * used to create the route.
+	 *
+	 * @param array $params The params to convert to a string URL.
+	 * @return string Composed route string.
+	 */
+	protected function _writeUrl($params)
+	{
 		if (isset($params['prefix'])) {
 			$prefixed = $params['prefix'] . '_';
 		}
@@ -497,7 +510,7 @@ class CakeRoute {
 		}
 
 		if (is_array($params['pass'])) {
-			$params['pass'] = implode('/', array_map('rawurlencode', $params['pass']));
+			$params['pass'] = implode('/', array_map(fn($param) => rawurlencode((string) $param), $params['pass']));
 		}
 
 		$namedConfig = Router::namedConfig();
@@ -545,16 +558,17 @@ class CakeRoute {
 		return $out;
 	}
 
-/**
- * Set state magic method to support var_export
- *
- * This method helps for applications that want to implement
- * router caching.
- *
- * @param array $fields Key/Value of object attributes
- * @return CakeRoute A new instance of the route
- */
-	public static function __set_state($fields) {
+	/**
+	 * Set state magic method to support var_export
+	 *
+	 * This method helps for applications that want to implement
+	 * router caching.
+	 *
+	 * @param array $fields Key/Value of object attributes
+	 * @return CakeRoute A new instance of the route
+	 */
+	public static function __set_state($fields)
+	{
 		$class = function_exists('get_called_class') ? get_called_class() : __CLASS__;
 		$obj = new $class('');
 		foreach ($fields as $field => $value) {

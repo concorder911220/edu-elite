@@ -2,18 +2,18 @@
 /**
  * IniReaderTest
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Configure
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('IniReader', 'Configure');
@@ -50,7 +50,7 @@ class IniReaderTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->path = CAKE . 'Test' . DS . 'test_app' . DS . 'Config' . DS;
 	}
@@ -166,10 +166,10 @@ class IniReaderTest extends CakeTestCase {
 /**
  * Test an exception is thrown by reading files that exist without .ini extension.
  *
- * @expectedException ConfigureException
  * @return void
  */
 	public function testReadWithExistentFileWithoutExtension() {
+		$this->expectException(ConfigureException::class);
 		$reader = new IniReader($this->path);
 		$reader->read('no_ini_extension');
 	}
@@ -177,10 +177,10 @@ class IniReaderTest extends CakeTestCase {
 /**
  * Test an exception is thrown by reading files that don't exist.
  *
- * @expectedException ConfigureException
  * @return void
  */
 	public function testReadWithNonExistentFile() {
+		$this->expectException(ConfigureException::class);
 		$reader = new IniReader($this->path);
 		$reader->read('fake_values');
 	}
@@ -199,10 +199,10 @@ class IniReaderTest extends CakeTestCase {
 /**
  * Test reading keys with ../ doesn't work.
  *
- * @expectedException ConfigureException
  * @return void
  */
 	public function testReadWithDots() {
+		$this->expectException(ConfigureException::class);
 		$reader = new IniReader($this->path);
 		$reader->read('../empty');
 	}

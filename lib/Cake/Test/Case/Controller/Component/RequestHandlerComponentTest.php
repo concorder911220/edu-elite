@@ -2,18 +2,18 @@
 /**
  * RequestHandlerComponentTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Controller.Component
  * @since         CakePHP(tm) v 1.2.0.5435
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Controller', 'Controller');
@@ -106,7 +106,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->_init();
 	}
@@ -130,7 +130,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->RequestHandler, $this->Controller);
 		if (!headers_sent()) {
@@ -393,6 +393,20 @@ class RequestHandlerComponentTest extends CakeTestCase {
 	public function testStartupCallback() {
 		$_SERVER['REQUEST_METHOD'] = 'PUT';
 		$_SERVER['CONTENT_TYPE'] = 'application/xml';
+		$this->Controller->request = $this->getMock('CakeRequest', array('_readInput'));
+		$this->RequestHandler->startup($this->Controller);
+		$this->assertTrue(is_array($this->Controller->data));
+		$this->assertFalse(is_object($this->Controller->data));
+	}
+
+/**
+ * testStartupCallbackJson method
+ *
+ * @return void
+ */
+	public function testStartupCallbackJson() {
+		$_SERVER['REQUEST_METHOD'] = 'PUT';
+		$_SERVER['CONTENT_TYPE'] = 'application/json';
 		$this->Controller->request = $this->getMock('CakeRequest', array('_readInput'));
 		$this->RequestHandler->startup($this->Controller);
 		$this->assertTrue(is_array($this->Controller->data));
@@ -833,7 +847,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
 			$this->Controller, array('controller' => 'request_handler_test', 'action' => 'destination')
 		);
 		$result = ob_get_clean();
-		$this->assertRegExp('/posts index/', $result, 'RequestAction redirect failed.');
+		$this->assertMatchesRegularExpression('/posts index/', $result, 'RequestAction redirect failed.');
 
 		App::build();
 	}
@@ -862,8 +876,8 @@ class RequestHandlerComponentTest extends CakeTestCase {
 			$this->Controller, array('controller' => 'request_handler_test', 'action' => 'ajax2_layout')
 		);
 		$result = ob_get_clean();
-		$this->assertRegExp('/posts index/', $result, 'RequestAction redirect failed.');
-		$this->assertRegExp('/Ajax!/', $result, 'Layout was not rendered.');
+		$this->assertMatchesRegularExpression('/posts index/', $result, 'RequestAction redirect failed.');
+		$this->assertMatchesRegularExpression('/Ajax!/', $result, 'Layout was not rendered.');
 
 		App::build();
 	}
@@ -921,10 +935,10 @@ class RequestHandlerComponentTest extends CakeTestCase {
 	}
 
 /**
- * @expectedException CakeException
  * @return void
  */
 	public function testAddInputTypeException() {
+		$this->expectException(CakeException::class);
 		$this->RequestHandler->addInputType('csv', array('I am not callable'));
 	}
 

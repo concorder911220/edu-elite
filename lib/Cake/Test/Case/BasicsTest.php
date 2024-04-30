@@ -2,18 +2,18 @@
 /**
  * BasicsTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 require_once CAKE . 'basics.php';
@@ -34,7 +34,7 @@ class BasicsTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'Locale' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'Locale' . DS)
@@ -243,6 +243,9 @@ class BasicsTest extends CakeTestCase {
 		$obj = new CakeResponse(array('body' => 'Body content'));
 		$result = h($obj);
 		$this->assertEquals('Body content', $result);
+
+		$result = h(null);
+		$this->assertEquals('', $result);
 	}
 
 /**
@@ -806,9 +809,9 @@ class BasicsTest extends CakeTestCase {
 		}
 
 		$result = file_get_contents(LOGS . 'error.log');
-		$this->assertRegExp('/Error: Testing LogError\(\) basic function/', $result);
-		$this->assertNotRegExp("/Error: Testing with\nmulti-line\nstring/", $result);
-		$this->assertRegExp('/Error: Testing with multi-line string/', $result);
+		$this->assertMatchesRegularExpression('/Error: Testing LogError\(\) basic function/', $result);
+		$this->assertDoesNotMatchRegularExpression("/Error: Testing with\nmulti-line\nstring/", $result);
+		$this->assertMatchesRegularExpression('/Error: Testing with multi-line string/', $result);
 	}
 
 /**

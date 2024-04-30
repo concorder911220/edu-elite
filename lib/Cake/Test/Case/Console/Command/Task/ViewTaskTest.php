@@ -4,18 +4,18 @@
  *
  * Test Case for view generation shell task
  *
- * CakePHP : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP Project
  * @package       Cake.Test.Case.Console.Command.Task
  * @since         CakePHP v 1.2.0.7726
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ShellDispatcher', 'Console');
@@ -184,7 +184,7 @@ class ViewTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$out = $this->getMock('ConsoleOutput', array(), array(), '', false);
 		$in = $this->getMock('ConsoleInput', array(), array(), '', false);
@@ -208,7 +208,7 @@ class ViewTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Task, $this->Dispatch);
 	}
@@ -233,14 +233,14 @@ class ViewTaskTest extends CakeTestCase {
 		);
 		$result = $this->Task->getContent('view', $vars);
 
-		$this->assertRegExp('/Delete Test View Model/', $result);
-		$this->assertRegExp('/Edit Test View Model/', $result);
-		$this->assertRegExp('/List Test View Models/', $result);
-		$this->assertRegExp('/New Test View Model/', $result);
+		$this->assertMatchesRegularExpression('/Delete Test View Model/', $result);
+		$this->assertMatchesRegularExpression('/Edit Test View Model/', $result);
+		$this->assertMatchesRegularExpression('/List Test View Models/', $result);
+		$this->assertMatchesRegularExpression('/New Test View Model/', $result);
 
-		$this->assertRegExp('/testViewModel\[\'TestViewModel\'\]\[\'id\'\]/', $result);
-		$this->assertRegExp('/testViewModel\[\'TestViewModel\'\]\[\'name\'\]/', $result);
-		$this->assertRegExp('/testViewModel\[\'TestViewModel\'\]\[\'body\'\]/', $result);
+		$this->assertMatchesRegularExpression('/testViewModel\[\'TestViewModel\'\]\[\'id\'\]/', $result);
+		$this->assertMatchesRegularExpression('/testViewModel\[\'TestViewModel\'\]\[\'name\'\]/', $result);
+		$this->assertMatchesRegularExpression('/testViewModel\[\'TestViewModel\'\]\[\'body\'\]/', $result);
 	}
 
 /**
@@ -265,19 +265,19 @@ class ViewTaskTest extends CakeTestCase {
 		);
 		$result = $this->Task->getContent('admin_view', $vars);
 
-		$this->assertRegExp('/Delete Test View Model/', $result);
-		$this->assertRegExp('/Edit Test View Model/', $result);
-		$this->assertRegExp('/List Test View Models/', $result);
-		$this->assertRegExp('/New Test View Model/', $result);
+		$this->assertMatchesRegularExpression('/Delete Test View Model/', $result);
+		$this->assertMatchesRegularExpression('/Edit Test View Model/', $result);
+		$this->assertMatchesRegularExpression('/List Test View Models/', $result);
+		$this->assertMatchesRegularExpression('/New Test View Model/', $result);
 
-		$this->assertRegExp('/testViewModel\[\'TestViewModel\'\]\[\'id\'\]/', $result);
-		$this->assertRegExp('/testViewModel\[\'TestViewModel\'\]\[\'name\'\]/', $result);
-		$this->assertRegExp('/testViewModel\[\'TestViewModel\'\]\[\'body\'\]/', $result);
+		$this->assertMatchesRegularExpression('/testViewModel\[\'TestViewModel\'\]\[\'id\'\]/', $result);
+		$this->assertMatchesRegularExpression('/testViewModel\[\'TestViewModel\'\]\[\'name\'\]/', $result);
+		$this->assertMatchesRegularExpression('/testViewModel\[\'TestViewModel\'\]\[\'body\'\]/', $result);
 
 		$result = $this->Task->getContent('admin_add', $vars);
-		$this->assertRegExp("/input\('name'\)/", $result);
-		$this->assertRegExp("/input\('body'\)/", $result);
-		$this->assertRegExp('/List Test View Models/', $result);
+		$this->assertMatchesRegularExpression("/input\('name'\)/", $result);
+		$this->assertMatchesRegularExpression("/input\('body'\)/", $result);
+		$this->assertMatchesRegularExpression('/List Test View Models/', $result);
 
 		Configure::write('Routing', $_back);
 	}
@@ -310,7 +310,7 @@ class ViewTaskTest extends CakeTestCase {
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
 				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
-				new PHPUnit_Framework_Constraint_IsAnything()
+				new \PHPUnit\Framework\Constraint\IsAnything()
 			);
 		$this->Task->bake('edit', true);
 	}
@@ -359,7 +359,7 @@ class ViewTaskTest extends CakeTestCase {
 		$path = APP . 'Plugin' . DS . 'TestTest' . DS . 'View' . DS . 'ViewTaskComments' . DS . 'view.ctp';
 
 		$result = $this->Task->getContent('index');
-		$this->assertNotContains('List Test Test.view Task Articles', $result);
+		$this->assertStringNotContainsString('List Test Test.view Task Articles', $result);
 
 		$this->Task->expects($this->once())
 			->method('createFile')

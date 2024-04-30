@@ -2,18 +2,18 @@
 /**
  * MailTransportTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Network.Email
  * @since         CakePHP(tm) v 2.0.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('CakeEmail', 'Network/Email');
@@ -30,7 +30,7 @@ class MailTransportTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->MailTransport = $this->getMock('MailTransport', array('_mail'));
 		$this->MailTransport->config(array('additionalParameters' => '-f'));
@@ -63,31 +63,31 @@ class MailTransportTest extends CakeTestCase {
 		$encoded = '=?UTF-8?B?Rm/DuCBCw6VyIELDqXogRm/DuCBCw6VyIELDqXogRm/DuCBCw6VyIELDqXog?=';
 		$encoded .= ' =?UTF-8?B?Rm/DuCBCw6VyIELDqXo=?=';
 
-		$data = "From: CakePHP Test <noreply@cakephp.org>" . PHP_EOL;
-		$data .= "Return-Path: CakePHP Return <pleasereply@cakephp.org>" . PHP_EOL;
-		$data .= "Cc: Mark Story <mark@cakephp.org>, Juan Basso <juan@cakephp.org>" . PHP_EOL;
-		$data .= "Bcc: phpnut@cakephp.org" . PHP_EOL;
-		$data .= "X-Mailer: CakePHP Email" . PHP_EOL;
-		$data .= "Date: " . $date . PHP_EOL;
-		$data .= "X-add: " . $encoded . PHP_EOL;
-		$data .= "Message-ID: <4d9946cf-0a44-4907-88fe-1d0ccbdd56cb@localhost>" . PHP_EOL;
-		$data .= "MIME-Version: 1.0" . PHP_EOL;
-		$data .= "Content-Type: text/plain; charset=UTF-8" . PHP_EOL;
+		$data = "From: CakePHP Test <noreply@cakephp.org>" . "\r\n";
+		$data .= "Return-Path: CakePHP Return <pleasereply@cakephp.org>" . "\r\n";
+		$data .= "Cc: Mark Story <mark@cakephp.org>, Juan Basso <juan@cakephp.org>" . "\r\n";
+		$data .= "Bcc: phpnut@cakephp.org" . "\r\n";
+		$data .= "X-Mailer: CakePHP Email" . "\r\n";
+		$data .= "Date: " . $date . "\r\n";
+		$data .= "X-add: " . $encoded . "\r\n";
+		$data .= "Message-ID: <4d9946cf-0a44-4907-88fe-1d0ccbdd56cb@localhost>" . "\r\n";
+		$data .= "MIME-Version: 1.0" . "\r\n";
+		$data .= "Content-Type: text/plain; charset=UTF-8" . "\r\n";
 		$data .= "Content-Transfer-Encoding: 8bit";
 
 		$this->MailTransport->expects($this->once())->method('_mail')
 			->with(
 				'CakePHP <cake@cakephp.org>',
 				$encoded,
-				implode(PHP_EOL, array('First Line', 'Second Line', '.Third Line', '')),
+				implode("\r\n", array('First Line', 'Second Line', '.Third Line', '')),
 				$data,
 				'-f'
 			);
 
 		$result = $this->MailTransport->send($email);
 
-		$this->assertContains('Subject: ', $result['headers']);
-		$this->assertContains('To: ', $result['headers']);
+		$this->assertStringContainsString('Subject: ', $result['headers']);
+		$this->assertStringContainsString('To: ', $result['headers']);
 	}
 
 }

@@ -2,18 +2,18 @@
 /**
  * MySQL layer for DBO
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Model.Datasource.Database
  * @since         CakePHP(tm) v 0.10.5.1790
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('DboSource', 'Model/Datasource');
@@ -87,10 +87,14 @@ class Mysql extends DboSource {
 		'collate' => array('value' => 'COLLATE', 'quote' => false, 'join' => ' ', 'column' => 'Collation', 'position' => 'beforeDefault'),
 		'comment' => array('value' => 'COMMENT', 'quote' => true, 'join' => ' ', 'column' => 'Comment', 'position' => 'afterDefault'),
 		'unsigned' => array(
-			'value' => 'UNSIGNED', 'quote' => false, 'join' => ' ', 'column' => false, 'position' => 'beforeDefault',
+			'value' => 'UNSIGNED',
+			'quote' => false,
+			'join' => ' ',
+			'column' => false,
+			'position' => 'beforeDefault',
 			'noVal' => true,
 			'options' => array(true),
-			'types' => array('integer', 'float', 'decimal', 'biginteger')
+			'types' => array('integer', 'smallinteger', 'tinyinteger', 'float', 'decimal', 'biginteger')
 		)
 	);
 
@@ -110,13 +114,17 @@ class Mysql extends DboSource {
  * MySQL column definition
  *
  * @var array
+ * @link https://dev.mysql.com/doc/refman/5.7/en/data-types.html MySQL Data Types
  */
 	public $columns = array(
 		'primary_key' => array('name' => 'NOT NULL AUTO_INCREMENT'),
 		'string' => array('name' => 'varchar', 'limit' => '255'),
 		'text' => array('name' => 'text'),
+		'enum' => array('name' => 'enum'),
 		'biginteger' => array('name' => 'bigint', 'limit' => '20'),
 		'integer' => array('name' => 'int', 'limit' => '11', 'formatter' => 'intval'),
+		'smallinteger' => array('name' => 'smallint', 'limit' => '6', 'formatter' => 'intval'),
+		'tinyinteger' => array('name' => 'tinyint', 'limit' => '4', 'formatter' => 'intval'),
 		'float' => array('name' => 'float', 'formatter' => 'floatval'),
 		'decimal' => array('name' => 'decimal', 'formatter' => 'floatval'),
 		'datetime' => array('name' => 'datetime', 'format' => 'Y-m-d H:i:s', 'formatter' => 'date'),
@@ -298,7 +306,7 @@ class Mysql extends DboSource {
  * Query charset by collation
  *
  * @param string $name Collation name
- * @return string Character set name
+ * @return string|false Character set name
  */
 	public function getCharsetName($name) {
 		if ((bool)version_compare($this->getVersion(), "5", "<")) {
@@ -325,7 +333,7 @@ class Mysql extends DboSource {
  * Returns an array of the fields in given table name.
  *
  * @param Model|string $model Name of database table to inspect or model instance
- * @return array Fields in table. Keys are name and type
+ * @return array|bool Fields in table. Keys are name and type. Returns false if result is empty.
  * @throws CakeException
  */
 	public function describe($model) {
@@ -336,7 +344,7 @@ class Mysql extends DboSource {
 		}
 		$table = $this->fullTableName($model);
 
-		$fields = false;
+		$fields = array();
 		$cols = $this->_execute('SHOW FULL COLUMNS FROM ' . $table);
 		if (!$cols) {
 			throw new CakeException(__d('cake_dev', 'Could not describe table for %s', $table));
@@ -352,7 +360,10 @@ class Mysql extends DboSource {
 			if (in_array($fields[$column->Field]['type'], $this->fieldParameters['unsigned']['types'], true)) {
 				$fields[$column->Field]['unsigned'] = $this->_unsigned($column->Type);
 			}
-			if (in_array($fields[$column->Field]['type'], array('timestamp', 'datetime')) && strtoupper($column->Default) === 'CURRENT_TIMESTAMP') {
+			if (in_array($fields[$column->Field]['type'], array('timestamp', 'datetime')) &&
+				//Falling back to default empty string due to PHP8.1 deprecation notice.
+				in_array(strtoupper($column->Default ?? ""), array('CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()'))
+			) {
 				$fields[$column->Field]['default'] = null;
 			}
 			if (!empty($column->Key) && isset($this->index[$column->Key])) {
@@ -372,6 +383,12 @@ class Mysql extends DboSource {
 		}
 		$this->_cacheDescription($key, $fields);
 		$cols->closeCursor();
+
+		//Fields must be an array for compatibility with PHP8.1 (deprecation notice) but also let's keep backwards compatibility for method.
+		if (count($fields) === 0) {
+			return false;
+		}
+
 		return $fields;
 	}
 
@@ -382,7 +399,7 @@ class Mysql extends DboSource {
  * @param array $fields The fields to update.
  * @param array $values The values to set.
  * @param mixed $conditions The conditions to use.
- * @return array
+ * @return bool
  */
 	public function update(Model $model, $fields = array(), $values = null, $conditions = null) {
 		if (!$this->_useAlias) {
@@ -536,7 +553,7 @@ class Mysql extends DboSource {
  *
  * @param array $compare Result of a CakeSchema::compare()
  * @param string $table The table name.
- * @return array Array of alter statements to make.
+ * @return string|false String of alter statements to make.
  */
 	public function alterSchema($compare, $table = null) {
 		if (!is_array($compare)) {
@@ -783,6 +800,12 @@ class Mysql extends DboSource {
 		if (strpos($col, 'bigint') !== false || $col === 'bigint') {
 			return 'biginteger';
 		}
+		if (strpos($col, 'tinyint') !== false) {
+			return 'tinyinteger';
+		}
+		if (strpos($col, 'smallint') !== false) {
+			return 'smallinteger';
+		}
 		if (strpos($col, 'int') !== false) {
 			return 'integer';
 		}
@@ -815,7 +838,7 @@ class Mysql extends DboSource {
  */
 	public function value($data, $column = null, $null = true) {
 		$value = parent::value($data, $column, $null);
-		if (is_numeric($value) && substr($column, 0, 3) === 'set') {
+		if (is_numeric($value) && $column !== null && str_starts_with($column, 'set')) {
 			return $this->_connection->quote($value);
 		}
 		return $value;

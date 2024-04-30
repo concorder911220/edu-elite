@@ -4,18 +4,18 @@
  *
  * PHP 5
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Cache.Engine
  * @since         CakePHP(tm) v 2.5.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Cache', 'Cache');
@@ -60,7 +60,7 @@ class MemcachedEngineTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->skipIf(!class_exists('Memcached'), 'Memcached is not installed or configured properly.');
 
@@ -82,7 +82,7 @@ class MemcachedEngineTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		Cache::drop('memcached');
 		Cache::drop('memcached_groups');
@@ -171,9 +171,8 @@ class MemcachedEngineTest extends CakeTestCase {
 			'serialize' => 'invalid_serializer'
 		);
 
-		$this->setExpectedException(
-			'CacheException', 'invalid_serializer is not a valid serializer engine for Memcached'
-		);
+		$this->expectException('CacheException');
+		$this->expectExceptionMessage('invalid_serializer is not a valid serializer engine for Memcached');
 		$Memcached->init($settings);
 	}
 
@@ -283,9 +282,8 @@ class MemcachedEngineTest extends CakeTestCase {
 			'serialize' => 'json'
 		);
 
-		$this->setExpectedException(
-			'CacheException', 'Memcached extension is not compiled with json support'
-		);
+		$this->expectException('CacheException');
+		$this->expectExceptionMessage('Memcached extension is not compiled with json support');
 		$Memcached->init($settings);
 	}
 
@@ -308,9 +306,8 @@ class MemcachedEngineTest extends CakeTestCase {
 			'serialize' => 'msgpack'
 		);
 
-		$this->setExpectedException(
-			'CacheException', 'msgpack is not a valid serializer engine for Memcached'
-		);
+		$this->expectException('CacheException');
+		$this->expectExceptionMessage('msgpack is not a valid serializer engine for Memcached');
 		$Memcached->init($settings);
 	}
 
@@ -333,9 +330,8 @@ class MemcachedEngineTest extends CakeTestCase {
 			'serialize' => 'igbinary'
 		);
 
-		$this->setExpectedException(
-			'CacheException', 'Memcached extension is not compiled with igbinary support'
-		);
+		$this->expectException('CacheException');
+		$this->expectExceptionMessage('Memcached extension is not compiled with igbinary support');
 		$Memcached->init($settings);
 	}
 
@@ -356,7 +352,7 @@ class MemcachedEngineTest extends CakeTestCase {
 			'password' => 'password'
 		);
 
-		$this->setExpectedException('PHPUnit_Framework_Error_Warning');
+		$this->expectWarning();
 		$Memcached->init($settings);
 	}
 
@@ -690,6 +686,10 @@ class MemcachedEngineTest extends CakeTestCase {
 		$this->assertEquals('cache1', Cache::read('some_value', 'memcached'));
 
 		Cache::write('some_value', 'cache2', 'memcached2');
+
+		// Wait until the written key can be retrieved with Memcached::getAllKeys(), as there may be a delay.
+		sleep(1);
+
 		$result = Cache::clear(false, 'memcached');
 		$this->assertTrue($result);
 		$this->assertFalse(Cache::read('some_value', 'memcached'));

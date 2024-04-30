@@ -2,18 +2,18 @@
 /**
  * ControllerAuthorizeTest file
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Controller.Component.Auth
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Controller', 'Controller');
@@ -33,7 +33,7 @@ class ControllerAuthorizeTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->controller = $this->getMock('Controller', array('isAuthorized'), array(), '', false);
 		$this->components = $this->getMock('ComponentCollection');
@@ -47,26 +47,26 @@ class ControllerAuthorizeTest extends CakeTestCase {
 /**
  * testControllerTypeError
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
- * @throws PHPUnit_Framework_Error
+ * @throws \PHPUnit\Framework\Error
  */
 	public function testControllerTypeError() {
+		$this->expectException(\PHPUnit\Framework\Error::class);
 		try {
 			$this->auth->controller(new StdClass());
 			$this->fail('No exception thrown');
 		} catch (TypeError $e) {
-			throw new PHPUnit_Framework_Error('Raised an error', 100, __FILE__, __LINE__);
+			throw new \PHPUnit\Framework\Error('Raised an error', 100);
 		}
 	}
 
 /**
  * testControllerErrorOnMissingMethod
  *
- * @expectedException CakeException
  * @return void
  */
 	public function testControllerErrorOnMissingMethod() {
+		$this->expectException(CakeException::class);
 		$this->auth->controller(new Controller());
 	}
 

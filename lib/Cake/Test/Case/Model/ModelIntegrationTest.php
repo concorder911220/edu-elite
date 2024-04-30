@@ -2,18 +2,18 @@
 /**
  * ModelIntegrationTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Model
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 require_once dirname(__FILE__) . DS . 'ModelTestBase.php';
@@ -140,10 +140,10 @@ class ModelIntegrationTest extends BaseModelTest {
 /**
  * Tests that creating a model with no existent database table associated will throw an exception
  *
- * @expectedException MissingTableException
  * @return void
  */
 	public function testMissingTable() {
+		$this->expectException(MissingTableException::class);
 		$Article = new ArticleB(false, uniqid());
 		$Article->schema();
 	}
@@ -1229,39 +1229,39 @@ class ModelIntegrationTest extends BaseModelTest {
 
 		$TestModel = new Apple();
 		$TestModel->setDataSource('database1');
-		$this->assertContains('aaa_apples', $this->db->fullTableName($TestModel));
-		$this->assertContains('aaa_apples', $db1->fullTableName($TestModel));
-		$this->assertContains('aaa_apples', $db2->fullTableName($TestModel));
+		$this->assertStringContainsString('aaa_apples', $this->db->fullTableName($TestModel));
+		$this->assertStringContainsString('aaa_apples', $db1->fullTableName($TestModel));
+		$this->assertStringContainsString('aaa_apples', $db2->fullTableName($TestModel));
 
 		$TestModel->setDataSource('database2');
-		$this->assertContains('bbb_apples', $this->db->fullTableName($TestModel));
-		$this->assertContains('bbb_apples', $db1->fullTableName($TestModel));
-		$this->assertContains('bbb_apples', $db2->fullTableName($TestModel));
+		$this->assertStringContainsString('bbb_apples', $this->db->fullTableName($TestModel));
+		$this->assertStringContainsString('bbb_apples', $db1->fullTableName($TestModel));
+		$this->assertStringContainsString('bbb_apples', $db2->fullTableName($TestModel));
 
 		$TestModel = new Apple();
 		$TestModel->tablePrefix = 'custom_';
-		$this->assertContains('custom_apples', $this->db->fullTableName($TestModel));
+		$this->assertStringContainsString('custom_apples', $this->db->fullTableName($TestModel));
 		$TestModel->setDataSource('database1');
-		$this->assertContains('custom_apples', $this->db->fullTableName($TestModel));
-		$this->assertContains('custom_apples', $db1->fullTableName($TestModel));
+		$this->assertStringContainsString('custom_apples', $this->db->fullTableName($TestModel));
+		$this->assertStringContainsString('custom_apples', $db1->fullTableName($TestModel));
 
 		$TestModel = new Apple();
 		$TestModel->setDataSource('database1');
-		$this->assertContains('aaa_apples', $this->db->fullTableName($TestModel));
+		$this->assertStringContainsString('aaa_apples', $this->db->fullTableName($TestModel));
 		$TestModel->tablePrefix = '';
 		$TestModel->setDataSource('database2');
-		$this->assertContains('apples', $db2->fullTableName($TestModel));
-		$this->assertContains('apples', $db1->fullTableName($TestModel));
+		$this->assertStringContainsString('apples', $db2->fullTableName($TestModel));
+		$this->assertStringContainsString('apples', $db1->fullTableName($TestModel));
 
 		$TestModel->tablePrefix = null;
 		$TestModel->setDataSource('database1');
-		$this->assertContains('aaa_apples', $db2->fullTableName($TestModel));
-		$this->assertContains('aaa_apples', $db1->fullTableName($TestModel));
+		$this->assertStringContainsString('aaa_apples', $db2->fullTableName($TestModel));
+		$this->assertStringContainsString('aaa_apples', $db1->fullTableName($TestModel));
 
 		$TestModel->tablePrefix = false;
 		$TestModel->setDataSource('database2');
-		$this->assertContains('apples', $db2->fullTableName($TestModel));
-		$this->assertContains('apples', $db1->fullTableName($TestModel));
+		$this->assertStringContainsString('apples', $db2->fullTableName($TestModel));
+		$this->assertStringContainsString('apples', $db1->fullTableName($TestModel));
 	}
 
 /**

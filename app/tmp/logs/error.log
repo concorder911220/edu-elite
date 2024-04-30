@@ -18658,3 +18658,1703 @@ Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
 Stack Trace:
 #0 E:\xampp\htdocs\new-version\app\webroot\index.php(107): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2024-04-30 18:59:27 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 18:59:27 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 18:59:27 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 18:59:27 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 18:59:27 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 18:59:27 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 18:59:31 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 18:59:31 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 18:59:31 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 18:59:35 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 18:59:35 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 18:59:35 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 18:59:40 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 18:59:40 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 18:59:40 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:52 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:52 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:52 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:53 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:53 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:53 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:54 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:54 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:54 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:54 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:54 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:54 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:54 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:54 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:54 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:54 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:54 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:54 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:00:54 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:00:54 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:00:54 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:04:44 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:04:44 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:04:44 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:04:45 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:04:45 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:04:45 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:04:48 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:04:48 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:04:48 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:33 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:33 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:33 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:34 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:34 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:34 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:34 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:34 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:34 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:34 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:34 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:34 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:34 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:34 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:34 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:34 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:34 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:34 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:35 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:35 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:35 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:35 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:35 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:35 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:35 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:35 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:35 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:07:35 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:07:35 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:07:35 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:45 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:45 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:45 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:46 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:46 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:46 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:46 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:46 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:46 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:46 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:46 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:46 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:46 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:46 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:46 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:47 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:47 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:47 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:47 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:47 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:47 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:10:51 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:10:51 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:10:51 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:12:45 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:12:45 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:12:45 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:15:22 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:15:22 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:15:22 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:18:59 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:18:59 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:18:59 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:19:01 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:19:01 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:19:01 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:19:02 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:19:02 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:19:02 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:22:02 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:22:02 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:22:02 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:22:02 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:22:02 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:22:02 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 19:22:02 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 19:22:02 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 19:22:02 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:39:19 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:39:19 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:39:19 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:37 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:37 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:37 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:38 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:38 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:38 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:38 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:38 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:38 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:38 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:38 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:38 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:38 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:38 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:38 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:39 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:39 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:39 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:43:39 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:43:39 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:43:39 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:47:14 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:47:14 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:47:14 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:47:15 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:47:15 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:47:15 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:47:15 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:47:15 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:47:15 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:47:15 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:47:15 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:47:15 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:47:16 Error: [Error] Unknown named parameter $subject
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(189): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 21:47:16 Error: Fatal Error (1): Uncaught Error: Unknown named parameter $subject in E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php:128
+Stack trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Event\CakeEventManager.php(243): ObjectCollection->trigger('initialize')
+#1 E:\xampp\htdocs\edu-elute\lib\Cake\Controller\Controller.php(677): CakeEventManager->dispatch(Object(CakeEvent))
+#2 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(158): Controller->startupProcess()
+#3 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ExceptionRenderer.php(95): ExceptionRenderer->_getController(Object(Error))
+#4 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(126): ExceptionRenderer->__construct(Object(Error))
+#5 [internal function]: ErrorHandler::handleException(Object(Error))
+#6 {main}
+  thrown in [E:\xampp\htdocs\edu-elute\lib\Cake\Utility\ObjectCollection.php, line 128]
+2024-04-30 21:47:16 Error: [InternalErrorException] Internal Server Error
+Request URL: /new-version/
+Stack Trace:
+#0 E:\xampp\htdocs\edu-elute\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(970): ErrorHandler::handleError(1, 'Uncaught Error:...', 'E:\\xampp\\htdocs...', 128, Array)
+#2 F:\xampp\htdocs\new-version\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2024-04-30 21:55:02 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:08 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:11 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:55:51 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:08 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:11 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:18 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 21:57:44 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/8e2bb3cfaf0878a9a32004774b583ec0.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 22:12:34 Error: [MissingControllerException] Controller class PagesController could not be found.
+Exception Attributes: array (
+  'class' => 'PagesController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 22:14:24 Error: [MissingComponentException] Component class CustomFunctionComponent could not be found.
+Exception Attributes: array (
+  'class' => 'CustomFunctionComponent',
+  'plugin' => '',
+)
+Request URL: /new-version/
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('CustomFunction', Array)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Controller\Controller.php(654): ComponentCollection->init(Object(InstallersController))
+#2 F:\xampp\htdocs\new-version\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#3 F:\xampp\htdocs\new-version\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 22:14:25 Error: [MissingComponentException] Component class CustomFunctionComponent could not be found.
+Exception Attributes: array (
+  'class' => 'CustomFunctionComponent',
+  'plugin' => '',
+)
+Request URL: /new-version/
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('CustomFunction', Array)
+#1 F:\xampp\htdocs\new-version\lib\Cake\Controller\Controller.php(654): ComponentCollection->init(Object(InstallersController))
+#2 F:\xampp\htdocs\new-version\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#3 F:\xampp\htdocs\new-version\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(InstallersController), Object(CakeRequest))
+#4 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2024-04-30 22:15:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 22:15:29 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 22:15:33 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 22:15:34 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2024-04-30 22:16:55 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /new-version/img/logo-website.fw.png
+Stack Trace:
+#0 F:\xampp\htdocs\new-version\app\webroot\index.php(105): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

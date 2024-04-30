@@ -2,18 +2,18 @@
 /**
  * ModelTest file
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
@@ -23,7 +23,7 @@
  *
  * @package       Cake.Test.Case
  */
-class ModelTest extends PHPUnit_Framework_TestSuite {
+class ModelTest extends \PHPUnit\Framework\TestSuite {
 
 /**
  * suite method, defines tests for this suite.
@@ -31,7 +31,7 @@ class ModelTest extends PHPUnit_Framework_TestSuite {
  * @return void
  */
 	public static function suite() {
-		$suite = new PHPUnit_Framework_TestSuite('All Model related class tests');
+		$suite = new \PHPUnit\Framework\TestSuite('All Model related class tests');
 
 		$suite->addTestFile(CORE_TEST_CASES . DS . 'Model' . DS . 'Validator' . DS . 'CakeValidationSetTest.php');
 		$suite->addTestFile(CORE_TEST_CASES . DS . 'Model' . DS . 'Validator' . DS . 'CakeValidationRuleTest.php');

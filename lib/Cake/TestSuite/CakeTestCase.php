@@ -2,18 +2,18 @@
 /**
  * CakeTestCase file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.TestSuite
  * @since         CakePHP(tm) v 1.2.0.4667
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('CakeFixtureManager', 'TestSuite/Fixture');
@@ -24,7 +24,7 @@ App::uses('CakeTestFixture', 'TestSuite/Fixture');
  *
  * @package       Cake.TestSuite
  */
-abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
+abstract class CakeTestCase extends \PHPUnit\Framework\TestCase {
 
 /**
  * The class responsible for managing the creation, loading and removing of fixtures
@@ -67,26 +67,6 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 	protected $_pathRestore = array();
 
 /**
- * Runs the test case and collects the results in a TestResult object.
- * If no TestResult object is passed a new one will be created.
- * This method is run for each test method in this class
- *
- * @param PHPUnit_Framework_TestResult $result The test result object
- * @return PHPUnit_Framework_TestResult
- * @throws InvalidArgumentException
- */
-	public function run(PHPUnit_Framework_TestResult $result = null) {
-		if (!empty($this->fixtureManager)) {
-			$this->fixtureManager->load($this);
-		}
-		$result = parent::run($result);
-		if (!empty($this->fixtureManager)) {
-			$this->fixtureManager->unload($this);
-		}
-		return $result;
-	}
-
-/**
  * Called when a test case method is about to start (to be overridden when needed.)
  *
  * @param string $method Test method about to get executed.
@@ -125,7 +105,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		if (empty($this->_configure)) {
@@ -144,7 +124,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		App::build($this->_pathRestore, App::RESET);
 		if (class_exists('ClassRegistry', false)) {
@@ -157,6 +137,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 		if (isset($_GET['debug']) && $_GET['debug']) {
 			ob_flush();
 		}
+		unset($this->_configure, $this->_pathRestore);
 	}
 
 /**
@@ -176,7 +157,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  *
  * @return void
  */
-	protected function assertPreConditions() {
+	protected function assertPreConditions(): void {
 		parent::assertPreConditions();
 		$this->startTest($this->getName());
 	}
@@ -186,7 +167,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  *
  * @return void
  */
-	protected function assertPostConditions() {
+	protected function assertPostConditions(): void {
 		parent::assertPostConditions();
 		$this->endTest($this->getName());
 	}
@@ -315,7 +296,10 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 	public function assertTextContains($needle, $haystack, $message = '', $ignoreCase = false) {
 		$needle = str_replace(array("\r\n", "\r"), "\n", $needle);
 		$haystack = str_replace(array("\r\n", "\r"), "\n", $haystack);
-		return $this->assertContains($needle, $haystack, $message, $ignoreCase);
+		if ($ignoreCase) {
+			return $this->assertStringContainsStringIgnoringCase($needle, $haystack, $message);
+		}
+		return $this->assertStringContainsString($needle, $haystack, $message);
 	}
 
 /**
@@ -331,7 +315,10 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 	public function assertTextNotContains($needle, $haystack, $message = '', $ignoreCase = false) {
 		$needle = str_replace(array("\r\n", "\r"), "\n", $needle);
 		$haystack = str_replace(array("\r\n", "\r"), "\n", $haystack);
-		return $this->assertNotContains($needle, $haystack, $message, $ignoreCase);
+		if ($ignoreCase) {
+			return $this->assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
+		}
+		return $this->assertStringNotContainsString($needle, $haystack, $message);
 	}
 
 /**
@@ -392,7 +379,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 				$tags = (string)$tags;
 			}
 			$i++;
-			if (is_string($tags) && $tags{0} === '<') {
+			if (is_string($tags) && $tags[0] === '<') {
 				$tags = array(substr($tags, 1) => array());
 			} elseif (is_string($tags)) {
 				$tagsTrimmed = preg_replace('/\s+/m', '', $tags);
@@ -565,7 +552,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 /**
- * Compatibility wrapper function for assertRegexp
+ * Compatibility wrapper function for assertMatchesRegularExpression
  *
  * @param mixed $pattern a regular expression
  * @param string $string the text to be matched
@@ -574,7 +561,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  * @return void
  */
 	protected static function assertPattern($pattern, $string, $message = '') {
-		return static::assertRegExp($pattern, $string, $message);
+		return static::assertMatchesRegularExpression($pattern, $string, $message);
 	}
 
 /**
@@ -604,7 +591,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 	}
 
 /**
- * Compatibility wrapper function for assertNotRegExp
+ * Compatibility wrapper function for assertDoesNotMatchRegularExpression
  *
  * @param mixed $pattern a regular expression
  * @param string $string the text to be matched
@@ -613,7 +600,7 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  * @return void
  */
 	protected static function assertNoPattern($pattern, $string, $message = '') {
-		return static::assertNotRegExp($pattern, $string, $message);
+		return static::assertDoesNotMatchRegularExpression($pattern, $string, $message);
 	}
 
 /**
@@ -623,33 +610,6 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
  * @return void
  */
 	protected function assertNoErrors() {
-	}
-
-/**
- * Compatibility wrapper function for setExpectedException
- *
- * @param mixed $expected the name of the Exception or error
- * @param string $message the text to display if the assertion is not correct
- * @deprecated 3.0.0 This is a compatibility wrapper for 1.x. It will be removed in 3.0
- * @return void
- */
-	protected function expectError($expected = false, $message = '') {
-		if (!$expected) {
-			$expected = 'Exception';
-		}
-		$this->setExpectedException($expected, $message);
-	}
-
-/**
- * Compatibility wrapper function for setExpectedException
- *
- * @param mixed $name The name of the expected Exception.
- * @param string $message the text to display if the assertion is not correct
- * @deprecated 3.0.0 This is a compatibility wrapper for 1.x. It will be removed in 3.0.
- * @return void
- */
-	protected function expectException($name = 'Exception', $message = '') {
-		$this->setExpectedException($name, $message);
 	}
 
 /**
@@ -709,6 +669,125 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 	// @codingStandardsIgnoreEnd
 
 /**
+ * Returns a mock object for the specified class.
+ *
+ * @param string $originalClassName The class name of the object to be mocked.
+ * @param array $methods By default, all methods of the given class are replaced
+ *   with a test double that just returns NULL unless a return value is configured
+ *   using will($this->returnValue()), for instance.
+ *   When the second (optional) parameter is provided, only the methods whose names
+ *   are in the array are replaced with a configurable test double. The behavior
+ *   of the other methods is not changed. Providing NULL as the parameter means
+ *   that no methods will be replaced.
+ * @param array $arguments The third (optional) parameter may hold a parameter
+ *   array that is passed to the original class' constructor (which is not replaced
+ *   with a dummy implementation by default).
+ * @param string $mockClassName The fourth (optional) parameter can be used to
+ *   specify a class name for the generated test double class.
+ * @param bool $callOriginalConstructor The fifth (optional) parameter can be
+ *   used to disable the call to the original class' constructor.
+ * @param bool $callOriginalClone The sixth (optional) parameter can be used
+ *   to disable the call to the original class' clone constructor.
+ * @param bool $callAutoload The seventh (optional) parameter can be used to
+ *   disable __autoload() during the generation of the test double class.
+ * @return object
+ * @deprecated Use `getMockBuilder()` or `createMock()` in new unit tests.
+ * @see https://phpunit.de/manual/current/en/test-doubles.html
+ */
+	protected function _buildMock(
+		$originalClassName,
+		$methods = array(),
+		array $arguments = array(),
+		$mockClassName = '',
+		$callOriginalConstructor = true,
+		$callOriginalClone = true,
+		$callAutoload = true
+	) {
+		$MockBuilder = $this->getMockBuilder($originalClassName);
+		if (!empty($methods)) {
+			$MockBuilder = $MockBuilder->setMethods($methods);
+		}
+		if (!empty($arguments)) {
+			$MockBuilder = $MockBuilder->setConstructorArgs($arguments);
+		}
+		if ($mockClassName != '') {
+			$MockBuilder = $MockBuilder->setMockClassName($mockClassName);
+		}
+		if ($callOriginalConstructor !== true) {
+			$MockBuilder = $MockBuilder->disableOriginalConstructor();
+		}
+		if ($callOriginalClone !== true) {
+			$MockBuilder = $MockBuilder->disableOriginalClone();
+		}
+		if ($callAutoload !== true) {
+			$MockBuilder = $MockBuilder->disableAutoload();
+		}
+		return $MockBuilder->getMock();
+	}
+
+/**
+ * Returns a mock object for the specified class.
+ *
+ * @param string $originalClassName The class name of the object to be mocked.
+ * @param array $methods By default, all methods of the given class are replaced
+ *   with a test double that just returns NULL unless a return value is configured
+ *   using will($this->returnValue()), for instance.
+ *   When the second (optional) parameter is provided, only the methods whose names
+ *   are in the array are replaced with a configurable test double. The behavior
+ *   of the other methods is not changed. Providing NULL as the parameter means
+ *   that no methods will be replaced.
+ * @param array $arguments The third (optional) parameter may hold a parameter
+ *   array that is passed to the original class' constructor (which is not replaced
+ *   with a dummy implementation by default).
+ * @param string $mockClassName The fourth (optional) parameter can be used to
+ *   specify a class name for the generated test double class.
+ * @param bool $callOriginalConstructor The fifth (optional) parameter can be
+ *   used to disable the call to the original class' constructor.
+ * @param bool $callOriginalClone The sixth (optional) parameter can be used
+ *   to disable the call to the original class' clone constructor.
+ * @param bool $callAutoload The seventh (optional) parameter can be used to
+ *   disable __autoload() during the generation of the test double class.
+ * @param bool $cloneArguments Not supported.
+ * @param bool $callOriginalMethods Not supported.
+ * @param string $proxyTarget Not supported.
+ * @return object
+ * @throws InvalidArgumentException When not supported parameters are set.
+ * @deprecated Use `getMockBuilder()` or `createMock()` in new unit tests.
+ * @see https://phpunit.de/manual/current/en/test-doubles.html
+ */
+	public function getMock(
+		$originalClassName,
+		$methods = array(),
+		array $arguments = array(),
+		$mockClassName = '',
+		$callOriginalConstructor = true,
+		$callOriginalClone = true,
+		$callAutoload = true,
+		$cloneArguments = false,
+		$callOriginalMethods = false,
+		$proxyTarget = null
+	) {
+		if ($cloneArguments) {
+			throw new InvalidArgumentException('$cloneArguments parameter is not supported');
+		}
+		if ($callOriginalMethods) {
+			throw new InvalidArgumentException('$callOriginalMethods parameter is not supported');
+		}
+		if ($proxyTarget !== null) {
+			throw new InvalidArgumentException('$proxyTarget parameter is not supported');
+		}
+		return $this->_buildMock(
+			$originalClassName,
+			$methods,
+			$arguments,
+			$mockClassName,
+			$callOriginalConstructor,
+			$callOriginalClone,
+			$callAutoload
+		);
+	}
+
+/**
  * Mock a model, maintain fixtures and table association
  *
  * @param string $model The model to get a mock for.
@@ -734,7 +813,8 @@ abstract class CakeTestCase extends PHPUnit_Framework_TestCase {
 		$availableDs = array_keys(ConnectionManager::enumConnectionObjects());
 
 		if ($mock->useDbConfig !== 'test' && in_array('test_' . $mock->useDbConfig, $availableDs)) {
-			$mock->setDataSource('test_' . $mock->useDbConfig);
+			$mock->useDbConfig = 'test_' . $mock->useDbConfig;
+			$mock->setDataSource($mock->useDbConfig);
 		} else {
 			$mock->useDbConfig = 'test';
 			$mock->setDataSource('test');

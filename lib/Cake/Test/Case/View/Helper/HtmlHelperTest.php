@@ -2,18 +2,18 @@
 /**
  * HtmlHelperTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.View.Helper
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Controller', 'Controller');
@@ -26,7 +26,7 @@ App::uses('Folder', 'Utility');
 App::uses('CakePlugin', 'Core');
 
 if (!defined('FULL_BASE_URL')) {
-	define('FULL_BASE_URL', 'http://cakephp.org');
+	define('FULL_BASE_URL', 'https://cakephp.org');
 }
 
 /**
@@ -143,7 +143,7 @@ class HtmlHelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->View = $this->getMock('View', array('append'), array(new TheHtmlTestController()));
 		$this->Html = new TestHtmlHelper($this->View);
@@ -162,7 +162,7 @@ class HtmlHelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Html, $this->View);
 	}
@@ -444,8 +444,8 @@ class HtmlHelperTest extends CakeTestCase {
 		$result = $this->Html->image('test.gif', array('pathPrefix' => '/my/custom/path/'));
 		$this->assertTags($result, array('img' => array('src' => '/my/custom/path/test.gif', 'alt' => '')));
 
-		$result = $this->Html->image('test.gif', array('pathPrefix' => 'http://cakephp.org/assets/img/'));
-		$this->assertTags($result, array('img' => array('src' => 'http://cakephp.org/assets/img/test.gif', 'alt' => '')));
+		$result = $this->Html->image('test.gif', array('pathPrefix' => 'https://cakephp.org/assets/img/'));
+		$this->assertTags($result, array('img' => array('src' => 'https://cakephp.org/assets/img/test.gif', 'alt' => '')));
 
 		$result = $this->Html->image('test.gif', array('pathPrefix' => '//cakephp.org/assets/img/'));
 		$this->assertTags($result, array('img' => array('src' => '//cakephp.org/assets/img/test.gif', 'alt' => '')));
@@ -554,6 +554,40 @@ class HtmlHelperTest extends CakeTestCase {
 	}
 
 /**
+ * testBase64ImageTag method
+ *
+ * @return void
+ */
+	public function testBase64ImageTag() {
+		$this->Html->request->webroot = '';
+
+		$result = $this->Html->image('cake.icon.png', array('base64' => true));
+		$this->assertTags($result, array(
+			'img' => array(
+				'src' => 'preg:/data:image\/png;base64,(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})/',
+				'alt' => ''
+			)));
+
+		$result = $this->Html->image('/img/cake.icon.png', array('base64' => true));
+		$this->assertTags($result, array(
+			'img' => array(
+				'src' => 'preg:/data:image\/png;base64,(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})/',
+				'alt' => ''
+			)));
+	}
+
+/**
+ * testLoadConfigWrongFile method
+ *
+ * @return void
+ */
+	public function testBase64InvalidArgumentException() {
+		$this->expectException(InvalidArgumentException::class);
+		$this->Html->request->webroot = '';
+		$this->Html->image('non-existent-image.png', array('base64' => true));
+	}
+
+/**
  * test theme assets in main webroot path
  *
  * @return void
@@ -593,12 +627,12 @@ class HtmlHelperTest extends CakeTestCase {
 
 		$result = $this->Html->style(array('display' => 'none', 'margin' => '10px'));
 		$expected = 'display:none; margin:10px;';
-		$this->assertRegExp('/^display\s*:\s*none\s*;\s*margin\s*:\s*10px\s*;?$/', $expected);
+		$this->assertMatchesRegularExpression('/^display\s*:\s*none\s*;\s*margin\s*:\s*10px\s*;?$/', $expected);
 
 		$result = $this->Html->style(array('display' => 'none', 'margin' => '10px'), false);
 		$lines = explode("\n", $result);
-		$this->assertRegExp('/^\s*display\s*:\s*none\s*;\s*$/', $lines[0]);
-		$this->assertRegExp('/^\s*margin\s*:\s*10px\s*;?$/', $lines[1]);
+		$this->assertMatchesRegularExpression('/^\s*display\s*:\s*none\s*;\s*$/', $lines[0]);
+		$this->assertMatchesRegularExpression('/^\s*margin\s*:\s*10px\s*;?$/', $lines[1]);
 	}
 
 /**
@@ -644,8 +678,8 @@ class HtmlHelperTest extends CakeTestCase {
 		$expected['link']['href'] = '/my/custom/path/cake.generic.css';
 		$this->assertTags($result, $expected);
 
-		$result = $this->Html->css('cake.generic', array('pathPrefix' => 'http://cakephp.org/assets/css/'));
-		$expected['link']['href'] = 'http://cakephp.org/assets/css/cake.generic.css';
+		$result = $this->Html->css('cake.generic', array('pathPrefix' => 'https://cakephp.org/assets/css/'));
+		$expected['link']['href'] = 'https://cakephp.org/assets/css/cake.generic.css';
 		$this->assertTags($result, $expected);
 
 		$previousConfig = Configure::read('App.cssBaseUrl');
@@ -930,12 +964,12 @@ class HtmlHelperTest extends CakeTestCase {
 		$timestamp = substr(strtotime('now'), 0, 8);
 
 		$result = $this->Html->script('__cake_js_test', array('inline' => true, 'once' => false));
-		$this->assertRegExp('/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
+		$this->assertMatchesRegularExpression('/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
 
 		Configure::write('debug', 0);
 		Configure::write('Asset.timestamp', 'force');
 		$result = $this->Html->script('__cake_js_test', array('inline' => true, 'once' => false));
-		$this->assertRegExp('/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
+		$this->assertMatchesRegularExpression('/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
 		unlink(WWW_ROOT . 'js' . DS . '__cake_js_test.js');
 		Configure::write('Asset.timestamp', false);
 	}
@@ -959,12 +993,12 @@ class HtmlHelperTest extends CakeTestCase {
 		$timestamp = substr(strtotime('now'), 0, 8);
 
 		$result = $this->Html->script('TestPlugin.__cake_js_test', array('inline' => true, 'once' => false));
-		$this->assertRegExp('/test_plugin\/js\/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
+		$this->assertMatchesRegularExpression('/test_plugin\/js\/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
 
 		Configure::write('debug', 0);
 		Configure::write('Asset.timestamp', 'force');
 		$result = $this->Html->script('TestPlugin.__cake_js_test', array('inline' => true, 'once' => false));
-		$this->assertRegExp('/test_plugin\/js\/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
+		$this->assertMatchesRegularExpression('/test_plugin\/js\/__cake_js_test.js\?' . $timestamp . '[0-9]{2}"/', $result, 'Timestamp value not found %s');
 		unlink($pluginJsPath . DS . '__cake_js_test.js');
 		Configure::write('Asset.timestamp', false);
 
@@ -1035,9 +1069,9 @@ class HtmlHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$result = $this->Html->script('foo3', array('pathPrefix' => 'http://cakephp.org/assets/js/'));
+		$result = $this->Html->script('foo3', array('pathPrefix' => 'https://cakephp.org/assets/js/'));
 		$expected = array(
-			'script' => array('type' => 'text/javascript', 'src' => 'http://cakephp.org/assets/js/foo3.js')
+			'script' => array('type' => 'text/javascript', 'src' => 'https://cakephp.org/assets/js/foo3.js')
 		);
 		$this->assertTags($result, $expected);
 
@@ -1054,7 +1088,7 @@ class HtmlHelperTest extends CakeTestCase {
 		$this->assertNull($result, 'Script returned upon duplicate inclusion %s');
 
 		$result = $this->Html->script(array('foo', 'bar', 'baz'));
-		$this->assertNotRegExp('/foo.js/', $result);
+		$this->assertDoesNotMatchRegularExpression('/foo.js/', $result);
 
 		$result = $this->Html->script('foo', array('inline' => true, 'once' => false));
 		$this->assertNotNull($result);
@@ -1118,7 +1152,7 @@ class HtmlHelperTest extends CakeTestCase {
 		$this->assertNull($result, 'Script returned upon duplicate inclusion %s');
 
 		$result = $this->Html->script(array('TestPlugin.foo', 'TestPlugin.bar', 'TestPlugin.baz'));
-		$this->assertNotRegExp('/test_plugin\/js\/foo.js/', $result);
+		$this->assertDoesNotMatchRegularExpression('/test_plugin\/js\/foo.js/', $result);
 
 		$result = $this->Html->script('TestPlugin.foo', array('inline' => true, 'once' => false));
 		$this->assertNotNull($result);
@@ -1464,6 +1498,28 @@ class HtmlHelperTest extends CakeTestCase {
 			'/a',
 			'-',
 			'Fourth'
+		);
+		$this->assertTags($result, $expected);
+
+		$this->Html->addCrumb('Zeroth', '#zeroth', array('prepend' => true));
+
+		$result = $this->Html->getCrumbs();
+		$expected = array(
+			array('a' => array('href' => '#zeroth')),
+			'Zeroth',
+			'/a',
+			'&raquo;',
+			array('a' => array('href' => '#first')),
+			'First',
+			'/a',
+			'&raquo;',
+			array('a' => array('href' => '#second')),
+			'Second',
+			'/a',
+			'&raquo;',
+			array('a' => array('href' => '#third')),
+			'Third',
+			'/a',
 		);
 		$this->assertTags($result, $expected);
 	}
@@ -2265,9 +2321,9 @@ class HtmlHelperTest extends CakeTestCase {
  * testLoadConfigWrongFile method
  *
  * @return void
- * @expectedException ConfigureException
  */
 	public function testLoadConfigWrongFile() {
+		$this->expectException(ConfigureException::class);
 		$this->Html->loadConfig('wrong_file');
 	}
 
@@ -2275,9 +2331,9 @@ class HtmlHelperTest extends CakeTestCase {
  * testLoadConfigWrongReader method
  *
  * @return void
- * @expectedException ConfigureException
  */
 	public function testLoadConfigWrongReader() {
+		$this->expectException(ConfigureException::class);
 		$path = CAKE . 'Test' . DS . 'test_app' . DS . 'Config' . DS;
 		$this->Html->loadConfig(array('htmlhelper_tags', 'wrong_reader'), $path);
 	}

@@ -1,17 +1,17 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.View
  * @since         CakePHP(tm) v 0.2.9
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Router', 'Routing');
@@ -292,7 +292,7 @@ class Helper extends CakeObject {
  *    the reverse routing features of CakePHP.
  * @param bool $full If true, the full base URL will be prepended to the result
  * @return string Full translated URL with base path.
- * @link http://book.cakephp.org/2.0/en/views/helpers.html
+ * @link https://book.cakephp.org/2.0/en/views/helpers.html
  */
 	public function url($url = null, $full = false) {
 		return h(Router::url($url, $full));
@@ -573,7 +573,7 @@ class Helper extends CakeObject {
 		if ($setScope === true) {
 			$this->_modelScope = $entity;
 		}
-		$parts = array_values(Hash::filter(explode('.', $entity)));
+		$parts = $entity !== null ? array_values(Hash::filter(explode('.', $entity))) : [];
 		if (empty($parts)) {
 			return;
 		}
@@ -632,7 +632,7 @@ class Helper extends CakeObject {
  * @return array An array containing the identity elements of an entity
  */
 	public function entity() {
-		return explode('.', $this->_entityPath);
+		return explode('.', (string)$this->_entityPath);
 	}
 
 /**
@@ -958,11 +958,7 @@ class Helper extends CakeObject {
  * @return void
  */
 	protected function _clean() {
-		if (get_magic_quotes_gpc()) {
-			$this->_cleaned = stripslashes($this->_tainted);
-		} else {
-			$this->_cleaned = $this->_tainted;
-		}
+		$this->_cleaned = $this->_tainted;
 
 		$this->_cleaned = str_replace(array("&amp;", "&lt;", "&gt;"), array("&amp;amp;", "&amp;lt;", "&amp;gt;"), $this->_cleaned);
 		$this->_cleaned = preg_replace('#(&\#*\w+)[\x00-\x20]+;#u', "$1;", $this->_cleaned);

@@ -2,18 +2,18 @@
 /**
  * CommandListShellTest file
  *
- * CakePHP :  Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP :  Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP Project
  * @package       Cake.Test.Case.Console.Command
  * @since         CakePHP v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('CommandListShell', 'Console/Command');
@@ -49,7 +49,7 @@ class CommandListShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'Plugin' => array(
@@ -82,7 +82,7 @@ class CommandListShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Shell);
 		CakePlugin::unload();
@@ -98,16 +98,16 @@ class CommandListShellTest extends CakeTestCase {
 		$output = $this->Shell->stdout->output;
 
 		$expected = "/\[.*TestPlugin.*\] example/";
-		$this->assertRegExp($expected, $output);
+		$this->assertMatchesRegularExpression($expected, $output);
 
 		$expected = "/\[.*TestPluginTwo.*\] example, welcome/";
-		$this->assertRegExp($expected, $output);
+		$this->assertMatchesRegularExpression($expected, $output);
 
 		$expected = "/\[.*CORE.*\] acl, api, bake, command_list, completion, console, i18n, schema, server, test, testsuite, upgrade/";
-		$this->assertRegExp($expected, $output);
+		$this->assertMatchesRegularExpression($expected, $output);
 
 		$expected = "/\[.*app.*\] sample/";
-		$this->assertRegExp($expected, $output);
+		$this->assertMatchesRegularExpression($expected, $output);
 	}
 
 /**
@@ -122,12 +122,12 @@ class CommandListShellTest extends CakeTestCase {
 		$output = $this->Shell->stdout->output;
 
 		$find = '<shell name="sample" call_as="sample" provider="app" help="sample -h"/>';
-		$this->assertContains($find, $output);
+		$this->assertStringContainsString($find, $output);
 
 		$find = '<shell name="bake" call_as="bake" provider="CORE" help="bake -h"/>';
-		$this->assertContains($find, $output);
+		$this->assertStringContainsString($find, $output);
 
 		$find = '<shell name="welcome" call_as="TestPluginTwo.welcome" provider="TestPluginTwo" help="TestPluginTwo.welcome -h"/>';
-		$this->assertContains($find, $output);
+		$this->assertStringContainsString($find, $output);
 	}
 }

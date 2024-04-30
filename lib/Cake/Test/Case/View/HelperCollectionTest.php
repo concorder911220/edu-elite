@@ -2,18 +2,18 @@
 /**
  * HelperCollectionTest file
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.View
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('HelperCollection', 'View');
@@ -38,7 +38,7 @@ class HelperCollectionTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->View = $this->getMock('View', array(), array(null));
 		$this->Helpers = new HelperCollection($this->View);
@@ -49,7 +49,7 @@ class HelperCollectionTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		CakePlugin::unload();
 		unset($this->Helpers, $this->View);
 		parent::tearDown();
@@ -93,10 +93,10 @@ class HelperCollectionTest extends CakeTestCase {
 /**
  * test lazy loading of helpers
  *
- * @expectedException MissingHelperException
  * @return void
  */
 	public function testLazyLoadException() {
+		$this->expectException(MissingHelperException::class);
 		$this->Helpers->NotAHelper;
 	}
 
@@ -145,10 +145,10 @@ class HelperCollectionTest extends CakeTestCase {
 /**
  * test missinghelper exception
  *
- * @expectedException MissingHelperException
  * @return void
  */
 	public function testLoadMissingHelper() {
+		$this->expectException(MissingHelperException::class);
 		$this->Helpers->load('ThisHelperShouldAlwaysBeMissing');
 	}
 
@@ -182,7 +182,7 @@ class HelperCollectionTest extends CakeTestCase {
 		$this->assertEquals(array('Form', 'Html'), $result, 'loaded helpers is wrong');
 
 		$this->Helpers->unload('Html');
-		$this->assertNotContains('Html', $this->Helpers->loaded());
+		$this->assertNotContains( 'Html', $this->Helpers->loaded());
 		$this->assertContains('Form', $this->Helpers->loaded());
 
 		$result = $this->Helpers->loaded();

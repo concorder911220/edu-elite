@@ -2,18 +2,18 @@
 /**
  * HelperTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.View
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('View', 'View');
@@ -201,7 +201,7 @@ class HelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		ClassRegistry::flush();
@@ -225,7 +225,7 @@ class HelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		Configure::delete('Asset');
 
@@ -613,19 +613,19 @@ class HelperTest extends CakeTestCase {
 		Configure::write('Asset.timestamp', true);
 		Configure::write('debug', 2);
 		$result = $this->Helper->assetTimestamp(Configure::read('App.cssBaseUrl') . 'cake.generic.css');
-		$this->assertRegExp('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
+		$this->assertMatchesRegularExpression('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
 
 		Configure::write('Asset.timestamp', 'force');
 		Configure::write('debug', 0);
 		$result = $this->Helper->assetTimestamp(Configure::read('App.cssBaseUrl') . 'cake.generic.css');
-		$this->assertRegExp('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
+		$this->assertMatchesRegularExpression('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
 
 		$result = $this->Helper->assetTimestamp(Configure::read('App.cssBaseUrl') . 'cake.generic.css?someparam');
 		$this->assertEquals(Configure::read('App.cssBaseUrl') . 'cake.generic.css?someparam', $result);
 
 		$this->Helper->request->webroot = '/some/dir/';
 		$result = $this->Helper->assetTimestamp('/some/dir/' . Configure::read('App.cssBaseUrl') . 'cake.generic.css');
-		$this->assertRegExp('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
+		$this->assertMatchesRegularExpression('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
 	}
 
 /**
@@ -707,7 +707,7 @@ class HelperTest extends CakeTestCase {
 		Configure::write('Asset.timestamp', 'force');
 
 		$result = $this->Helper->assetUrl('cake.generic.css', array('pathPrefix' => Configure::read('App.cssBaseUrl')));
-		$this->assertRegExp('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
+		$this->assertMatchesRegularExpression('/' . preg_quote(Configure::read('App.cssBaseUrl') . 'cake.generic.css?', '/') . '[0-9]+/', $result);
 	}
 
 /**
@@ -723,16 +723,16 @@ class HelperTest extends CakeTestCase {
 		CakePlugin::load(array('TestPlugin'));
 
 		$result = $this->Helper->assetTimestamp('/test_plugin/css/test_plugin_asset.css');
-		$this->assertRegExp('#/test_plugin/css/test_plugin_asset.css\?[0-9]+$#', $result, 'Missing timestamp plugin');
+		$this->assertMatchesRegularExpression('#/test_plugin/css/test_plugin_asset.css\?[0-9]+$#', $result, 'Missing timestamp plugin');
 
 		$result = $this->Helper->assetTimestamp('/test_plugin/css/i_dont_exist.css');
-		$this->assertRegExp('#/test_plugin/css/i_dont_exist.css\?$#', $result, 'No error on missing file');
+		$this->assertMatchesRegularExpression('#/test_plugin/css/i_dont_exist.css\?$#', $result, 'No error on missing file');
 
 		$result = $this->Helper->assetTimestamp('/theme/test_theme/js/theme.js');
-		$this->assertRegExp('#/theme/test_theme/js/theme.js\?[0-9]+$#', $result, 'Missing timestamp theme');
+		$this->assertMatchesRegularExpression('#/theme/test_theme/js/theme.js\?[0-9]+$#', $result, 'Missing timestamp theme');
 
 		$result = $this->Helper->assetTimestamp('/theme/test_theme/js/non_existant.js');
-		$this->assertRegExp('#/theme/test_theme/js/non_existant.js\?$#', $result, 'No error on missing file');
+		$this->assertMatchesRegularExpression('#/theme/test_theme/js/non_existant.js\?$#', $result, 'No error on missing file');
 	}
 
 /**
@@ -839,10 +839,10 @@ class HelperTest extends CakeTestCase {
 		$this->assertEquals('with something', $result);
 
 		$result = $this->Helper->clean('<script type="text/javascript">alert("ruined");</script>');
-		$this->assertNotRegExp('#</*script#', $result);
+		$this->assertDoesNotMatchRegularExpression('#</*script#', $result);
 
 		$result = $this->Helper->clean("<script \ntype=\"text/javascript\">\n\talert('ruined');\n\n\t\t</script>");
-		$this->assertNotRegExp('#</*script#', $result);
+		$this->assertDoesNotMatchRegularExpression('#</*script#', $result);
 
 		$result = $this->Helper->clean('<body/onload=do(/something/)>');
 		$this->assertEquals('<body/>', $result);

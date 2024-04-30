@@ -2,21 +2,19 @@
 /**
  * BasicAuthenticateTest file
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Controller.Component.Auth
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-
-App::uses('AuthComponent', 'Controller/Component');
 App::uses('BasicAuthenticate', 'Controller/Component/Auth');
 App::uses('AppModel', 'Model');
 App::uses('CakeRequest', 'Network');
@@ -43,7 +41,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->Collection = $this->getMock('ComponentCollection');
 		$this->auth = new BasicAuthenticate($this->Collection, array(
@@ -198,6 +196,28 @@ class BasicAuthenticateTest extends CakeTestCase {
 	}
 
 /**
+ * test authenticate success with header values
+ *
+ * @return void
+ */
+	public function testAuthenticateSuccessFromHeaders() {
+		$_SERVER['HTTP_AUTHORIZATION'] = 'Basic ' . base64_encode('mariano:password');
+		unset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
+
+		$request = new CakeRequest('posts/index', false);
+		$request->addParams(array('pass' => array(), 'named' => array()));
+
+		$result = $this->auth->authenticate($request, $this->response);
+		$expected = array(
+			'id' => 1,
+			'user' => 'mariano',
+			'created' => '2007-03-17 01:16:23',
+			'updated' => '2007-03-17 01:18:31'
+		);
+		$this->assertEquals($expected, $result);
+	}
+
+/**
  * test contain success
  *
  * @return void
@@ -278,11 +298,11 @@ class BasicAuthenticateTest extends CakeTestCase {
 /**
  * test scope failure.
  *
- * @expectedException UnauthorizedException
- * @expectedExceptionCode 401
  * @return void
  */
 	public function testAuthenticateFailReChallenge() {
+		$this->expectException(UnauthorizedException::class);
+		$this->expectExceptionCode(401);
 		$this->auth->settings['scope'] = array('user' => 'nate');
 		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));

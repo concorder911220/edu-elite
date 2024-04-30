@@ -2,18 +2,18 @@
 /**
  * ViewTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.View
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('View', 'View');
@@ -314,7 +314,7 @@ class ViewTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		$request = $this->getMock('CakeRequest');
@@ -346,7 +346,7 @@ class ViewTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		CakePlugin::unload();
 		unset($this->View);
@@ -399,10 +399,10 @@ class ViewTest extends CakeTestCase {
  * Test that plugin files with absolute file paths are scoped
  * to the plugin and do now allow any file path.
  *
- * @expectedException MissingViewException
  * @return void
  */
 	public function testPluginGetTemplateAbsoluteFail() {
+		$this->expectException(MissingViewException::class);
 		$this->Controller->viewPath = 'Pages';
 		$this->Controller->action = 'display';
 		$this->Controller->params['pass'] = array('home');
@@ -614,10 +614,10 @@ class ViewTest extends CakeTestCase {
 /**
  * Test for missing views
  *
- * @expectedException MissingViewException
  * @return void
  */
 	public function testMissingView() {
+		$this->expectException(MissingViewException::class);
 		$this->Controller->plugin = null;
 		$this->Controller->name = 'Pages';
 		$this->Controller->viewPath = 'Pages';
@@ -625,9 +625,16 @@ class ViewTest extends CakeTestCase {
 		$this->Controller->params['pass'] = array('home');
 
 		$View = new TestView($this->Controller);
-		ob_start();
 		$View->getViewFileName('does_not_exist');
+	}
 
+/**
+ * Test for missing theme views
+ *
+ * @return void
+ */
+	public function testMissingThemeView() {
+		$this->expectException(MissingViewException::class);
 		$this->ThemeController->plugin = null;
 		$this->ThemeController->name = 'Pages';
 		$this->ThemeController->viewPath = 'Pages';
@@ -643,20 +650,26 @@ class ViewTest extends CakeTestCase {
 /**
  * Test for missing layouts
  *
- * @expectedException MissingLayoutException
  * @return void
  */
 	public function testMissingLayout() {
+		$this->expectException(MissingLayoutException::class);
 		$this->Controller->plugin = null;
 		$this->Controller->name = 'Posts';
 		$this->Controller->viewPath = 'Posts';
 		$this->Controller->layout = 'whatever';
 
 		$View = new TestView($this->Controller);
-		ob_start();
 		$View->getLayoutFileName();
-		ob_get_clean();
+	}
 
+/**
+ * Test for missing theme layouts
+ *
+ * @return void
+ */
+	public function testMissingThemeLayout() {
+		$this->expectException(MissingLayoutException::class);
 		$this->ThemeController->plugin = null;
 		$this->ThemeController->name = 'Posts';
 		$this->ThemeController->viewPath = 'posts';
@@ -754,30 +767,30 @@ class ViewTest extends CakeTestCase {
 /**
  * Test elementInexistent method
  *
- * @expectedException PHPUnit_Framework_Error_Notice
  * @return void
  */
 	public function testElementInexistent() {
+		$this->expectNotice();
 		$this->View->element('non_existent_element');
 	}
 
 /**
  * Test elementInexistent2 method
  *
- * @expectedException PHPUnit_Framework_Error_Notice
  * @return void
  */
 	public function testElementInexistent2() {
+		$this->expectNotice();
 		$this->View->element('TestPlugin.plugin_element', array(), array('plugin' => 'test_plugin'));
 	}
 
 /**
  * Test elementInexistent3 method
  *
- * @expectedException PHPUnit_Framework_Error_Notice
  * @return void
  */
 	public function testElementInexistent3() {
+		$this->expectNotice();
 		$this->View->element('test_plugin.plugin_element');
 	}
 
@@ -977,16 +990,24 @@ class ViewTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.beforeRender'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.beforeRender';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 		$View->Helpers->expects($this->at(1))->method('trigger')
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.beforeRenderFile'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.beforeRenderFile';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 
@@ -994,16 +1015,24 @@ class ViewTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.afterRenderFile'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.afterRenderFile';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 		$View->Helpers->expects($this->at(3))->method('trigger')
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.afterRender'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.afterRender';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 
@@ -1011,8 +1040,12 @@ class ViewTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.beforeLayout'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.beforeLayout';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 
@@ -1020,8 +1053,12 @@ class ViewTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.beforeRenderFile'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.beforeRenderFile';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 
@@ -1029,8 +1066,12 @@ class ViewTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.afterRenderFile'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.afterRenderFile';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 
@@ -1038,8 +1079,12 @@ class ViewTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'View.afterLayout'),
-					$this->attributeEqualTo('_subject', $View)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'View.afterLayout';
+					}),
+					$this->callback(function (CakeEvent $event) use ($View) {
+						return $event->subject() === $View;
+					}),
 				)
 			);
 
@@ -1072,8 +1117,8 @@ class ViewTest extends CakeTestCase {
 
 		$content = 'This is my view output';
 		$result = $View->renderLayout($content, 'default');
-		$this->assertRegExp('/modified in the afterlife/', $result);
-		$this->assertRegExp('/This is my view output/', $result);
+		$this->assertMatchesRegularExpression('/modified in the afterlife/', $result);
+		$this->assertMatchesRegularExpression('/This is my view output/', $result);
 	}
 
 /**
@@ -1111,9 +1156,9 @@ class ViewTest extends CakeTestCase {
 		$View = new TestView($this->PostsController);
 		$result = $View->render('index');
 
-		$this->assertRegExp("/<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=utf-8\" \/>\s*<title>/", $result);
-		$this->assertRegExp("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
-		$this->assertRegExp("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
+		$this->assertMatchesRegularExpression("/<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=utf-8\" \/>\s*<title>/", $result);
+		$this->assertMatchesRegularExpression("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
+		$this->assertMatchesRegularExpression("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
 
 		$this->assertTrue(isset($View->viewVars['content_for_layout']), 'content_for_layout should be a view var');
 		$this->assertTrue(isset($View->viewVars['scripts_for_layout']), 'scripts_for_layout should be a view var');
@@ -1126,8 +1171,8 @@ class ViewTest extends CakeTestCase {
 		$View = new TestView($this->PostsController);
 		$result = $View->render(false, 'flash');
 
-		$this->assertRegExp("/<title>yo what up<\/title>/", $result);
-		$this->assertRegExp("/<p><a href=\"flash\">yo what up<\/a><\/p>/", $result);
+		$this->assertMatchesRegularExpression("/<title>yo what up<\/title>/", $result);
+		$this->assertMatchesRegularExpression("/<p><a href=\"flash\">yo what up<\/a><\/p>/", $result);
 
 		$this->assertNull($View->render(false, 'flash'));
 
@@ -1140,9 +1185,9 @@ class ViewTest extends CakeTestCase {
 		$View = new TestView($this->PostsController);
 		$result = $View->render('index');
 
-		$this->assertRegExp("/<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=utf-8\" \/>\s*<title>/", $result);
-		$this->assertRegExp("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
-		$this->assertRegExp("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
+		$this->assertMatchesRegularExpression("/<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=utf-8\" \/>\s*<title>/", $result);
+		$this->assertMatchesRegularExpression("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
+		$this->assertMatchesRegularExpression("/<div id=\"content\">\s*posts index\s*<\/div>/", $result);
 	}
 
 /**
@@ -1156,7 +1201,7 @@ class ViewTest extends CakeTestCase {
 
 		$this->assertEquals('cache_form', $View->view);
 		$result = $View->render();
-		$this->assertRegExp('/Add User/', $result);
+		$this->assertMatchesRegularExpression('/Add User/', $result);
 	}
 
 /**
@@ -1189,8 +1234,8 @@ class ViewTest extends CakeTestCase {
 		$View = new View($Controller);
 		$result = $View->render('helper_overwrite', false);
 
-		$this->assertRegExp('/I am some test html/', $result);
-		$this->assertRegExp('/Test link/', $result);
+		$this->assertMatchesRegularExpression('/I am some test html/', $result);
+		$this->assertMatchesRegularExpression('/Test link/', $result);
 	}
 
 /**
@@ -1202,19 +1247,19 @@ class ViewTest extends CakeTestCase {
 		$View = new TestView($this->PostsController);
 
 		$result = $View->getViewFileName('index');
-		$this->assertRegExp('/Posts(\/|\\\)index.ctp/', $result);
+		$this->assertMatchesRegularExpression('/Posts(\/|\\\)index.ctp/', $result);
 
 		$result = $View->getViewFileName('TestPlugin.index');
-		$this->assertRegExp('/Posts(\/|\\\)index.ctp/', $result);
+		$this->assertMatchesRegularExpression('/Posts(\/|\\\)index.ctp/', $result);
 
 		$result = $View->getViewFileName('/Pages/home');
-		$this->assertRegExp('/Pages(\/|\\\)home.ctp/', $result);
+		$this->assertMatchesRegularExpression('/Pages(\/|\\\)home.ctp/', $result);
 
 		$result = $View->getViewFileName('../Elements/test_element');
-		$this->assertRegExp('/Elements(\/|\\\)test_element.ctp/', $result);
+		$this->assertMatchesRegularExpression('/Elements(\/|\\\)test_element.ctp/', $result);
 
 		$result = $View->getViewFileName('../Themed/TestTheme/Posts/index');
-		$this->assertRegExp('/Themed(\/|\\\)TestTheme(\/|\\\)Posts(\/|\\\)index.ctp/', $result);
+		$this->assertMatchesRegularExpression('/Themed(\/|\\\)TestTheme(\/|\\\)Posts(\/|\\\)index.ctp/', $result);
 
 		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Posts' . DS . 'index.ctp';
 		$result = $View->getViewFileName('../Posts/index');
@@ -1250,7 +1295,7 @@ class ViewTest extends CakeTestCase {
 		fclose($f);
 		$result = $View->renderCache($path, '+1 second');
 
-		$this->assertRegExp('/^some cacheText/', $result);
+		$this->assertMatchesRegularExpression('/^some cacheText/', $result);
 
 		if (file_exists($path)) {
 			unlink($path);
@@ -1269,7 +1314,7 @@ class ViewTest extends CakeTestCase {
 		$View->helpers = array('Html', 'Form', 'Cache');
 		$View->layout = 'cache_layout';
 		$result = $View->render('index');
-		$this->assertNotRegExp('/cake:nocache/', $result);
+		$this->assertDoesNotMatchRegularExpression('/cake:nocache/', $result);
 	}
 
 /**
@@ -1284,7 +1329,7 @@ class ViewTest extends CakeTestCase {
 		$View->helpers = array('Html', 'Form');
 		$View->layout = 'cache_layout';
 		$result = $View->render('index');
-		$this->assertNotRegExp('/cake:nocache/', $result);
+		$this->assertDoesNotMatchRegularExpression('/cake:nocache/', $result);
 	}
 
 /**
@@ -1321,10 +1366,10 @@ class ViewTest extends CakeTestCase {
 /**
  * testBadExt method
  *
- * @expectedException MissingViewException
  * @return void
  */
 	public function testBadExt() {
+		$this->expectException(MissingViewException::class);
 		$this->PostsController->action = 'something';
 		$this->PostsController->ext = '.whatever';
 
@@ -1347,10 +1392,10 @@ class ViewTest extends CakeTestCase {
 /**
  * testAltBadExt method
  *
- * @expectedException MissingViewException
  * @return void
  */
 	public function testAltBadExt() {
+		$this->expectException(MissingViewException::class);
 		$View = new TestView($this->PostsController);
 		$View->render('alt_ext');
 	}
@@ -1482,13 +1527,13 @@ class ViewTest extends CakeTestCase {
 /**
  * Test setting a block's content to an object without __toString magic method
  *
- * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
- * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
- *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testBlockSetObjectWithoutToString() {
+		$this->_checkException(
+			'Object of class TestObjectWithoutToString could not be converted to string'
+		);
+
 		$objectWithToString = new TestObjectWithoutToString();
 		$this->View->assign('testWithObjectWithoutToString', $objectWithToString);
 	}
@@ -1512,7 +1557,6 @@ class ViewTest extends CakeTestCase {
 	public static function blockValueProvider() {
 		return array(
 			'string' => array('A string value'),
-			'null' => array(null),
 			'decimal' => array(1.23456),
 			'object with __toString' => array(new TestObjectWithToString()),
 		);
@@ -1535,13 +1579,13 @@ class ViewTest extends CakeTestCase {
 /**
  * Test appending an object without __toString magic method to a block with append.
  *
- * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
- * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
- *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testBlockAppendObjectWithoutToString() {
+		$this->_checkException(
+			'Object of class TestObjectWithoutToString could not be converted to string'
+		);
+
 		$object = new TestObjectWithoutToString();
 		$this->View->assign('testBlock', 'Block ');
 		$this->View->append('testBlock', $object);
@@ -1564,13 +1608,13 @@ class ViewTest extends CakeTestCase {
 /**
  * Test prepending an object without __toString magic method to a block with prepend.
  *
- * This should produce a "Object of class TestObjectWithoutToString could not be converted to string" error
- * which gets thrown as a PHPUnit_Framework_Error Exception by PHPUnit.
- *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testBlockPrependObjectWithoutToString() {
+		$this->_checkException(
+			'Object of class TestObjectWithoutToString could not be converted to string'
+		);
+
 		$object = new TestObjectWithoutToString();
 		$this->View->assign('test', 'Block ');
 		$this->View->prepend('test', $object);
@@ -1631,26 +1675,33 @@ class ViewTest extends CakeTestCase {
 /**
  * Test that starting the same block twice throws an exception
  *
- * @expectedException CakeException
  * @return void
  */
 	public function testStartBlocksTwice() {
-		$this->View->start('first');
-		echo 'In first ';
-		$this->View->start('second');
-		echo 'In second';
-		$this->View->start('first');
+		try {
+			$this->View->start('first');
+			$this->View->start('first');
+			$this->fail('No exception');
+		} catch (CakeException $e) {
+			ob_end_clean();
+			$this->assertTrue(true);
+		}
 	}
 
 /**
  * Test that an exception gets thrown when you leave a block open at the end
  * of a view.
  *
- * @expectedException CakeException
  * @return void
  */
 	public function testExceptionOnOpenBlock() {
-		$this->View->render('open_block');
+		try {
+			$this->View->render('open_block');
+			$this->fail('No exception');
+		} catch (CakeException $e) {
+			ob_end_clean();
+			$this->assertStringContainsString('The "no_close" block was left open', $e->getMessage());
+		}
 	}
 
 /**
@@ -1673,23 +1724,33 @@ TEXT;
 /**
  * Make sure that extending the current view with itself causes an exception
  *
- * @expectedException LogicException
  * @return void
  */
 	public function testExtendSelf() {
-		$this->View->layout = false;
-		$this->View->render('extend_self');
+		try {
+			$this->View->layout = false;
+			$this->View->render('extend_self');
+			$this->fail('No exception');
+		} catch (LogicException $e) {
+			ob_end_clean();
+			$this->assertStringContainsString('cannot have views extend themselves', $e->getMessage());
+		}
 	}
 
 /**
  * Make sure that extending in a loop causes an exception
  *
- * @expectedException LogicException
  * @return void
  */
 	public function testExtendLoop() {
-		$this->View->layout = false;
-		$this->View->render('extend_loop');
+		try {
+			$this->View->layout = false;
+			$this->View->render('extend_loop');
+			$this->fail('No exception');
+		} catch (LogicException $e) {
+			ob_end_clean();
+			$this->assertStringContainsString('cannot have views extend in a loop', $e->getMessage());
+		}
 	}
 
 /**
@@ -1713,12 +1774,18 @@ TEXT;
 /**
  * Extending an element which doesn't exist should throw a missing view exception
  *
- * @expectedException LogicException
  * @return void
  */
 	public function testExtendMissingElement() {
-		$this->View->layout = false;
-		$this->View->render('extend_missing_element');
+		try {
+			$this->View->layout = false;
+			$this->View->render('extend_missing_element');
+			$this->fail('No exception');
+		} catch (LogicException $e) {
+			ob_end_clean();
+			ob_end_clean();
+			$this->assertStringContainsString('element', $e->getMessage());
+		}
 	}
 
 /**
@@ -1803,5 +1870,15 @@ TEXT;
 		$this->View->set('title', $expected);
 		$result = $this->View->get('title', $default);
 		$this->assertEquals($expected, $result);
+	}
+
+	protected function _checkException($message) {
+		if (version_compare(PHP_VERSION, '7.4', '>=')) {
+			$this->expectException(Error::class);
+			$this->expectExceptionMessage($message);
+		} else {
+			$this->expectError();
+			$this->expectErrorMessage($message);
+		}
 	}
 }

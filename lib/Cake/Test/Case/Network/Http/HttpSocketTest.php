@@ -2,18 +2,18 @@
 /**
  * HttpSocketTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Network.Http
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('HttpSocket', 'Network/Http');
@@ -188,7 +188,7 @@ class HttpSocketTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->Socket = $this->getMock('TestHttpSocket', array('read', 'write', 'connect'));
 		$this->RequestSocket = $this->getMock('TestHttpSocket', array('read', 'write', 'connect', 'request'));
@@ -199,7 +199,7 @@ class HttpSocketTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Socket, $this->RequestSocket);
 	}
@@ -215,11 +215,13 @@ class HttpSocketTest extends CakeTestCase {
 		$this->Socket->expects($this->never())->method('connect');
 		$this->Socket->__construct(array('host' => 'foo-bar'));
 		$baseConfig['host'] = 'foo-bar';
+		$baseConfig['cryptoType'] = 'tls';
 		$this->assertEquals($this->Socket->config, $baseConfig);
 
 		$this->Socket->reset();
 		$baseConfig = $this->Socket->config;
 		$this->Socket->__construct('http://www.cakephp.org:23/');
+		$baseConfig['cryptoType'] = 'tls';
 		$baseConfig['host'] = $baseConfig['request']['uri']['host'] = 'www.cakephp.org';
 		$baseConfig['port'] = $baseConfig['request']['uri']['port'] = 23;
 		$baseConfig['request']['uri']['scheme'] = 'http';
@@ -592,11 +594,11 @@ class HttpSocketTest extends CakeTestCase {
 			'method' => 'GET'
 		);
 		$this->Socket->request($request);
-		$this->assertContains('Host: cakephp.org:8080', $this->Socket->request['header']);
+		$this->assertStringContainsString('Host: cakephp.org:8080', $this->Socket->request['header']);
 	}
 
 /**
- * Test URLs like http://cakephp.org/index.php?somestring without key/value pair for query
+ * Test URLs like https://cakephp.org/index.php?somestring without key/value pair for query
  *
  * @return void
  */
@@ -616,16 +618,16 @@ class HttpSocketTest extends CakeTestCase {
 			'method' => 'GET'
 		);
 		$this->Socket->request($request);
-		$this->assertContains("GET /index.php?somestring HTTP/1.1", $this->Socket->request['line']);
+		$this->assertStringContainsString("GET /index.php?somestring HTTP/1.1", $this->Socket->request['line']);
 	}
 
 /**
  * The "*" asterisk character is only allowed for the following methods: OPTIONS.
  *
- * @expectedException SocketException
  * @return void
  */
 	public function testRequestNotAllowedUri() {
+		$this->expectException(SocketException::class);
 		$this->Socket->reset();
 		$request = array('uri' => '*', 'method' => 'GET');
 		$this->Socket->request($request);
@@ -699,7 +701,7 @@ class HttpSocketTest extends CakeTestCase {
 		);
 		$http = $this->getMock('TestHttpSocket', array('read', 'write', 'connect', 'request'), array($request));
 
-		$expected = array('method' => 'GET', 'uri' => '/_test');
+		$expected = array('method' => 'GET', 'uri' => 'http://localhost:5984/_test');
 		$http->expects($this->at(0))->method('request')->with($expected);
 		$http->get('/_test');
 
@@ -1356,20 +1358,20 @@ class HttpSocketTest extends CakeTestCase {
 /**
  * testBadBuildRequestLine method
  *
- * @expectedException SocketException
  * @return void
  */
 	public function testBadBuildRequestLine() {
+		$this->expectException(SocketException::class);
 		$this->Socket->buildRequestLine('Foo');
 	}
 
 /**
  * testBadBuildRequestLine2 method
  *
- * @expectedException SocketException
  * @return void
  */
 	public function testBadBuildRequestLine2() {
+		$this->expectException(SocketException::class);
 		$this->Socket->buildRequestLine("GET * HTTP/1.1\r\n");
 	}
 
@@ -1843,7 +1845,7 @@ class HttpSocketTest extends CakeTestCase {
 		} catch (SocketException $e) {
 			$message = $e->getMessage();
 			$this->skipIf(strpos($message, 'Invalid HTTP') !== false, 'Invalid HTTP Response received, skipping.');
-			$this->assertContains('Failed to enable crypto', $message);
+			$this->assertStringContainsString('Failed to enable crypto', $message);
 		}
 	}
 

@@ -2,18 +2,18 @@
 /**
  * Test for Schema database management
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Model
  * @since         CakePHP(tm) v 1.2.0.5550
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('CakeSchema', 'Model');
@@ -64,6 +64,13 @@ class MyAppSchema extends CakeSchema {
 		'published' => array('type' => 'string', 'null' => true, 'default' => 'Y', 'length' => 1),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'updated' => array('type' => 'datetime', 'null' => true, 'default' => null),
+		'status' => array(
+			'type' => 'enum(\'active\',\'deleted\')',
+			'null' => false,
+			'default' => 'active',
+			'collate' => 'utf8_unicode_ci',
+			'charset' => 'utf8',
+		),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => true)),
 	);
 
@@ -173,6 +180,9 @@ class TestAppSchema extends CakeSchema {
 		'float_field' => array('type' => 'float', 'null' => false, 'length' => '5,2', 'default' => ''),
 		'decimal_field' => array('type' => 'decimal', 'length' => '6,3', 'default' => '0.000'),
 		'huge_int' => array('type' => 'biginteger'),
+		'normal_int' => array('type' => 'integer'),
+		'small_int' => array('type' => 'smallinteger'),
+		'tiny_int' => array('type' => 'tinyinteger'),
 		'bool' => array('type' => 'boolean', 'null' => false, 'default' => false),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => true)),
 		'tableParameters' => array()
@@ -364,6 +374,39 @@ class SchemaCrossDatabaseFixture extends CakeTestFixture {
 }
 
 /**
+ * NonConventionalPrimaryKeyFixture class
+ *
+ * @package       Cake.Test.Case.Model
+ */
+class NonConventionalPrimaryKeyFixture extends CakeTestFixture {
+
+/**
+ * name property
+ *
+ * @var string
+ */
+	public $name = 'NonConventional';
+
+/**
+ * table property
+ *
+ * @var string
+ */
+	public $table = 'non_conventional';
+
+/**
+ * fields property
+ *
+ * @var array
+ */
+	public $fields = array(
+		'version_id' => array('type' => 'integer', 'key' => 'primary'),
+		'id' => array('type' => 'integer'),
+		'name' => 'string'
+	);
+}
+
+/**
  * SchemaPrefixAuthUser class
  *
  * @package       Cake.Test.Case.Model
@@ -409,7 +452,7 @@ class CakeSchemaTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		ConnectionManager::getDataSource('test')->cacheSources = false;
 		$this->Schema = new TestAppSchema();
@@ -420,7 +463,7 @@ class CakeSchemaTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		if (file_exists(TMP . 'tests' . DS . 'schema.php')) {
 			unlink(TMP . 'tests' . DS . 'schema.php');
@@ -650,6 +693,33 @@ class CakeSchemaTest extends CakeTestCase {
 	}
 
 /**
+ * testSchemaRead method when a primary key is on a non-conventional column
+ *
+ * @return void
+ */
+	public function testSchemaReadWithNonConventionalPrimaryKey() {
+		$db = ConnectionManager::getDataSource('test');
+		$fixture = new NonConventionalPrimaryKeyFixture();
+		$fixture->create($db);
+
+		$read = $this->Schema->read(array(
+			'connection' => 'test',
+			'name' => 'TestApp',
+			'models' => false
+		));
+		$fixture->drop($db);
+
+		$this->assertArrayHasKey('non_conventional', $read['tables']);
+		$versionIdHasKey = isset($read['tables']['non_conventional']['version_id']['key']);
+		$this->assertTrue($versionIdHasKey, 'version_id key should be set');
+		$versionIdKeyIsPrimary = $read['tables']['non_conventional']['version_id']['key'] === 'primary';
+		$this->assertTrue($versionIdKeyIsPrimary, 'version_id key should be primary');
+
+		$idHasKey = isset($read['tables']['non_conventional']['id']['key']);
+		$this->assertFalse($idHasKey, 'id key should not be set');
+	}
+
+/**
  * test that tables are generated correctly
  *
  * @return void
@@ -666,7 +736,7 @@ class CakeSchemaTest extends CakeTestCase {
 			'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => true)),
 		);
 		$result = $this->Schema->generateTable('posts', $posts);
-		$this->assertRegExp('/public \$posts/', $result);
+		$this->assertMatchesRegularExpression('/public \$posts/', $result);
 
 		$posts = array(
 			'id' => array('type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'primary'),
@@ -682,8 +752,8 @@ class CakeSchemaTest extends CakeTestCase {
 			)
 		);
 		$result = $this->Schema->generateTable('fields', $posts);
-		$this->assertRegExp('/public \$fields/', $result);
-		$this->assertRegExp('/\'type\' \=\> \'fulltext\'/', $result);
+		$this->assertMatchesRegularExpression('/public \$fields/', $result);
+		$this->assertMatchesRegularExpression('/\'type\' \=\> \'fulltext\'/', $result);
 	}
 
 /**
@@ -746,6 +816,14 @@ class CakeSchemaTest extends CakeTestCase {
 			'posts' => array(
 				'add' => array(
 					'summary' => array('type' => 'text', 'null' => true, 'after' => 'body'),
+					'status' => array(
+						'type' => 'enum(\'active\',\'deleted\')',
+						'null' => false,
+						'default' => 'active',
+						'collate' => 'utf8_unicode_ci',
+						'charset' => 'utf8',
+						'after' => 'updated',
+					),
 				),
 				'drop' => array(
 					'tableParameters' => array(),
@@ -1076,11 +1154,11 @@ class CakeSchemaTest extends CakeTestCase {
 		$col = $Schema->tables['testdescribes']['int_null'];
 		$col['name'] = 'int_null';
 		$column = $this->db->buildColumn($col);
-		$this->assertRegExp('/' . preg_quote($column, '/') . '/', $sql);
+		$this->assertMatchesRegularExpression('/' . preg_quote($column, '/') . '/', $sql);
 
 		$col = $Schema->tables['testdescribes']['int_not_null'];
 		$col['name'] = 'int_not_null';
 		$column = $this->db->buildColumn($col);
-		$this->assertRegExp('/' . preg_quote($column, '/') . '/', $sql);
+		$this->assertMatchesRegularExpression('/' . preg_quote($column, '/') . '/', $sql);
 	}
 }

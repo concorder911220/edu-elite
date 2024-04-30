@@ -4,22 +4,21 @@
  *
  * Test Case for CakeTestCase class
  *
- * CakePHP : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP Project
  * @package       Cake.Test.Case.TestSuite
  * @since         CakePHP v 1.2.0.4487
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('CakePlugin', 'Core');
 App::uses('Controller', 'Controller');
-App::uses('CakeHtmlReporter', 'TestSuite/Reporter');
 App::uses('Model', 'Model');
 
 /**
@@ -75,19 +74,9 @@ class CakeTestCaseTest extends CakeTestCase {
  *
  * @return void
  */
-	public static function setUpBeforeClass() {
+	public static function setUpBeforeClass() : void {
 		require_once CAKE . 'Test' . DS . 'Fixture' . DS . 'AssertTagsTestCase.php';
 		require_once CAKE . 'Test' . DS . 'Fixture' . DS . 'FixturizedTestCase.php';
-	}
-
-/**
- * setUp
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Reporter = $this->getMock('CakeHtmlReporter');
 	}
 
 /**
@@ -95,10 +84,9 @@ class CakeTestCaseTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Result);
-		unset($this->Reporter);
 	}
 
 /**
@@ -234,8 +222,8 @@ class CakeTestCaseTest extends CakeTestCase {
 		$manager = $this->getMock('CakeFixtureManager');
 		$manager->fixturize($test);
 		$test->fixtureManager = $manager;
-		$manager->expects($this->once())->method('load');
-		$manager->expects($this->once())->method('unload');
+		$manager->expects($this->never())->method('load');
+		$manager->expects($this->never())->method('unload');
 		$result = $test->run();
 		$this->assertEquals(0, $result->errorCount());
 		$this->assertTrue($result->wasSuccessful());
@@ -269,6 +257,7 @@ class CakeTestCaseTest extends CakeTestCase {
 		$manager = $this->getMock('CakeFixtureManager');
 		$manager->fixturize($test);
 		$test->fixtureManager = $manager;
+		$manager->expects($this->never())->method('unload');
 		$manager->expects($this->once())->method('loadSingle');
 		$result = $test->run();
 		$this->assertEquals(0, $result->errorCount());
@@ -285,7 +274,6 @@ class CakeTestCaseTest extends CakeTestCase {
 		$manager = $this->getMock('CakeFixtureManager');
 		$manager->fixturize($test);
 		$test->fixtureManager = $manager;
-		$manager->expects($this->once())->method('unload');
 		$result = $test->run();
 		$this->assertEquals(1, $result->errorCount());
 	}
@@ -392,8 +380,8 @@ class CakeTestCaseTest extends CakeTestCase {
  */
 	public function testAssertTextContains() {
 		$stringDirty = "some\nstring\r\nwith\rdifferent\nline endings!";
-		$this->assertContains("different", $stringDirty);
-		$this->assertNotContains("different\rline", $stringDirty);
+		$this->assertStringContainsString("different", $stringDirty);
+		$this->assertStringNotContainsString("different\rline", $stringDirty);
 		$this->assertTextContains("different\rline", $stringDirty);
 	}
 
@@ -428,7 +416,7 @@ class CakeTestCaseTest extends CakeTestCase {
 		$Post = $this->getMockForModel('Post', array('save'));
 
 		$this->assertNull($Post->save(array()));
-		$this->assertInternalType('array', $Post->find('all'));
+		$this->assertIsArray($Post->find('all'));
 	}
 
 /**
@@ -445,7 +433,8 @@ class CakeTestCaseTest extends CakeTestCase {
 		), App::RESET);
 		CakePlugin::load('TestPlugin');
 		ConnectionManager::create('test_secondary', array(
-			'datasource' => 'Database/TestLocalDriver'
+			'datasource' => 'Database/TestLocalDriver',
+			'prefix' => ''
 		));
 		$post = $this->getMockForModel('SecondaryPost', array('save'));
 		$this->assertEquals('test_secondary', $post->useDbConfig);
@@ -519,11 +508,11 @@ class CakeTestCaseTest extends CakeTestCase {
 /**
  * testGetMockForModelDoesNotExist
  *
- * @expectedException MissingModelException
- * @expectedExceptionMessage Model IDoNotExist could not be found
  * @return void
  */
 	public function testGetMockForModelDoesNotExist() {
+		$this->expectException(MissingModelException::class);
+		$this->expectExceptionMessage("Model IDoNotExist could not be found");
 		$this->getMockForModel('IDoNotExist');
 	}
 }

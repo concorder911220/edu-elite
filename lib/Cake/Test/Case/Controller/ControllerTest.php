@@ -1,17 +1,17 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP Project
  * @package       Cake.Test.Case.Controller
  * @since         CakePHP(tm) v 1.2.0.5436
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Controller', 'Controller');
@@ -390,7 +390,7 @@ class ControllerTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::objects('plugin', null, false);
 		App::build();
@@ -402,7 +402,7 @@ class ControllerTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		CakePlugin::unload();
 	}
@@ -573,7 +573,7 @@ class ControllerTest extends CakeTestCase {
 		$Controller->response = $this->getMock('CakeResponse', array('_sendHeader'));
 		$Controller->flash('this should work', '/flash', 1, 'ajax2');
 		$result = $Controller->response->body();
-		$this->assertRegExp('/Ajax!/', $result);
+		$this->assertMatchesRegularExpression('/Ajax!/', $result);
 		App::build();
 	}
 
@@ -635,14 +635,14 @@ class ControllerTest extends CakeTestCase {
 		$Controller->viewPath = 'Posts';
 
 		$result = $Controller->render('index');
-		$this->assertRegExp('/posts index/', (string)$result);
+		$this->assertMatchesRegularExpression('/posts index/', (string)$result);
 
 		$Controller->view = 'index';
 		$result = $Controller->render();
-		$this->assertRegExp('/posts index/', (string)$result);
+		$this->assertMatchesRegularExpression('/posts index/', (string)$result);
 
 		$result = $Controller->render('/Elements/test_element');
-		$this->assertRegExp('/this is the test element/', (string)$result);
+		$this->assertMatchesRegularExpression('/this is the test element/', (string)$result);
 		$Controller->view = null;
 
 		$Controller = new TestController($request, new CakeResponse());
@@ -688,7 +688,7 @@ class ControllerTest extends CakeTestCase {
 		$Controller->viewPath = 'Posts';
 		$Controller->theme = 'TestTheme';
 		$result = $Controller->render('index');
-		$this->assertRegExp('/default test_theme layout/', (string)$result);
+		$this->assertMatchesRegularExpression('/default test_theme layout/', (string)$result);
 		App::build();
 	}
 
@@ -754,9 +754,9 @@ class ControllerTest extends CakeTestCase {
 		$Controller->response->expects($this->once())->method('statusCode')
 			->with($code);
 		$Controller->response->expects($this->once())->method('header')
-			->with('Location', 'http://cakephp.org');
+			->with('Location', 'https://cakephp.org');
 
-		$Controller->redirect('http://cakephp.org', (int)$code, false);
+		$Controller->redirect('https://cakephp.org', (int)$code, false);
 		$this->assertFalse($Controller->autoRender);
 	}
 
@@ -776,9 +776,9 @@ class ControllerTest extends CakeTestCase {
 			->with($code);
 
 		$Controller->response->expects($this->once())->method('header')
-			->with('Location', 'http://cakephp.org');
+			->with('Location', 'https://cakephp.org');
 
-		$Controller->redirect('http://cakephp.org', $msg, false);
+		$Controller->redirect('https://cakephp.org', $msg, false);
 		$this->assertFalse($Controller->autoRender);
 	}
 
@@ -799,9 +799,9 @@ class ControllerTest extends CakeTestCase {
 			->with(301);
 
 		$Controller->response->expects($this->once())->method('header')
-			->with('Location', 'http://cakephp.org');
+			->with('Location', 'https://cakephp.org');
 
-		$Controller->redirect('http://cakephp.org', 301, false);
+		$Controller->redirect('https://cakephp.org', 301, false);
 	}
 
 /**
@@ -815,15 +815,15 @@ class ControllerTest extends CakeTestCase {
 		$Controller->Components = $this->getMock('ComponentCollection', array('trigger'));
 
 		$Controller->Components->expects($this->once())->method('trigger')
-			->will($this->returnValue(array('http://book.cakephp.org')));
+			->will($this->returnValue(array('https://book.cakephp.org')));
 
 		$Controller->response->expects($this->once())->method('statusCode')
 			->with(301);
 
 		$Controller->response->expects($this->once())->method('header')
-			->with('Location', 'http://book.cakephp.org');
+			->with('Location', 'https://book.cakephp.org');
 
-		$Controller->redirect('http://cakephp.org', 301, false);
+		$Controller->redirect('https://cakephp.org', 301, false);
 	}
 
 /**
@@ -856,7 +856,7 @@ class ControllerTest extends CakeTestCase {
 			->with(302);
 
 		$Controller->expects($this->never())->method('_stop');
-		$Controller->redirect('http://cakephp.org', 301);
+		$Controller->redirect('https://cakephp.org', 301);
 	}
 
 /**
@@ -870,11 +870,11 @@ class ControllerTest extends CakeTestCase {
 		$Controller->Components = $this->getMock('ComponentCollection', array('trigger'));
 
 		$Controller->expects($this->once())->method('beforeRedirect')
-			->with('http://cakephp.org')
+			->with('https://cakephp.org')
 			->will($this->returnValue(false));
 		$Controller->response->expects($this->never())->method('header');
 		$Controller->expects($this->never())->method('_stop');
-		$Controller->redirect('http://cakephp.org');
+		$Controller->redirect('https://cakephp.org');
 	}
 
 /**
@@ -889,7 +889,7 @@ class ControllerTest extends CakeTestCase {
 
 		$Controller->expects($this->once())
 			->method('beforeRedirect')
-			->with('http://cakephp.org', null, true)
+			->with('https://cakephp.org', null, true)
 			->will($this->returnValue(array(
 				'url' => 'http://example.org',
 				'status' => 302,
@@ -901,7 +901,7 @@ class ControllerTest extends CakeTestCase {
 			->with('Location', 'http://example.org');
 
 		$Controller->expects($this->once())->method('_stop');
-		$Controller->redirect('http://cakephp.org');
+		$Controller->redirect('https://cakephp.org');
 	}
 
 /**
@@ -1178,6 +1178,48 @@ class ControllerTest extends CakeTestCase {
 	}
 
 /**
+ * data provider for dangerous post conditions.
+ *
+ * @return array
+ */
+	public function dangerousPostConditionsProvider() {
+		return array(
+			array(
+				array('Model' => array('field !=' => 1))
+			),
+			array(
+				array('Model' => array('field AND 1=1 OR' => 'thing'))
+			),
+			array(
+				array('Model' => array('field >' => 1))
+			),
+			array(
+				array('Model' => array('field OR RAND()' => 1))
+			),
+			array(
+				array('Posts' => array('id IS NULL union all select posts.* from posts where id; --' => 1))
+			),
+			array(
+				array('Post.id IS NULL; --' => array('id' => 1))
+			),
+		);
+	}
+
+/**
+ * test postConditions raising an exception on unsafe keys.
+ *
+ * @dataProvider dangerousPostConditionsProvider
+ * @return void
+ */
+	public function testPostConditionsDangerous($data) {
+		$this->expectException(RuntimeException::class);
+		$request = new CakeRequest('controller_posts/index');
+
+		$Controller = new Controller($request);
+		$Controller->postConditions($data);
+	}
+
+/**
  * testControllerHttpCodes method
  *
  * @return void
@@ -1204,16 +1246,24 @@ class ControllerTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'Controller.initialize'),
-					$this->attributeEqualTo('_subject', $Controller)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'Controller.initialize';
+					}),
+					$this->callback(function (CakeEvent $event) use ($Controller) {
+						return $event->subject() === $Controller;
+					}),
 				)
 			);
 		$eventManager->expects($this->at(1))->method('dispatch')
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'Controller.startup'),
-					$this->attributeEqualTo('_subject', $Controller)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'Controller.startup';
+					}),
+					$this->callback(function (CakeEvent $event) use ($Controller) {
+						return $event->subject() === $Controller;
+					}),
 				)
 			);
 		$Controller->expects($this->exactly(2))->method('getEventManager')
@@ -1251,8 +1301,12 @@ class ControllerTest extends CakeTestCase {
 			->with(
 				$this->logicalAnd(
 					$this->isInstanceOf('CakeEvent'),
-					$this->attributeEqualTo('_name', 'Controller.shutdown'),
-					$this->attributeEqualTo('_subject', $Controller)
+					$this->callback(function (CakeEvent $event) {
+						return $event->name() === 'Controller.shutdown';
+					}),
+					$this->callback(function (CakeEvent $event) use ($Controller) {
+						return $event->subject() === $Controller;
+					}),
 				)
 			);
 		$Controller->expects($this->once())->method('getEventManager')
@@ -1332,10 +1386,15 @@ class ControllerTest extends CakeTestCase {
 		$Controller->uses = array('ControllerPost', 'ControllerComment');
 		$Controller->passedArgs[] = '1';
 		$Controller->params['url'] = array();
+		$Controller->params['named'] = array(
+			'posts' => array(
+				'page' => 2,
+				'limit' => 2,
+			),
+		);
 		$Controller->constructClasses();
-		$expected = array('page' => 1, 'limit' => 20, 'maxLimit' => 100, 'paramType' => 'named');
+		$expected = array('page' => 1, 'limit' => 20, 'maxLimit' => 100, 'paramType' => 'named', 'queryScope' => null);
 		$this->assertEquals($expected, $Controller->paginate);
-
 		$results = Hash::extract($Controller->paginate('ControllerPost'), '{n}.ControllerPost.id');
 		$this->assertEquals(array(1, 2, 3), $results);
 
@@ -1347,16 +1406,23 @@ class ControllerTest extends CakeTestCase {
 		$this->assertSame($Controller->params['paging']['ControllerPost']['pageCount'], 3);
 		$this->assertFalse($Controller->params['paging']['ControllerPost']['prevPage']);
 		$this->assertTrue($Controller->params['paging']['ControllerPost']['nextPage']);
+		$this->assertNull($Controller->params['paging']['ControllerPost']['queryScope']);
+
+		$Controller->paginate = array('queryScope' => 'posts');
+		$Controller->paginate('ControllerPost');
+		$this->assertSame($Controller->params['paging']['ControllerPost']['page'], 2);
+		$this->assertSame($Controller->params['paging']['ControllerPost']['pageCount'], 2);
+		$this->assertSame($Controller->params['paging']['ControllerPost']['queryScope'], 'posts');
 	}
 
 /**
  * testMissingAction method
  *
- * @expectedException MissingActionException
- * @expectedExceptionMessage Action TestController::missing() could not be found.
  * @return void
  */
 	public function testInvokeActionMissingAction() {
+		$this->expectException(MissingActionException::class);
+		$this->expectExceptionMessage("Action TestController::missing() could not be found.");
 		$url = new CakeRequest('test/missing');
 		$url->addParams(array('controller' => 'test_controller', 'action' => 'missing'));
 		$response = $this->getMock('CakeResponse');
@@ -1368,11 +1434,11 @@ class ControllerTest extends CakeTestCase {
 /**
  * test invoking private methods.
  *
- * @expectedException PrivateActionException
- * @expectedExceptionMessage Private Action TestController::private_m() is not directly accessible.
  * @return void
  */
 	public function testInvokeActionPrivate() {
+		$this->expectException(PrivateActionException::class);
+		$this->expectExceptionMessage("Private Action TestController::private_m() is not directly accessible.");
 		$url = new CakeRequest('test/private_m/');
 		$url->addParams(array('controller' => 'test_controller', 'action' => 'private_m'));
 		$response = $this->getMock('CakeResponse');
@@ -1384,11 +1450,11 @@ class ControllerTest extends CakeTestCase {
 /**
  * test invoking protected methods.
  *
- * @expectedException PrivateActionException
- * @expectedExceptionMessage Private Action TestController::protected_m() is not directly accessible.
  * @return void
  */
 	public function testInvokeActionProtected() {
+		$this->expectException(PrivateActionException::class);
+		$this->expectExceptionMessage("Private Action TestController::protected_m() is not directly accessible.");
 		$url = new CakeRequest('test/protected_m/');
 		$url->addParams(array('controller' => 'test_controller', 'action' => 'protected_m'));
 		$response = $this->getMock('CakeResponse');
@@ -1400,11 +1466,11 @@ class ControllerTest extends CakeTestCase {
 /**
  * test invoking hidden methods.
  *
- * @expectedException PrivateActionException
- * @expectedExceptionMessage Private Action TestController::_hidden() is not directly accessible.
  * @return void
  */
 	public function testInvokeActionHidden() {
+		$this->expectException(PrivateActionException::class);
+		$this->expectExceptionMessage("Private Action TestController::_hidden() is not directly accessible.");
 		$url = new CakeRequest('test/_hidden/');
 		$url->addParams(array('controller' => 'test_controller', 'action' => '_hidden'));
 		$response = $this->getMock('CakeResponse');
@@ -1416,11 +1482,11 @@ class ControllerTest extends CakeTestCase {
 /**
  * test invoking controller methods.
  *
- * @expectedException PrivateActionException
- * @expectedExceptionMessage Private Action TestController::redirect() is not directly accessible.
  * @return void
  */
 	public function testInvokeActionBaseMethods() {
+		$this->expectException(PrivateActionException::class);
+		$this->expectExceptionMessage("Private Action TestController::redirect() is not directly accessible.");
 		$url = new CakeRequest('test/redirect/');
 		$url->addParams(array('controller' => 'test_controller', 'action' => 'redirect'));
 		$response = $this->getMock('CakeResponse');
@@ -1432,11 +1498,11 @@ class ControllerTest extends CakeTestCase {
 /**
  * test invoking controller methods.
  *
- * @expectedException PrivateActionException
- * @expectedExceptionMessage Private Action TestController::admin_add() is not directly accessible.
  * @return void
  */
 	public function testInvokeActionPrefixProtection() {
+		$this->expectException(PrivateActionException::class);
+		$this->expectExceptionMessage("Private Action TestController::admin_add() is not directly accessible.");
 		Router::reload();
 		Router::connect('/admin/:controller/:action/*', array('prefix' => 'admin'));
 
@@ -1451,11 +1517,11 @@ class ControllerTest extends CakeTestCase {
 /**
  * test invoking controller methods.
  *
- * @expectedException PrivateActionException
- * @expectedExceptionMessage Private Action TestController::Admin_add() is not directly accessible.
  * @return void
  */
 	public function testInvokeActionPrefixProtectionCasing() {
+		$this->expectException(PrivateActionException::class);
+		$this->expectExceptionMessage("Private Action TestController::Admin_add() is not directly accessible.");
 		Router::reload();
 		Router::connect('/admin/:controller/:action/*', array('prefix' => 'admin'));
 

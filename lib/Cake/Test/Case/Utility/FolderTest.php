@@ -2,18 +2,18 @@
 /**
  * FolderTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Utility
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Folder', 'Utility');
@@ -33,7 +33,7 @@ class FolderTest extends CakeTestCase {
  *
  * @return void
  */
-	public static function setUpBeforeClass() {
+	public static function setUpBeforeClass() : void {
 		$dirs = array('cache', 'logs', 'sessions', 'tests');
 		foreach ($dirs as $dir) {
 			new Folder(TMP . $dir, true);
@@ -51,7 +51,7 @@ class FolderTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		clearstatcache();
 	}
@@ -61,7 +61,7 @@ class FolderTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		$exclude = array_merge(static::$_tmp, array('.', '..'));
 		foreach (scandir(TMP) as $dir) {
 			if (is_dir(TMP . $dir) && !in_array($dir, $exclude)) {
@@ -183,10 +183,10 @@ class FolderTest extends CakeTestCase {
 /**
  * @dataProvider inPathInvalidPathArgumentDataProvider
  * @param string $path
- * @expectedException \InvalidArgumentException
- * @expectedExceptionMessage The $path argument is expected to be an absolute path.
  */
 	public function testInPathInvalidPathArgument($path) {
+		$this->expectException(\InvalidArgumentException::class);
+		$this->expectExceptionMessage("The \$path argument is expected to be an absolute path.");
 		$Folder = new Folder();
 		$Folder->inPath($path);
 	}
@@ -260,7 +260,7 @@ class FolderTest extends CakeTestCase {
 			$Folder = new Folder($path);
 			$result = $Folder->create($path . DS . 'two' . DS . 'three');
 			$this->assertFalse($result);
-		} catch (PHPUnit_Framework_Error $e) {
+		} catch (\PHPUnit\Framework\Error\Error $e) {
 			$this->assertTrue(true);
 		}
 

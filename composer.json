@@ -2,7 +2,9 @@
 	"name": "cakephp/cakephp",
 	"description": "The CakePHP framework",
 	"type": "library",
-	"keywords": ["framework"],
+	"keywords": [
+		"framework"
+	],
 	"homepage": "http://cakephp.org",
 	"license": "MIT",
 	"authors": [

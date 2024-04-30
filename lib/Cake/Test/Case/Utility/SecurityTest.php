@@ -1,16 +1,16 @@
 <?php
 /**
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @since         CakePHP(tm) v 1.2.0.5432
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Security', 'Utility');
@@ -28,6 +28,26 @@ class SecurityTest extends CakeTestCase {
  * @var mixed
  */
 	public $sut = null;
+
+/**
+ * setUp method
+ *
+ * @return void
+ */
+	public function setUp() : void {
+		parent::setUp();
+		Configure::delete('Security.useOpenSsl');
+	}
+
+/**
+ * tearDown method
+ *
+ * @return void
+ */
+	public function tearDown() : void {
+		parent::tearDown();
+		Configure::delete('Security.useOpenSsl');
+	}
 
 /**
  * testInactiveMins method
@@ -67,40 +87,40 @@ class SecurityTest extends CakeTestCase {
 /**
  * testHashInvalidSalt method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testHashInvalidSalt() {
+		$this->expectWarning();
 		Security::hash('someKey', 'blowfish', true);
 	}
 
 /**
  * testHashAnotherInvalidSalt
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testHashAnotherInvalidSalt() {
+		$this->expectWarning();
 		Security::hash('someKey', 'blowfish', '$1$lksdjoijfaoijs');
 	}
 
 /**
  * testHashYetAnotherInvalidSalt
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testHashYetAnotherInvalidSalt() {
+		$this->expectWarning();
 		Security::hash('someKey', 'blowfish', '$2a$10$123');
 	}
 
 /**
  * testHashInvalidCost method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testHashInvalidCost() {
+		$this->expectWarning();
 		Security::setCost(1000);
 	}
 /**
@@ -249,10 +269,10 @@ class SecurityTest extends CakeTestCase {
 /**
  * testCipherEmptyKey method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testCipherEmptyKey() {
+		$this->expectWarning();
 		$txt = 'some_text';
 		$key = '';
 		Security::cipher($txt, $key);
@@ -301,10 +321,10 @@ class SecurityTest extends CakeTestCase {
 /**
  * testRijndaelInvalidOperation method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testRijndaelInvalidOperation() {
+		$this->expectWarning();
 		$txt = 'The quick brown fox jumped over the lazy dog.';
 		$key = 'DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi';
 		Security::rijndael($txt, $key, 'foo');
@@ -313,10 +333,10 @@ class SecurityTest extends CakeTestCase {
 /**
  * testRijndaelInvalidKey method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testRijndaelInvalidKey() {
+		$this->expectWarning();
 		$txt = 'The quick brown fox jumped over the lazy dog.';
 		$key = 'too small';
 		Security::rijndael($txt, $key, 'encrypt');
@@ -335,6 +355,54 @@ class SecurityTest extends CakeTestCase {
 		$this->assertNotEquals($txt, $result, 'Should be encrypted.');
 		$this->assertNotEquals($result, Security::encrypt($txt, $key), 'Each result is unique.');
 		$this->assertEquals($txt, Security::decrypt($result, $key));
+	}
+
+/**
+ * Tests that encrypted strings are compatible between the mcrypt and openssl engine.
+ *
+ * @dataProvider plainTextProvider
+ * @param string $txt Plain text to be encrypted.
+ * @return void
+ */
+	public function testEncryptDecryptCompatibility($txt) {
+		$this->skipIf(!extension_loaded('mcrypt'), 'This test requires mcrypt to be installed');
+		$this->skipIf(!extension_loaded('openssl'), 'This test requires openssl to be installed');
+		$this->skipIf(version_compare(PHP_VERSION, '5.3.3', '<'), 'This test requires PHP 5.3.3 or greater');
+
+		$key = '12345678901234567890123456789012';
+
+		Configure::write('Security.useOpenSsl', false);
+		$mcrypt = Security::encrypt($txt, $key);
+
+		Configure::write('Security.useOpenSsl', true);
+		$openssl = Security::encrypt($txt, $key);
+
+		$this->assertEquals(strlen($mcrypt), strlen($openssl));
+
+		Configure::write('Security.useOpenSsl', false);
+		$this->assertEquals($txt, Security::decrypt($mcrypt, $key));
+		$this->assertEquals($txt, Security::decrypt($openssl, $key));
+
+		Configure::write('Security.useOpenSsl', true);
+		$this->assertEquals($txt, Security::decrypt($mcrypt, $key));
+		$this->assertEquals($txt, Security::decrypt($openssl, $key));
+	}
+
+/**
+ * Data provider for testEncryptDecryptCompatibility
+ *
+ * @return array
+ */
+	public function plainTextProvider() {
+		return array(
+			array(''),
+			array('abcdefg'),
+			array('1234567890123456'),
+			array('The quick brown fox'),
+			array('12345678901234567890123456789012'),
+			array('The quick brown fox jumped over the lazy dog.'),
+			array('何らかのマルチバイト文字列'),
+		);
 	}
 
 /**
@@ -388,11 +456,11 @@ class SecurityTest extends CakeTestCase {
 /**
  * Test that short keys cause errors
  *
- * @expectedException CakeException
- * @expectedExceptionMessage Invalid key for encrypt(), key must be at least 256 bits (32 bytes) long.
  * @return void
  */
 	public function testEncryptInvalidKey() {
+		$this->expectException(CakeException::class);
+		$this->expectExceptionMessage("Invalid key for encrypt(), key must be at least 256 bits (32 bytes) long.");
 		$txt = 'The quick brown fox jumped over the lazy dog.';
 		$key = 'this is too short';
 		Security::encrypt($txt, $key);
@@ -426,11 +494,11 @@ class SecurityTest extends CakeTestCase {
 /**
  * Test that short keys cause errors
  *
- * @expectedException CakeException
- * @expectedExceptionMessage Invalid key for decrypt(), key must be at least 256 bits (32 bytes) long.
  * @return void
  */
 	public function testDecryptInvalidKey() {
+		$this->expectException(CakeException::class);
+		$this->expectExceptionMessage("Invalid key for decrypt(), key must be at least 256 bits (32 bytes) long.");
 		$txt = 'The quick brown fox jumped over the lazy dog.';
 		$key = 'this is too short';
 		Security::decrypt($txt, $key);
@@ -439,11 +507,11 @@ class SecurityTest extends CakeTestCase {
 /**
  * Test that empty data cause errors
  *
- * @expectedException CakeException
- * @expectedExceptionMessage The data to decrypt cannot be empty.
  * @return void
  */
 	public function testDecryptInvalidData() {
+		$this->expectException(CakeException::class);
+		$this->expectExceptionMessage("The data to decrypt cannot be empty.");
 		$txt = '';
 		$key = 'This is a key that is long enough to be ok.';
 		Security::decrypt($txt, $key);

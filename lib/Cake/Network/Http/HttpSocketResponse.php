@@ -2,17 +2,17 @@
 /**
  * HTTP Response from HttpSocket.
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @since         CakePHP(tm) v 2.0.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
@@ -259,7 +259,7 @@ class HttpSocketResponse implements ArrayAccess {
  * Parses an array based header.
  *
  * @param array $header Header as an indexed array (field => value)
- * @return array Parsed header
+ * @return array|bool Parsed header
  */
 	protected function _parseHeader($header) {
 		if (is_array($header)) {
@@ -386,20 +386,20 @@ class HttpSocketResponse implements ArrayAccess {
 /**
  * ArrayAccess - Offset Exists
  *
- * @param string $offset Offset to check.
+ * @param mixed $offset Offset to check.
  * @return bool
  */
-	public function offsetExists($offset) {
+	public function offsetExists(mixed $offset) : bool {
 		return in_array($offset, array('raw', 'status', 'header', 'body', 'cookies'));
 	}
 
 /**
  * ArrayAccess - Offset Get
  *
- * @param string $offset Offset to get.
+ * @param mixed $offset Offset to get.
  * @return mixed
  */
-	public function offsetGet($offset) {
+	public function offsetGet(mixed $offset) : mixed {
 		switch ($offset) {
 			case 'raw':
 				$firstLineLength = strpos($this->raw, "\r\n") + 2;
@@ -433,11 +433,11 @@ class HttpSocketResponse implements ArrayAccess {
 /**
  * ArrayAccess - Offset Set
  *
- * @param string $offset Offset to set.
+ * @param mixed $offset Offset to set.
  * @param mixed $value Value.
  * @return void
  */
-	public function offsetSet($offset, $value) {
+	public function offsetSet(mixed $offset, mixed $value) : void {
 	}
 
 /**
@@ -446,7 +446,7 @@ class HttpSocketResponse implements ArrayAccess {
  * @param string $offset Offset to unset.
  * @return void
  */
-	public function offsetUnset($offset) {
+	public function offsetUnset(mixed $offset) : void {
 	}
 
 /**
@@ -454,7 +454,7 @@ class HttpSocketResponse implements ArrayAccess {
  *
  * @return string
  */
-	public function __toString() {
+	public function __tostring() {
 		return $this->body();
 	}
 

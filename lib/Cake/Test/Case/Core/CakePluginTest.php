@@ -2,18 +2,18 @@
 /**
  * CakePluginTest file.
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Core
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('CakePlugin', 'Core');
@@ -28,7 +28,7 @@ class CakePluginTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'Plugin' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'Plugin' . DS)
@@ -41,7 +41,7 @@ class CakePluginTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		CakePlugin::unload();
 	}
@@ -170,9 +170,9 @@ class CakePluginTest extends CakeTestCase {
  * Tests that loading a missing routes file throws a warning
  *
  * @return void
- * @expectedException PHPUNIT_FRAMEWORK_ERROR_WARNING
  */
 	public function testLoadMultipleWithDefaultsMissingFile() {
+		$this->expectWarning();
 		CakePlugin::load(array('TestPlugin', 'TestPluginTwo'), array('bootstrap' => true, 'routes' => true));
 		CakePlugin::routes();
 	}
@@ -195,9 +195,9 @@ class CakePluginTest extends CakeTestCase {
  * Tests that CakePlugin::load() throws an exception on unknown plugin
  *
  * @return void
- * @expectedException MissingPluginException
  */
 	public function testLoadNotFound() {
+		$this->expectException(MissingPluginException::class);
 		CakePlugin::load('MissingPlugin');
 	}
 
@@ -219,9 +219,9 @@ class CakePluginTest extends CakeTestCase {
  * Tests that CakePlugin::path() throws an exception on unknown plugin
  *
  * @return void
- * @expectedException MissingPluginException
  */
 	public function testPathNotFound() {
+		$this->expectException(MissingPluginException::class);
 		CakePlugin::path('TestPlugin');
 	}
 

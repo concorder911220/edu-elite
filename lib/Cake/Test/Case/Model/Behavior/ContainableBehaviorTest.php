@@ -2,18 +2,18 @@
 /**
  * ContainableBehaviorTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Model.Behavior
  * @since         CakePHP(tm) v 1.2.0.5669
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Model', 'Model');
@@ -45,7 +45,7 @@ class ContainableBehaviorTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->User = ClassRegistry::init('User');
 		$this->Article = ClassRegistry::init('Article');
@@ -71,7 +71,7 @@ class ContainableBehaviorTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		unset($this->Article);
 		unset($this->User);
 		unset($this->Tag);
@@ -150,10 +150,10 @@ class ContainableBehaviorTest extends CakeTestCase {
 /**
  * testInvalidContainments method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testInvalidContainments() {
+		$this->expectWarning();
 		$this->_containments($this->Article, array('Comment', 'InvalidBinding'));
 	}
 
@@ -241,10 +241,10 @@ class ContainableBehaviorTest extends CakeTestCase {
 /**
  * testBeforeFindWithNonExistingBinding method
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testBeforeFindWithNonExistingBinding() {
+		$this->expectWarning();
 		$this->Article->find('all', array('contain' => array('Comment' => 'NonExistingBinding')));
 	}
 

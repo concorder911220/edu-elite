@@ -4,18 +4,18 @@
  *
  * Test Case for project generation shell task
  *
- * CakePHP : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP Project
  * @package       Cake.Test.Case.Console.Command.Task
  * @since         CakePHP v 1.3.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ShellDispatcher', 'Console');
@@ -38,7 +38,7 @@ class ProjectTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$out = $this->getMock('ConsoleOutput', array(), array(), '', false);
 		$in = $this->getMock('ConsoleInput', array(), array(), '', false);
@@ -55,7 +55,7 @@ class ProjectTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 
 		$Folder = new Folder($this->Task->path . 'bake_test_app');
@@ -142,10 +142,10 @@ class ProjectTaskTest extends CakeTestCase {
 		$this->assertTrue(is_dir($this->Task->args[0]), 'No project dir');
 		$File = new File($path . DS . 'webroot' . DS . 'index.php');
 		$contents = $File->read();
-		$this->assertRegExp('/define\(\'CAKE_CORE_INCLUDE_PATH\', .*?DS/', $contents);
+		$this->assertMatchesRegularExpression('/define\(\'CAKE_CORE_INCLUDE_PATH\', .*?DS/', $contents);
 		$File = new File($path . DS . 'webroot' . DS . 'test.php');
 		$contents = $File->read();
-		$this->assertRegExp('/define\(\'CAKE_CORE_INCLUDE_PATH\', .*?DS/', $contents);
+		$this->assertMatchesRegularExpression('/define\(\'CAKE_CORE_INCLUDE_PATH\', .*?DS/', $contents);
 	}
 
 /**
@@ -167,10 +167,10 @@ class ProjectTaskTest extends CakeTestCase {
 
 		$this->assertTrue(is_dir($this->Task->args[0]), 'No project dir');
 		$contents = file_get_contents($path . DS . 'webroot' . DS . 'index.php');
-		$this->assertRegExp('#//define\(\'CAKE_CORE_INCLUDE_PATH#', $contents);
+		$this->assertMatchesRegularExpression('#//define\(\'CAKE_CORE_INCLUDE_PATH#', $contents);
 
 		$contents = file_get_contents($path . DS . 'webroot' . DS . 'test.php');
-		$this->assertRegExp('#//define\(\'CAKE_CORE_INCLUDE_PATH#', $contents);
+		$this->assertMatchesRegularExpression('#//define\(\'CAKE_CORE_INCLUDE_PATH#', $contents);
 
 		ini_set('include_path', $restore);
 	}
@@ -227,7 +227,7 @@ class ProjectTaskTest extends CakeTestCase {
 
 		$File = new File($path . 'Config' . DS . 'core.php');
 		$contents = $File->read();
-		$this->assertNotRegExp('/DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi/', $contents, 'Default Salt left behind. %s');
+		$this->assertDoesNotMatchRegularExpression('/DYhG93b0qyJfIxfs2guVoUubWwvniR2G0FgaC9mi/', $contents, 'Default Salt left behind. %s');
 	}
 
 /**
@@ -244,7 +244,7 @@ class ProjectTaskTest extends CakeTestCase {
 
 		$File = new File($path . 'Config' . DS . 'core.php');
 		$contents = $File->read();
-		$this->assertNotRegExp('/76859309657453542496749683645/', $contents, 'Default CipherSeed left behind. %s');
+		$this->assertDoesNotMatchRegularExpression('/76859309657453542496749683645/', $contents, 'Default CipherSeed left behind. %s');
 	}
 
 /**
@@ -261,8 +261,8 @@ class ProjectTaskTest extends CakeTestCase {
 
 		$File = new File($path . 'Config' . DS . 'core.php');
 		$contents = $File->read();
-		$this->assertRegExp('/\$prefix = \'.+\';/', $contents, '$prefix is not defined');
-		$this->assertNotRegExp('/\$prefix = \'myapp_\';/', $contents, 'Default cache prefix left behind. %s');
+		$this->assertMatchesRegularExpression('/\$prefix = \'.+\';/', $contents, '$prefix is not defined');
+		$this->assertDoesNotMatchRegularExpression('/\$prefix = \'myapp_\';/', $contents, 'Default cache prefix left behind. %s');
 	}
 
 /**
@@ -278,10 +278,10 @@ class ProjectTaskTest extends CakeTestCase {
 
 		$File = new File($path . 'webroot' . DS . 'index.php');
 		$contents = $File->read();
-		$this->assertNotRegExp('/define\(\'CAKE_CORE_INCLUDE_PATH\', ROOT/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/define\(\'CAKE_CORE_INCLUDE_PATH\', ROOT/', $contents);
 		$File = new File($path . 'webroot' . DS . 'test.php');
 		$contents = $File->read();
-		$this->assertNotRegExp('/define\(\'CAKE_CORE_INCLUDE_PATH\', ROOT/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/define\(\'CAKE_CORE_INCLUDE_PATH\', ROOT/', $contents);
 	}
 
 /**
@@ -312,7 +312,7 @@ class ProjectTaskTest extends CakeTestCase {
  * @return void
  */
 	public function testCakeAdmin() {
-		$File = new File(APP . 'Config' . DS . 'core.php');
+		$File = new File(CONFIG . 'core.php');
 		$contents = $File->read();
 		$File = new File(TMP . 'tests' . DS . 'core.php');
 		$File->write($contents);
@@ -380,6 +380,6 @@ class ProjectTaskTest extends CakeTestCase {
 
 		$File = new File($path . 'Console' . DS . 'cake.php');
 		$contents = $File->read();
-		$this->assertNotRegExp('/__CAKE_PATH__/', $contents, 'Console path placeholder left behind.');
+		$this->assertDoesNotMatchRegularExpression('/__CAKE_PATH__/', $contents, 'Console path placeholder left behind.');
 	}
 }

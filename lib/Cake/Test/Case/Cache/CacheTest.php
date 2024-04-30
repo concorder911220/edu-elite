@@ -2,18 +2,18 @@
 /**
  * CacheTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Cache
  * @since         CakePHP(tm) v 1.2.0.5432
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Cache', 'Cache');
@@ -32,7 +32,7 @@ class CacheTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->_cacheDisable = Configure::read('Cache.disable');
 		Configure::write('Cache.disable', false);
@@ -46,7 +46,7 @@ class CacheTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		Cache::drop('latest');
 		Cache::drop('page');
@@ -71,10 +71,10 @@ class CacheTest extends CakeTestCase {
 /**
  * testConfigInvalidEngine method
  *
- * @expectedException CacheException
  * @return void
  */
 	public function testConfigInvalidEngine() {
+		$this->expectException(CacheException::class);
 		$settings = array('engine' => 'Imaginary');
 		Cache::config('imaginary', $settings);
 	}
@@ -128,10 +128,10 @@ class CacheTest extends CakeTestCase {
  *
  * Test that the cache class doesn't cause fatal errors with a partial path
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testInvalidConfig() {
+		$this->expectWarning();
 		// In debug mode it would auto create the folder.
 		$debug = Configure::read('debug');
 		Configure::write('debug', 0);
@@ -164,10 +164,10 @@ class CacheTest extends CakeTestCase {
 /**
  * test that trying to configure classes that don't extend CacheEngine fail.
  *
- * @expectedException CacheException
  * @return void
  */
 	public function testAttemptingToConfigureANonCacheEngineClass() {
+		$this->expectException(CacheException::class);
 		$this->getMock('StdClass', array(), array(), 'RubbishEngine');
 		Cache::config('Garbage', array(
 			'engine' => 'Rubbish'
@@ -189,8 +189,12 @@ class CacheTest extends CakeTestCase {
 		$result = Cache::config('tests', array('engine' => 'File', 'path' => TMP . 'tests'));
 		$this->assertEquals(Cache::settings('tests'), $result['settings']);
 
-		Cache::config('sessions', $_cacheConfigSessions['settings']);
-		Cache::config('tests', $_cacheConfigTests['settings']);
+		if ($_cacheConfigSessions !== false) {
+			Cache::config('sessions', $_cacheConfigSessions['settings']);
+		}
+		if ($_cacheConfigTests !== false) {
+			Cache::config('tests', $_cacheConfigTests['settings']);
+		}
 	}
 
 /**
@@ -304,10 +308,10 @@ class CacheTest extends CakeTestCase {
 /**
  * testGroupConfigsThrowsException method
  *
- * @expectedException CacheException
  * @return void
  */
 	public function testGroupConfigsThrowsException() {
+		$this->expectException(CacheException::class);
 		Cache::groupConfigs('bogus');
 	}
 
@@ -406,7 +410,7 @@ class CacheTest extends CakeTestCase {
 		try {
 			Cache::write('fail', 'value', 'test_trigger');
 			$this->fail('No exception thrown');
-		} catch (PHPUnit_Framework_Error $e) {
+		} catch (PHPUnit\Framework\Error\Error $e) {
 			$this->assertTrue(true);
 		}
 		Cache::drop('test_trigger');

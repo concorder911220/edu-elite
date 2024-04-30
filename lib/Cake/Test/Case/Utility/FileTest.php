@@ -2,18 +2,18 @@
 /**
  * FileTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Utility
  * @since         CakePHP(tm) v 1.2.0.4206
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('File', 'Utility');
@@ -39,7 +39,7 @@ class FileTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$file = __FILE__;
 		$this->File = new File($file);
@@ -50,7 +50,7 @@ class FileTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		$this->File->close();
 		unset($this->File);
@@ -146,7 +146,7 @@ class FileTest extends CakeTestCase {
 
 		umask(0002);
 		$file = $dir . 'permission_' . uniqid();
-		$expecting = decoct(0664 & ~umask());
+		$expecting = '0' . decoct(0664 & ~umask());
 		$File = new File($file, true);
 		$result = $File->perms();
 		$this->assertEquals($expecting, $result);
@@ -154,7 +154,7 @@ class FileTest extends CakeTestCase {
 
 		umask(0022);
 		$file = $dir . 'permission_' . uniqid();
-		$expecting = decoct(0644 & ~umask());
+		$expecting = '0' . decoct(0644 & ~umask());
 		$File = new File($file, true);
 		$result = $File->perms();
 		$this->assertEquals($expecting, $result);
@@ -162,7 +162,7 @@ class FileTest extends CakeTestCase {
 
 		umask(0422);
 		$file = $dir . 'permission_' . uniqid();
-		$expecting = decoct(0244 & ~umask());
+		$expecting = '0' . decoct(0244 & ~umask());
 		$File = new File($file, true);
 		$result = $File->perms();
 		$this->assertEquals($expecting, $result);
@@ -170,7 +170,7 @@ class FileTest extends CakeTestCase {
 
 		umask(0444);
 		$file = $dir . 'permission_' . uniqid();
-		$expecting = decoct(0222 & ~umask());
+		$expecting = '0' . decoct(0222 & ~umask());
 		$File = new File($file, true);
 		$result = $File->perms();
 		$this->assertEquals($expecting, $result);
@@ -631,7 +631,7 @@ class FileTest extends CakeTestCase {
 		// Double check
 		$expected = 'This is the welcome.tmp file in vendors directory';
 		$contents = $TmpFile->read();
-		$this->assertContains($expected, $contents);
+		$this->assertStringContainsString($expected, $contents);
 
 		$search = array('This is the', 'welcome.php file', 'in tmp directory');
 		$replace = array('This should be a', 'welcome.tmp file', 'in the Lib directory');
@@ -643,7 +643,7 @@ class FileTest extends CakeTestCase {
 		// Double check
 		$expected = 'This should be a welcome.tmp file in vendors directory';
 		$contents = $TmpFile->read();
-		$this->assertContains($expected, $contents);
+		$this->assertStringContainsString($expected, $contents);
 
 		$TmpFile->delete();
 	}

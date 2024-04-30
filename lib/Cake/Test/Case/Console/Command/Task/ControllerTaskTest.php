@@ -2,18 +2,18 @@
 /**
  * ControllerTask Test Case
  *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Console.Command.Task
  * @since         CakePHP(tm) v 1.3
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ConsoleOutput', 'Console');
@@ -69,7 +69,7 @@ class ControllerTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$out = $this->getMock('ConsoleOutput', array(), array(), '', false);
 		$in = $this->getMock('ConsoleInput', array(), array(), '', false);
@@ -101,7 +101,7 @@ class ControllerTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		unset($this->Task);
 		ClassRegistry::flush();
 		App::build();
@@ -307,7 +307,7 @@ class ControllerTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(1))->method('createFile')->with(
 			$path,
-			new PHPUnit_Framework_Constraint_IsAnything()
+			new \PHPUnit\Framework\Constraint\IsAnything()
 		);
 		$this->Task->expects($this->at(3))->method('createFile')->with(
 			$path,
@@ -320,7 +320,7 @@ class ControllerTaskTest extends CakeTestCase {
 		$path = APP . 'Plugin' . DS . 'ControllerTest' . DS . 'Controller' . DS . 'ArticlesController.php';
 		$result = $this->Task->bake('Articles', '--actions--', array(), array(), array());
 
-		$this->assertContains("App::uses('ControllerTestAppController', 'ControllerTest.Controller');", $result);
+		$this->assertStringContainsString("App::uses('ControllerTestAppController', 'ControllerTest.Controller');", $result);
 		$this->assertEquals('ControllerTest', $this->Task->Template->templateVars['plugin']);
 		$this->assertEquals('ControllerTest.', $this->Task->Template->templateVars['pluginPath']);
 
@@ -338,11 +338,11 @@ class ControllerTaskTest extends CakeTestCase {
 		$this->assertTextEquals($expected, $result);
 
 		$result = $this->Task->bakeActions('BakeArticles', 'admin_', true);
-		$this->assertContains('function admin_index() {', $result);
-		$this->assertContains('function admin_add()', $result);
-		$this->assertContains('function admin_view($id = null)', $result);
-		$this->assertContains('function admin_edit($id = null)', $result);
-		$this->assertContains('function admin_delete($id = null)', $result);
+		$this->assertStringContainsString('function admin_index() {', $result);
+		$this->assertStringContainsString('function admin_add()', $result);
+		$this->assertStringContainsString('function admin_view($id = null)', $result);
+		$this->assertStringContainsString('function admin_edit($id = null)', $result);
+		$this->assertStringContainsString('function admin_delete($id = null)', $result);
 	}
 
 /**
@@ -448,7 +448,7 @@ class ControllerTaskTest extends CakeTestCase {
 		)->will($this->returnValue(true));
 
 		$result = $this->Task->execute();
-		$this->assertRegExp('/admin_index/', $result);
+		$this->assertMatchesRegularExpression('/admin_index/', $result);
 	}
 
 /**
@@ -571,7 +571,7 @@ class ControllerTaskTest extends CakeTestCase {
 		$this->Task->params = array('public' => true);
 
 		$filename = '/my/path/BakeArticlesController.php';
-		$expected = new PHPUnit_Framework_Constraint_Not($this->stringContains('$scaffold'));
+		$expected = new PHPUnit\Framework\Constraint\LogicalNot($this->stringContains('$scaffold'));
 		$this->Task->expects($this->once())->method('createFile')->with(
 			$filename, $expected
 		);

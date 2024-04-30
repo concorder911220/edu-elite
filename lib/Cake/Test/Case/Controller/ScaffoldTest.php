@@ -2,21 +2,22 @@
 /**
  * ScaffoldTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Controller
  * @since         CakePHP(tm) v 1.2.0.5436
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Router', 'Routing');
+App::uses('CakeSession', 'Model/Datasource');
 App::uses('Controller', 'Controller');
 App::uses('Scaffold', 'Controller');
 App::uses('ScaffoldView', 'View');
@@ -160,7 +161,7 @@ class ScaffoldTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		Configure::write('Config.language', 'eng');
 		$request = new CakeRequest(null, false);
@@ -173,8 +174,9 @@ class ScaffoldTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
+		CakeSession::destroy();
 		unset($this->Controller);
 	}
 
@@ -301,7 +303,7 @@ class ScaffoldTest extends CakeTestCase {
 		new Scaffold($this->Controller, $this->Controller->request);
 		$this->Controller->response->send();
 		$result = ob_get_clean();
-		$this->assertRegExp('/Scaffold Mock has been updated/', $result);
+		$this->assertMatchesRegularExpression('/Scaffold Mock has been updated/', $result);
 	}
 
 /**
@@ -334,7 +336,7 @@ class ScaffoldTest extends CakeTestCase {
 		$Scaffold = new Scaffold($this->Controller, $this->Controller->request);
 		$this->Controller->response->send();
 		$result = ob_get_clean();
-		$this->assertRegExp('/name="data\[ScaffoldTag\]\[ScaffoldTag\]"/', $result);
+		$this->assertMatchesRegularExpression('/name="data\[ScaffoldTag\]\[ScaffoldTag\]"/', $result);
 
 		$result = $Scaffold->controller->viewVars;
 		$this->assertEquals(array('id', 'user_id', 'title', 'body', 'published', 'created', 'updated', 'ScaffoldTag'), $result['scaffoldFields']);
@@ -374,7 +376,7 @@ class ScaffoldTest extends CakeTestCase {
 		$this->Controller->response->send();
 		$result = ob_get_clean();
 
-		$this->assertNotRegExp('/textarea name="data\[ScaffoldMock\]\[body\]" cols="30" rows="6" id="ScaffoldMockBody"/', $result);
+		$this->assertDoesNotMatchRegularExpression('/textarea name="data\[ScaffoldMock\]\[body\]" cols="30" rows="6" id="ScaffoldMockBody"/', $result);
 	}
 
 /**
@@ -411,6 +413,6 @@ class ScaffoldTest extends CakeTestCase {
 		$this->Controller->response->send();
 		$result = ob_get_clean();
 
-		$this->assertRegExp('/Scaffold Error/', $result);
+		$this->assertMatchesRegularExpression('/Scaffold Error/', $result);
 	}
 }

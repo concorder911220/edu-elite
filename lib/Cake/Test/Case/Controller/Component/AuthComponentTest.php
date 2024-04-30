@@ -2,18 +2,18 @@
 /**
  * AuthComponentTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Controller.Component
  * @since         CakePHP(tm) v 1.2.0.5347
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Controller', 'Controller');
@@ -22,6 +22,7 @@ App::uses('AclComponent', 'Controller/Component');
 App::uses('BaseAuthenticate', 'Controller/Component/Auth');
 App::uses('FormAuthenticate', 'Controller/Component/Auth');
 App::uses('CakeEvent', 'Event');
+App::uses('CakeRequest', 'Network');
 
 /**
  * TestFormAuthenticate class
@@ -378,7 +379,7 @@ class AuthComponentTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		Configure::write('Security.salt', 'YJfIxfs2guVoUubWDYhG93b0qyJfIxfs2guwvniR2G0FgaC9mi');
 		Configure::write('Security.cipherSeed', 770011223369876);
@@ -409,12 +410,13 @@ class AuthComponentTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 
 		TestAuthComponent::clearUser();
 		$this->Auth->Session->delete('Auth');
 		$this->Auth->Session->delete('Message.auth');
+		$this->Auth->Session->destroy();
 		unset($this->Controller, $this->Auth);
 	}
 
@@ -564,10 +566,10 @@ class AuthComponentTest extends CakeTestCase {
 	}
 
 /**
- * @expectedException CakeException
  * @return void
  */
 	public function testIsAuthorizedMissingFile() {
+		$this->expectException(CakeException::class);
 		$this->Controller->Auth->authorize = 'Missing';
 		$this->Controller->Auth->isAuthorized(array('User' => array('id' => 1)));
 	}
@@ -642,10 +644,10 @@ class AuthComponentTest extends CakeTestCase {
 	}
 
 /**
- * @expectedException CakeException
  * @return void
  */
 	public function testLoadAuthenticateNoFile() {
+		$this->expectException(CakeException::class);
 		$this->Controller->Auth->authenticate = 'Missing';
 		$this->Controller->Auth->identify($this->Controller->request, $this->Controller->response);
 	}
@@ -1151,10 +1153,11 @@ class AuthComponentTest extends CakeTestCase {
 
 /**
  * Throw ForbiddenException if AuthComponent::$unauthorizedRedirect set to false
- * @expectedException ForbiddenException
+ *
  * @return void
  */
 	public function testForbiddenException() {
+		$this->expectException(ForbiddenException::class);
 		$url = '/party/on';
 		$this->Auth->request = $CakeRequest = new CakeRequest($url);
 		$this->Auth->request->addParams(Router::parse($url));
@@ -1426,6 +1429,23 @@ class AuthComponentTest extends CakeTestCase {
 		$this->assertEquals('/', $result);
 		$this->assertNull($this->Auth->Session->read('Auth.AuthUser'));
 		$this->assertNull($this->Auth->Session->read('Auth.redirect'));
+	}
+
+/**
+ * test that logout removes the active user data as well for stateless auth
+ *
+ * @return void
+ */
+	public function testLogoutRemoveUser() {
+		$oldKey = AuthComponent::$sessionKey;
+		AuthComponent::$sessionKey = false;
+		$this->Auth->login(array('id' => 1, 'username' => 'mariano'));
+		$this->assertSame('mariano', $this->Auth->user('username'));
+
+		$this->Auth->logout();
+		AuthComponent::$sessionKey = $oldKey;
+
+		$this->assertNull($this->Auth->user('username'));
 	}
 
 /**
@@ -1718,11 +1738,11 @@ class AuthComponentTest extends CakeTestCase {
 /**
  * testStatelessAuthNoRedirect method
  *
- * @expectedException UnauthorizedException
- * @expectedExceptionCode 401
  * @return void
  */
 	public function testStatelessAuthNoRedirect() {
+		$this->expectException(UnauthorizedException::class);
+		$this->expectExceptionCode(401);
 		if (CakeSession::id()) {
 			session_destroy();
 			CakeSession::$id = null;
@@ -1800,5 +1820,39 @@ class AuthComponentTest extends CakeTestCase {
 		$this->assertFalse($result);
 
 		$this->assertEquals('/users/login', $this->Controller->testUrl);
+	}
+
+/**
+ * testStatelessAuthAllowedActionsRetrieveUser method
+ *
+ * @return void
+ */
+	public function testStatelessAuthAllowedActionsRetrieveUser() {
+		if (CakeSession::id()) {
+			session_destroy();
+			CakeSession::$id = null;
+		}
+		$_SESSION = null;
+
+		$_SERVER['PHP_AUTH_USER'] = 'mariano';
+		$_SERVER['PHP_AUTH_PW'] = 'cake';
+
+		AuthComponent::$sessionKey = false;
+		$this->Controller->Auth->authenticate = array(
+			'Basic' => array('userModel' => 'AuthUser')
+		);
+		$this->Controller->request['action'] = 'add';
+		$this->Controller->Auth->initialize($this->Controller);
+		$this->Controller->Auth->allow();
+		$this->Controller->Auth->startup($this->Controller);
+
+		$expectedUser = array(
+			'id' => '1',
+			'username' => 'mariano',
+			'created' => '2007-03-17 01:16:23',
+			'updated' => '2007-03-17 01:18:31',
+		);
+
+		$this->assertEquals($expectedUser, $this->Controller->Auth->user());
 	}
 }

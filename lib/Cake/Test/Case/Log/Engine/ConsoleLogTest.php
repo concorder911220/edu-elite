@@ -2,18 +2,18 @@
 /**
  * ConsoleLogTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Log.Engine
  * @since         CakePHP(tm) v 1.3
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ConsoleLog', 'Log/Engine');
@@ -47,7 +47,7 @@ class TestCakeLog extends CakeLog {
  */
 class ConsoleLogTest extends CakeTestCase {
 
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		CakeLog::config('debug', array(
 			'engine' => 'File',
@@ -61,7 +61,7 @@ class ConsoleLogTest extends CakeTestCase {
 		));
 	}
 
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		if (file_exists(LOGS . 'error.log')) {
 			unlink(LOGS . 'error.log');
@@ -113,7 +113,7 @@ class ConsoleLogTest extends CakeTestCase {
 		TestCakeLog::write(LOG_ERR, $message);
 		$this->assertTrue(file_exists(LOGS . 'error.log'), 'error.log missing');
 		$logOutput = file_get_contents(LOGS . 'error.log');
-		$this->assertContains($message, $logOutput);
+		$this->assertStringContainsString($message, $logOutput);
 
 		// TestConsoleLog is only interested in `error` type
 		$message = 'Test info message';
@@ -125,9 +125,9 @@ class ConsoleLogTest extends CakeTestCase {
 		$this->assertTrue(file_exists(LOGS . 'error.log'), 'error.log missing');
 		$this->assertTrue(file_exists(LOGS . 'debug.log'), 'debug.log missing');
 		$logOutput = file_get_contents(LOGS . 'error.log');
-		$this->assertNotContains($message, $logOutput);
+		$this->assertStringNotContainsString($message, $logOutput);
 		$logOutput = file_get_contents(LOGS . 'debug.log');
-		$this->assertContains($message, $logOutput);
+		$this->assertStringContainsString($message, $logOutput);
 	}
 
 /**

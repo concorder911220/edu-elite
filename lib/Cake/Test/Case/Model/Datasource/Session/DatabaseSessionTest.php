@@ -2,18 +2,18 @@
 /**
  * DatabaseSessionTest file
  *
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * CakePHP(tm) Tests <https://book.cakephp.org/2.0/en/development/testing.html>
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
  * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Model.Datasource.Session
  * @since         CakePHP(tm) v 2.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Model', 'Model');
@@ -53,7 +53,7 @@ class DatabaseSessionTest extends CakeTestCase {
  *
  * @return void
  */
-	public static function setupBeforeClass() {
+	public static function setupBeforeClass() : void {
 		static::$_sessionBackup = Configure::read('Session');
 		Configure::write('Session.handler', array(
 			'model' => 'SessionTestModel',
@@ -66,7 +66,7 @@ class DatabaseSessionTest extends CakeTestCase {
  *
  * @return void
  */
-	public static function teardownAfterClass() {
+	public static function teardownAfterClass() : void {
 		Configure::write('Session', static::$_sessionBackup);
 	}
 
@@ -75,7 +75,7 @@ class DatabaseSessionTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->storage = new DatabaseSession();
 	}
@@ -85,7 +85,7 @@ class DatabaseSessionTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		unset($this->storage);
 		ClassRegistry::flush();
 		parent::tearDown();
