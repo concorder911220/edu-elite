@@ -154,7 +154,7 @@ class FunctionHelper extends Helper
 					if ($attemptRemaining > 0) {
 						$isAttempt = true;
 						$attemptText = __('Attempt Now');
-						$btnColor = "#795548;";
+						$btnColor = "#111B21;";
 					} else {
 						$isAttempt = false;
 						$attemptText = __('View Report');

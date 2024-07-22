@@ -10,10 +10,10 @@ echo $this->Html->script('accordion'); ?>
 <div class="panel">
 	<div class="panel-heading">
 		<div class="btn-group">
-			<?php echo $this->Html->link(__("Free Exam"), array('controller' => 'Exams', 'action' => 'free'), array('class' => 'btn btn-info btn-exam-name')); ?>
-			<?php echo $this->Html->link(__("Paid Exam"), array('controller' => 'Exams', 'action' => 'index'), array('class' => 'btn btn-success btn-exam-name')); ?>
-			<?php echo $this->Html->link(__('Upcoming Exam'), array('controller' => 'Exams', 'action' => 'upcoming'), array('class' => 'btn btn-info btn-exam-name')); ?>
-			<?php echo $this->Html->link(__('Expired Exam'), array('controller' => 'Exams', 'action' => 'expired'), array('class' => 'btn btn-info btn-exam-name')); ?>
+			<?php echo $this->Html->link(__("Free Exam"), array('controller' => 'Exams', 'action' => 'free'), array('class' => 'btn btn-info btn-unselected btn-exam-name')); ?>
+			<?php echo $this->Html->link(__("Paid Exam"), array('controller' => 'Exams', 'action' => 'index'), array('class' => 'btn btn-success btn-selected btn-exam-name')); ?>
+			<?php echo $this->Html->link(__('Upcoming Exam'), array('controller' => 'Exams', 'action' => 'upcoming'), array('class' => 'btn btn-info btn-unselected btn-exam-name')); ?>
+			<?php echo $this->Html->link(__('Expired Exam'), array('controller' => 'Exams', 'action' => 'expired'), array('class' => 'btn btn-info btn-unselected btn-exam-name')); ?>
 		</div>
 	</div>
 	<?php if ($paidExamCount > $limit) {
@@ -25,7 +25,7 @@ echo $this->Html->script('accordion'); ?>
 		}
 	} ?>
 	<?php if ($mainExam) { ?>
-		<div><?php echo __('These are the exam(s) that can be taken right now'); ?></div>
+		<div style="margin-left:2rem"><?php echo __('These are the exam(s) that can be taken right now'); ?></div>
 		<div class="accordion-panel">
 			<dl class="accordion">
 				<?php $i = 0;
@@ -45,8 +45,8 @@ echo $this->Html->script('accordion'); ?>
 			</dl>
 		</div>
 	<?php } else { ?>
-		<div style="background-color: #ffffff;color:#ff2f32;"><?php echo __('No Paid Exams found'); ?></div>
-		<h3><?php echo $this->Html->link(__('Buy Packages'), array('controller' => 'Packages', 'action' => 'index'), array('style' => 'color:#ff0000;')); ?></h3>
+		<div style="background-color: #ffffff;color:#ff2f32; margin-left:2rem;"><?php echo __('No Paid Exams found'); ?></div>
+		<h3 style=" margin-left:2rem;"><?php echo $this->Html->link(__('Buy Packages'), array('controller' => 'Packages', 'action' => 'index'), array('style' => 'color:#ff0000;')); ?></h3>
 	<?php } ?>
 </div>
 	<div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"

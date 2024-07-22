@@ -44,10 +44,12 @@ body.font-helvetica {
     min-height: 100%;
     background-color: #EBF0F3;
     float: left;
+	height: calc(100vh - 175px);
 }
 
 #page-wrapper {
-    background: #00b9e1;
+    background: #323335;
+	height: 100%;
 }
 
 #topbar {
@@ -305,6 +307,12 @@ body.font-helvetica {
 	margin-top: 20px;
 }
 
+@media screen and (max-width: 767px) {
+    #topbar #topbar-menu ul.navbar-nav.navbar-right:last-child {
+        margin-top: 50px;
+    }
+}
+
 #topbar #topbar-menu ul.navbar-nav.navbar-right > li {
     border-right: 0 !important;
 }
@@ -412,7 +420,7 @@ body.layout-header-dark #topbar #topbar-menu ul.navbar-nav > li.open.open > a {
 
 .sidebar-main {
     float: left;
-    background-color: #00b9e1;
+    background-color: #323335;
 }
 
 .sidebar-main ul#sidebar-main > li > h4.sidebar-title-section {

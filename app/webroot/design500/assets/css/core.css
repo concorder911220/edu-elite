@@ -184,3 +184,10 @@ border-color: #ea2e49;
 			font-size: 10px;
 		}
 	}
+.btn-selected {
+	background-color: #323335;
+}
+
+.btn-unselected {
+	background-color: #777777;
+}
