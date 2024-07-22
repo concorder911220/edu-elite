@@ -89,7 +89,7 @@
                 <?php } ?>
                 <?php if ($showType == 'free' || $showType == 'today') { ?>
                 <div>
-                    <?php echo $this->Form->button('<span class="fa fa-forward"></span> ' . __('Attempt Now'), array('onclick' => "javascript:showpop_up('" . $this->Html->url(array('controller' => 'Exams', 'action' => 'guidelines', $id)) . "')", 'data-toggle' => 'tooltip', 'title' => __('Attempt Now'), 'escape' => false, 'class' => 'btn btn-success')); ?>
+                    <?php echo $this->Form->button('<span class="fa fa-forward"></span> ' . __('Attempt Now'), array('onclick' => "javascript:showpop_up('" . $this->Html->url(array('controller' => 'Exams', 'action' => 'guidelines', $id)) . "')", 'data-toggle' => 'tooltip', 'title' => __('Attempt Now'), 'escape' => false, 'class' => 'btn btn-success', 'style' => 'background: black;')); ?>
                 </div>
                 <?php } ?>
             </div>

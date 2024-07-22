@@ -97,7 +97,7 @@ $finishUrl = $this->Html->url(array('controller' => 'Exams', 'action' => 'finish
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 50px">
 		<div class="col-md-9 col-sm-12 col-xs-12">
 			<?php echo $this->Session->flash(); ?>
-			<div class="menu_header" id="_menu_header">
+			<div class="menu_header" style="background:black" id="_menu_header">
 				<button type="button" class="exam_new_bars hidden-lg hidden-md collapsed" data-toggle="collapse"
 					data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 					<span class="fa fa-bars fa fa-bars fa-3x"></span>
